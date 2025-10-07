@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  host: "0.0.0.0"
+  ssl:
+    enabled: false
+    keystore: "/path/to/keystore.jks"
+    keystorePassword: "password"
+    truststore: "/path/to/truststore.jks"
+    truststorePassword: "password"
+  cors:
+    enabled: true
+    allowedOrigins: ["*"]
+    allowedMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    allowedHeaders: ["*"]
+    allowCredentials: true
+  rateLimit:
+    enabled: true
+    requestsPerMinute: 100
+    burstSize: 20
+  requestSize:
+    maxBodySize: "10MB"
+    maxFormAttributeSize: "1MB"
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "nms_lite"
+  username: "nms_user"
+  password: "nms_password"
+  ssl: true
+  maxConnections: 20
+  minConnections: 5
+  connectionTimeout: 30000
+  idleTimeout: 600000
+  maxLifetime: 1800000
+
+jwt:
+  secret: "nms-lite-super-secret-key-change-in-production"
+  algorithm: "HS256"
+  expiration: 3600
+  refreshExpiration: 604800
+  issuer: "nms-lite"
+  audience: "nms-lite-api"
+
+logging:
+  level: "INFO"
+  pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{correlationId}] %logger{36} - %msg%n"
+  file: "logs/nms-lite.log"
+  maxFileSize: "100MB"
+  maxHistory: 30
+
+security:
+  passwordMinLength: 8
+  passwordRequireUppercase: true
+  passwordRequireLowercase: true
+  passwordRequireNumbers: true
+  passwordRequireSpecialChars: true
+  sessionTimeout: 1800
+  maxLoginAttempts: 5
+  lockoutDuration: 900
+
+monitoring:
+  enabled: true
+  metricsPath: "/metrics"
+  healthCheckPath: "/health"
+  readinessPath: "/ready"
+  livenessPath: "/live"
+
