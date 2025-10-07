@@ -27,7 +27,7 @@ database:
   name: "nms_lite"
   username: "nms_user"
   password: "nms_password"
-  ssl: true
+  ssl: false
   maxConnections: 20
   minConnections: 5
   connectionTimeout: 30000

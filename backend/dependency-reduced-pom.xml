@@ -33,14 +33,7 @@
                 <transformer />
               </transformers>
               <artifactSet>
-                <excludes>
-                  <exclude>io.netty:netty-common</exclude>
-                  <exclude>io.netty:netty-buffer</exclude>
-                  <exclude>io.netty:netty-transport</exclude>
-                  <exclude>io.netty:netty-handler</exclude>
-                  <exclude>io.netty:netty-codec</exclude>
-                  <exclude>io.netty:netty-codec-http</exclude>
-                </excludes>
+                <excludes />
               </artifactSet>
             </configuration>
           </execution>

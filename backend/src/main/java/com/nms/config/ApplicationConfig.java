@@ -61,7 +61,7 @@ public class ApplicationConfig {
     }
     
     public boolean isDatabaseSsl() {
-        return config.getJsonObject("database", new JsonObject()).getBoolean("ssl", true);
+        return config.getJsonObject("database", new JsonObject()).getBoolean("ssl", false);
     }
     
     public int getDatabaseMaxConnections() {

@@ -89,6 +89,13 @@
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+        
+        <!-- SCRAM authentication for PostgreSQL -->
+        <dependency>
+            <groupId>com.ongres.scram</groupId>
+            <artifactId>client</artifactId>
+            <version>2.1</version>
+        </dependency>
 
         <!-- HikariCP Connection Pool -->
         <dependency>
@@ -98,6 +105,12 @@
         </dependency>
 
         <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -171,12 +184,7 @@
                             </transformers>
                             <artifactSet>
                                 <excludes>
-                                    <exclude>io.netty:netty-common</exclude>
-                                    <exclude>io.netty:netty-buffer</exclude>
-                                    <exclude>io.netty:netty-transport</exclude>
-                                    <exclude>io.netty:netty-handler</exclude>
-                                    <exclude>io.netty:netty-codec</exclude>
-                                    <exclude>io.netty:netty-codec-http</exclude>
+                                    <!-- No exclusions needed for this project -->
                                 </excludes>
                             </artifactSet>
                         </configuration>

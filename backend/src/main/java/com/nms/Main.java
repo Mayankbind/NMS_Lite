@@ -19,6 +19,7 @@ import io.vertx.config.ConfigRetriever;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Promise;
+import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
@@ -32,6 +33,25 @@ import io.vertx.pgclient.PgPool;
 public class Main extends AbstractVerticle {
     
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    
+    /**
+     * Main entry point for the application
+     * Creates a Vert.x instance and deploys the Main verticle
+     */
+    public static void main(String[] args) {
+        logger.info("Starting NMS Lite Backend Application...");
+        
+        Vertx vertx = Vertx.vertx();
+        
+        vertx.deployVerticle(new Main())
+            .onSuccess(id -> {
+                logger.info("Main verticle deployed successfully with ID: {}", id);
+            })
+            .onFailure(throwable -> {
+                logger.error("Failed to deploy Main verticle", throwable);
+                System.exit(1);
+            });
+    }
     
     @Override
     public void start(Promise<Void> startPromise) {

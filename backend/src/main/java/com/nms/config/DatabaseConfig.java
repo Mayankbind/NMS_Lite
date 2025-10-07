@@ -28,7 +28,6 @@ public class DatabaseConfig {
             .setDatabase(appConfig.getDatabaseName())
             .setUser(appConfig.getDatabaseUsername())
             .setPassword(appConfig.getDatabasePassword())
-            .setSsl(appConfig.isDatabaseSsl())
             .setConnectTimeout(5000)
             .setIdleTimeout(600)
             .setTcpKeepAlive(true)
@@ -36,6 +35,11 @@ public class DatabaseConfig {
             .setCachePreparedStatements(true)
             .setPreparedStatementCacheMaxSize(250)
             .setPreparedStatementCacheSqlLimit(2048);
+        
+        // Configure SSL only if enabled
+        if (appConfig.isDatabaseSsl()) {
+            connectOptions.setSsl(true);
+        }
         
         // Configure pool options
         PoolOptions poolOptions = new PoolOptions()
