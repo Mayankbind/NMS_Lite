@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.nms.config.ApplicationConfig;
 import com.nms.config.DatabaseConfig;
 import com.nms.handlers.AuthHandler;
+import com.nms.handlers.CredentialHandler;
 import com.nms.handlers.HealthHandler;
 import com.nms.middleware.AuthMiddleware;
 import com.nms.middleware.CorsMiddleware;
@@ -13,7 +14,9 @@ import com.nms.middleware.LoggingMiddleware;
 import com.nms.middleware.RateLimitMiddleware;
 import com.nms.middleware.SecurityHeadersMiddleware;
 import com.nms.services.AuthService;
+import com.nms.services.CredentialService;
 import com.nms.services.DatabaseService;
+import com.nms.utils.EncryptionUtils;
 
 import io.vertx.config.ConfigRetriever;
 import io.vertx.core.AbstractVerticle;
@@ -74,8 +77,15 @@ public class Main extends AbstractVerticle {
                 DatabaseService databaseService = new DatabaseService(pgPool);
                 AuthService authService = new AuthService(databaseService, config());
                 
+                // Initialize encryption utility
+                String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
+                EncryptionUtils encryptionUtils = new EncryptionUtils(encryptionKey);
+                
+                // Initialize credential service
+                CredentialService credentialService = new CredentialService(pgPool, encryptionUtils);
+                
                 // Setup HTTP server
-                return setupHttpServer(authService, databaseService);
+                return setupHttpServer(authService, databaseService, credentialService);
             })
             .onSuccess(server -> {
                 logger.info("NMS Lite Backend Service started successfully on port: {}", 
@@ -107,9 +117,9 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService) {
+    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService) {
         try {
-            Router router = createRouter(authService, databaseService);
+            Router router = createRouter(authService, databaseService, credentialService);
             
             // Create HTTP server
             return vertx.createHttpServer()
@@ -128,7 +138,7 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Router createRouter(AuthService authService, DatabaseService databaseService) {
+    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService) {
         Router router = Router.router(vertx);
         
         // Global middleware
@@ -172,6 +182,14 @@ public class Main extends AbstractVerticle {
         // Protected routes (require authentication)
         Router protectedRouter = Router.router(vertx);
         protectedRouter.route().handler(AuthMiddleware.create(authService));
+        
+        // Credential profile routes
+        CredentialHandler credentialHandler = new CredentialHandler(credentialService);
+        protectedRouter.post("/credentials").handler(credentialHandler.createCredentialProfile);
+        protectedRouter.get("/credentials").handler(credentialHandler.getAllCredentialProfiles);
+        protectedRouter.get("/credentials/:id").handler(credentialHandler.getCredentialProfile);
+        protectedRouter.put("/credentials/:id").handler(credentialHandler.updateCredentialProfile);
+        protectedRouter.delete("/credentials/:id").handler(credentialHandler.deleteCredentialProfile);
         
         // TODO: Add other protected routes here
         // protectedRouter.get("/devices").handler(deviceHandler::getDevices);

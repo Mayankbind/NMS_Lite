@@ -42,6 +42,9 @@ jwt:
   issuer: "nms-lite"
   audience: "nms-lite-api"
 
+encryption:
+  key: "nms-lite-encryption-key-32-characters-long"
+
 logging:
   level: "INFO"
   pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{correlationId}] %logger{36} - %msg%n"

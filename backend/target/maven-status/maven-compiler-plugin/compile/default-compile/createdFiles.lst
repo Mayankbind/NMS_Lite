@@ -11,7 +11,12 @@ com/nms/middleware/CorsMiddleware.class
 com/nms/services/DatabaseService.class
 com/nms/config/DatabaseConfig.class
 com/nms/utils/JwtUtils.class
+com/nms/handlers/CredentialHandler.class
+com/nms/models/CredentialProfile.class
 com/nms/middleware/RateLimitMiddleware$TokenBucket.class
 com/nms/services/AuthService.class
 com/nms/handlers/AuthHandler.class
+com/nms/utils/EncryptionUtils.class
 com/nms/middleware/AuthMiddleware.class
+com/nms/models/CredentialProfileDTO.class
+com/nms/services/CredentialService.class
