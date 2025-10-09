@@ -169,18 +169,18 @@ public class Main extends AbstractVerticle {
         router.get("/ready").handler(healthHandler.readiness);
         router.get("/live").handler(healthHandler.liveness);
         
-        // API routes
-        Router apiRouter = Router.router(vertx);
+        // Create separate routers for different route types
+        Router authRouter = Router.router(vertx);
+        Router protectedRouter = Router.router(vertx);
         
         // Authentication routes (no auth required)
         AuthHandler authHandler = new AuthHandler(authService);
-        apiRouter.post("/auth/login").handler(authHandler.login);
-        apiRouter.post("/auth/refresh").handler(authHandler.refresh);
-        apiRouter.post("/auth/logout").handler(AuthMiddleware.create(authService))
+        authRouter.post("/login").handler(authHandler.login);
+        authRouter.post("/refresh").handler(authHandler.refresh);
+        authRouter.post("/logout").handler(AuthMiddleware.create(authService))
             .handler(authHandler.logout);
         
         // Protected routes (require authentication)
-        Router protectedRouter = Router.router(vertx);
         protectedRouter.route().handler(AuthMiddleware.create(authService));
         
         // Credential profile routes
@@ -197,8 +197,8 @@ public class Main extends AbstractVerticle {
         // etc.
         
         // Mount routers
-        apiRouter.route("/*").subRouter(protectedRouter);
-        router.route("/api/*").subRouter(apiRouter);
+        router.route("/api/auth/*").subRouter(authRouter);
+        router.route("/api/*").subRouter(protectedRouter);
         
         // 404 handler
         router.route().last().handler(ctx -> {

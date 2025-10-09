@@ -138,3 +138,24 @@ java.net.BindException: Address already in use
 2025-10-09 17:57:17.335 [vert.x-eventloop-thread-0] INFO  [fdd3ac16-086d-4d34-842b-8823927f47de] c.nms.middleware.LoggingMiddleware - GET /api/ from 0:0:0:0:0:0:0:1:56624 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: fdd3ac16-086d-4d34-842b-8823927f47de
 2025-10-09 17:57:17.336 [vert.x-eventloop-thread-0] DEBUG [fdd3ac16-086d-4d34-842b-8823927f47de] c.n.m.SecurityHeadersMiddleware - Security headers added to response
 2025-10-09 17:57:17.336 [vert.x-eventloop-thread-0] WARN  [fdd3ac16-086d-4d34-842b-8823927f47de] c.nms.middleware.LoggingMiddleware - GET /api/ - Status: 401 - Response time: 0ms - Correlation-ID: fdd3ac16-086d-4d34-842b-8823927f47de
+2025-10-09 18:24:05.561 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-09 18:24:05.776 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-09 18:24:06.020 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-09 18:24:06.334 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-09 18:24:06.398 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-09 18:24:06.400 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-09 18:24:06.401 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 67f877aa-c299-4f82-9087-415105eb186b
+2025-10-09 18:24:14.838 [vert.x-eventloop-thread-0] INFO  [d8baa96c-149e-41cb-abef-d11a271370a4] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:37728 - User-Agent: curl/8.5.0 - Correlation-ID: d8baa96c-149e-41cb-abef-d11a271370a4
+2025-10-09 18:24:14.839 [vert.x-eventloop-thread-0] DEBUG [d8baa96c-149e-41cb-abef-d11a271370a4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-09 18:24:14.886 [vert.x-eventloop-thread-0] WARN  [d8baa96c-149e-41cb-abef-d11a271370a4] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-09 18:24:14.886 [vert.x-eventloop-thread-0] WARN  [d8baa96c-149e-41cb-abef-d11a271370a4] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-09 18:24:14.890 [vert.x-eventloop-thread-0] WARN  [d8baa96c-149e-41cb-abef-d11a271370a4] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: d8baa96c-149e-41cb-abef-d11a271370a4
+2025-10-09 18:24:22.262 [vert.x-eventloop-thread-0] INFO  [932e75ae-c212-43da-8508-21182bd134b7] c.nms.middleware.LoggingMiddleware - GET /api/credentials from 0:0:0:0:0:0:0:1:43604 - User-Agent: curl/8.5.0 - Correlation-ID: 932e75ae-c212-43da-8508-21182bd134b7
+2025-10-09 18:24:22.262 [vert.x-eventloop-thread-0] DEBUG [932e75ae-c212-43da-8508-21182bd134b7] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-09 18:24:22.263 [vert.x-eventloop-thread-0] WARN  [932e75ae-c212-43da-8508-21182bd134b7] c.nms.middleware.LoggingMiddleware - GET /api/credentials - Status: 401 - Response time: 0ms - Correlation-ID: 932e75ae-c212-43da-8508-21182bd134b7
+2025-10-09 18:24:47.477 [vert.x-eventloop-thread-0] INFO  [9f54e3a2-bc62-40a2-95d1-6d4da7bd7fd4] c.nms.middleware.LoggingMiddleware - GET /api/auth/login from 0:0:0:0:0:0:0:1:50908 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 9f54e3a2-bc62-40a2-95d1-6d4da7bd7fd4
+2025-10-09 18:24:47.477 [vert.x-eventloop-thread-0] DEBUG [9f54e3a2-bc62-40a2-95d1-6d4da7bd7fd4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-09 18:24:47.478 [vert.x-eventloop-thread-0] WARN  [9f54e3a2-bc62-40a2-95d1-6d4da7bd7fd4] c.nms.middleware.LoggingMiddleware - GET /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 9f54e3a2-bc62-40a2-95d1-6d4da7bd7fd4
+2025-10-09 18:24:54.996 [vert.x-eventloop-thread-0] INFO  [cc0e946f-6d75-4fca-a06c-d510b558950a] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50908 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: cc0e946f-6d75-4fca-a06c-d510b558950a
+2025-10-09 18:24:54.996 [vert.x-eventloop-thread-0] DEBUG [cc0e946f-6d75-4fca-a06c-d510b558950a] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-09 18:24:54.997 [vert.x-eventloop-thread-0] WARN  [cc0e946f-6d75-4fca-a06c-d510b558950a] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 400 - Response time: 0ms - Correlation-ID: cc0e946f-6d75-4fca-a06c-d510b558950a
