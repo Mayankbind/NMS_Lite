@@ -197,8 +197,7 @@ public class Main extends AbstractVerticle {
         // etc.
         
         // Mount routers
-        apiRouter.route("/auth/*").subRouter(apiRouter);
-        apiRouter.route("/api/*").subRouter(protectedRouter);
+        apiRouter.route("/*").subRouter(protectedRouter);
         router.route("/api/*").subRouter(apiRouter);
         
         // 404 handler
