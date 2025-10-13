@@ -1,50 +1,92 @@
-2025-10-09 16:40:54.237 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-09 16:40:54.515 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-09 16:40:54.826 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-09 16:40:55.090 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-09 16:40:55.143 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
-java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
-	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
-	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
-	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
-	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
-	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
-	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-10-09 16:40:55.159 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
-java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
-	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
-	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
-	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
-	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
-	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
-	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 11:02:58.165 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 11:02:58.458 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 11:02:58.717 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 11:02:58.992 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 11:02:59.050 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 11:02:59.051 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 11:02:59.051 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 19db58ad-6877-4d7b-b36c-6271ff5df01f
+2025-10-13 11:03:07.519 [vert.x-eventloop-thread-0] INFO  [61dee250-08f4-4803-bd24-f6bc90f53b59] c.nms.middleware.LoggingMiddleware - GET /health from 0:0:0:0:0:0:0:1:58750 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 61dee250-08f4-4803-bd24-f6bc90f53b59
+2025-10-13 11:03:07.520 [vert.x-eventloop-thread-0] DEBUG [61dee250-08f4-4803-bd24-f6bc90f53b59] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:03:07.538 [vert.x-eventloop-thread-0] DEBUG [61dee250-08f4-4803-bd24-f6bc90f53b59] com.nms.services.DatabaseService - Database connection test successful
+2025-10-13 11:03:07.542 [vert.x-eventloop-thread-0] INFO  [61dee250-08f4-4803-bd24-f6bc90f53b59] c.nms.middleware.LoggingMiddleware - GET /health - Status: 200 - Response time: 0ms - Correlation-ID: 61dee250-08f4-4803-bd24-f6bc90f53b59
+2025-10-13 11:05:20.782 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 11:05:20.948 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 11:05:21.192 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 11:05:21.373 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 11:05:21.423 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 11:05:21.424 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 11:05:21.425 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 348e1c42-c109-4f67-a014-1eb6e432e24e
+2025-10-13 11:05:38.055 [vert.x-eventloop-thread-0] INFO  [480850ce-9f07-4b36-98a7-1b6d43edf237] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:52390 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 480850ce-9f07-4b36-98a7-1b6d43edf237
+2025-10-13 11:05:38.056 [vert.x-eventloop-thread-0] DEBUG [480850ce-9f07-4b36-98a7-1b6d43edf237] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:05:38.110 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:05:38.111 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:05:38.113 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 480850ce-9f07-4b36-98a7-1b6d43edf237
+2025-10-13 11:53:28.185 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 11:53:28.360 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 11:53:28.628 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 11:53:28.834 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 11:53:28.877 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 11:53:28.878 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 11:53:28.879 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 496b5884-adbb-49cb-9822-5d25636b7857
+2025-10-13 11:53:34.741 [vert.x-eventloop-thread-0] INFO  [cab82940-67db-422c-9093-a965c3236ae3] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: cab82940-67db-422c-9093-a965c3236ae3
+2025-10-13 11:53:34.742 [vert.x-eventloop-thread-0] DEBUG [cab82940-67db-422c-9093-a965c3236ae3] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:53:34.777 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:53:34.777 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:53:34.780 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: cab82940-67db-422c-9093-a965c3236ae3
+2025-10-13 11:53:38.796 [vert.x-eventloop-thread-0] INFO  [8461429a-7906-49d7-90ad-ede9ede870d7] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8461429a-7906-49d7-90ad-ede9ede870d7
+2025-10-13 11:53:38.796 [vert.x-eventloop-thread-0] DEBUG [8461429a-7906-49d7-90ad-ede9ede870d7] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:53:38.807 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:53:38.807 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:53:38.808 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 8461429a-7906-49d7-90ad-ede9ede870d7
+2025-10-13 11:53:40.330 [vert.x-eventloop-thread-0] INFO  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8129c7d6-28c8-4dcc-84a5-280e5a7af5f5
+2025-10-13 11:53:40.331 [vert.x-eventloop-thread-0] DEBUG [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 8129c7d6-28c8-4dcc-84a5-280e5a7af5f5
+2025-10-13 11:53:41.915 [vert.x-eventloop-thread-0] INFO  [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c4315f15-6442-4d05-84b9-3cc0ff25d438
+2025-10-13 11:53:41.915 [vert.x-eventloop-thread-0] DEBUG [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: c4315f15-6442-4d05-84b9-3cc0ff25d438
+2025-10-13 11:55:33.991 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 11:55:34.149 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 11:55:34.378 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 11:55:34.576 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 11:55:34.633 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 11:55:34.634 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 11:55:34.634 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 7c064f02-171e-4eed-adad-987c1c753ecd
+2025-10-13 11:55:44.318 [vert.x-eventloop-thread-0] INFO  [be083a62-6c83-445e-a455-e53b0dc3265c] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: be083a62-6c83-445e-a455-e53b0dc3265c
+2025-10-13 11:55:44.319 [vert.x-eventloop-thread-0] DEBUG [be083a62-6c83-445e-a455-e53b0dc3265c] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:55:44.345 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:55:44.345 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:55:44.347 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: be083a62-6c83-445e-a455-e53b0dc3265c
+2025-10-13 11:55:45.965 [vert.x-eventloop-thread-0] INFO  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: ce12a97b-0f96-4b92-8a23-8b2ee703e04e
+2025-10-13 11:55:45.966 [vert.x-eventloop-thread-0] DEBUG [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:55:45.976 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:55:45.976 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:55:45.977 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: ce12a97b-0f96-4b92-8a23-8b2ee703e04e
+2025-10-13 11:55:53.926 [vert.x-eventloop-thread-0] INFO  [5e477198-0b15-4425-85a3-cf3e625aa68f] c.nms.middleware.LoggingMiddleware - POST /api/auth/ from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 5e477198-0b15-4425-85a3-cf3e625aa68f
+2025-10-13 11:55:53.927 [vert.x-eventloop-thread-0] DEBUG [5e477198-0b15-4425-85a3-cf3e625aa68f] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:55:53.928 [vert.x-eventloop-thread-0] WARN  [5e477198-0b15-4425-85a3-cf3e625aa68f] c.nms.middleware.LoggingMiddleware - POST /api/auth/ - Status: 401 - Response time: 0ms - Correlation-ID: 5e477198-0b15-4425-85a3-cf3e625aa68f
+2025-10-13 11:56:02.610 [vert.x-eventloop-thread-0] INFO  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c1576c6e-6b61-4f9d-90e2-627b6c7b66a6
+2025-10-13 11:56:02.610 [vert.x-eventloop-thread-0] DEBUG [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: c1576c6e-6b61-4f9d-90e2-627b6c7b66a6
+2025-10-13 11:56:03.976 [vert.x-eventloop-thread-0] INFO  [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 47033f07-ff1c-44a3-aba8-6043ffedcb15
+2025-10-13 11:56:03.977 [vert.x-eventloop-thread-0] DEBUG [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 47033f07-ff1c-44a3-aba8-6043ffedcb15
+2025-10-13 12:00:34.076 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 12:00:34.246 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 12:00:34.469 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 12:00:34.688 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 12:00:34.736 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 12:00:34.737 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 12:00:34.738 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 75132bda-ced3-4579-8656-9b64c905632e
+2025-10-13 12:00:49.243 [vert.x-eventloop-thread-0] INFO  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:57644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 1a186bcd-7140-43eb-8b5c-006dd5d46b40
+2025-10-13 12:00:49.244 [vert.x-eventloop-thread-0] DEBUG [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 12:00:49.268 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
+2025-10-13 12:00:49.268 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
+2025-10-13 12:00:49.270 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 1a186bcd-7140-43eb-8b5c-006dd5d46b40
