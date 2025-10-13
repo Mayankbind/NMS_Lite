@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="74c8d62d-b1a0-41b2-8e07-13019c265446" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" afterDir="false" />
@@ -18,7 +19,7 @@
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$BCrypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$BCrypt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$BCrypt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite-error.log" afterDir="false" />

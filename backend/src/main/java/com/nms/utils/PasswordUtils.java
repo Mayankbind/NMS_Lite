@@ -2,6 +2,7 @@ package com.nms.utils;
 
 import java.security.SecureRandom;
 import java.util.regex.Pattern;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * Password utility class for hashing, validation, and generation
@@ -120,37 +121,37 @@ public class PasswordUtils {
      * Simple BCrypt implementation
      * Note: In production, use a proper BCrypt library like jBCrypt
      */
-    private static class BCrypt {
-        private static final String SALT_PREFIX = "$2a$";
-        private static final String SALT_SUFFIX = "$";
-        
-        public static String hashpw(String password, String salt) {
-            // This is a simplified implementation
-            // In production, use a proper BCrypt library
-            return salt + java.util.Base64.getEncoder().encodeToString(password.getBytes());
-        }
-        
-        public static String gensalt(int rounds) {
-            byte[] saltBytes = new byte[16];
-            SECURE_RANDOM.nextBytes(saltBytes);
-            return SALT_PREFIX + String.format("%02d", rounds) + SALT_SUFFIX + 
-                   java.util.Base64.getEncoder().encodeToString(saltBytes);
-        }
-        
-        public static boolean checkpw(String password, String hash) {
-            if (hash == null || password == null) {
-                return false;
-            }
-            
-            try {
-                // Extract salt from hash
-                String salt = hash.substring(0, hash.lastIndexOf('$') + 1);
-                String expectedHash = hashpw(password, salt);
-                return expectedHash.equals(hash);
-            } catch (Exception e) {
-                return false;
-            }
-        }
-    }
+//    private static class BCrypt {
+//        private static final String SALT_PREFIX = "$2a$";
+//        private static final String SALT_SUFFIX = "$";
+//
+//        public static String hashpw(String password, String salt) {
+//            // This is a simplified implementation
+//            // In production, use a proper BCrypt library
+//            return salt + java.util.Base64.getEncoder().encodeToString(password.getBytes());
+//        }
+//
+//        public static String gensalt(int rounds) {
+//            byte[] saltBytes = new byte[16];
+//            SECURE_RANDOM.nextBytes(saltBytes);
+//            return SALT_PREFIX + String.format("%02d", rounds) + SALT_SUFFIX +
+//                   java.util.Base64.getEncoder().encodeToString(saltBytes);
+//        }
+//
+//        public static boolean checkpw(String password, String hash) {
+//            if (hash == null || password == null) {
+//                return false;
+//            }
+//
+//            try {
+//                // Extract salt from hash
+//                String salt = hash.substring(0, hash.lastIndexOf('$') + 1);
+//                String expectedHash = hashpw(password, salt);
+//                return expectedHash.equals(hash);
+//            } catch (Exception e) {
+//                return false;
+//            }
+//        }
+//    }
 }
 
