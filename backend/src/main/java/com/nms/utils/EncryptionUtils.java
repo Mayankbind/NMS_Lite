@@ -31,7 +31,35 @@ public class EncryptionUtils {
     private final SecureRandom secureRandom;
     
     public EncryptionUtils(String secretKey) {
-        this.secretKey = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), ALGORITHM);
+        SecretKey secretKey1;
+//        this.secretKey = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), ALGORITHM);
+        
+        //Gemini solution
+//        this.secretKey = new SecretKeySpec(Base64.getDecoder().decode(secretKey), ALGORITHM);
+//        this.secureRandom = new SecureRandom();
+        
+        //Cursor solution
+        try {
+            // First try standard Base64 decoder
+            byte[] keyBytes = Base64.getDecoder().decode(secretKey);
+            secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
+        } catch (IllegalArgumentException e) {
+            // If that fails, try URL-safe Base64 decoder
+            try {
+                byte[] keyBytes = Base64.getUrlDecoder().decode(secretKey);
+                secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
+            } catch (IllegalArgumentException e2) {
+                // If both fail, try to clean the key and use standard decoder
+                String cleanedKey = secretKey.replace('-', '+').replace('_', '/');
+                // Add padding if needed
+                while (cleanedKey.length() % 4 != 0) {
+                    cleanedKey += "=";
+                }
+                byte[] keyBytes = Base64.getDecoder().decode(cleanedKey);
+                secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
+            }
+        }
+        this.secretKey = secretKey1;
         this.secureRandom = new SecureRandom();
     }
     

@@ -1,112 +1,25 @@
-2025-10-13 11:02:58.165 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 11:02:58.458 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 11:02:58.717 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 11:02:58.992 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 11:02:59.050 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 11:02:59.051 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 11:02:59.051 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 19db58ad-6877-4d7b-b36c-6271ff5df01f
-2025-10-13 11:03:07.519 [vert.x-eventloop-thread-0] INFO  [61dee250-08f4-4803-bd24-f6bc90f53b59] c.nms.middleware.LoggingMiddleware - GET /health from 0:0:0:0:0:0:0:1:58750 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 61dee250-08f4-4803-bd24-f6bc90f53b59
-2025-10-13 11:03:07.520 [vert.x-eventloop-thread-0] DEBUG [61dee250-08f4-4803-bd24-f6bc90f53b59] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:03:07.538 [vert.x-eventloop-thread-0] DEBUG [61dee250-08f4-4803-bd24-f6bc90f53b59] com.nms.services.DatabaseService - Database connection test successful
-2025-10-13 11:03:07.542 [vert.x-eventloop-thread-0] INFO  [61dee250-08f4-4803-bd24-f6bc90f53b59] c.nms.middleware.LoggingMiddleware - GET /health - Status: 200 - Response time: 0ms - Correlation-ID: 61dee250-08f4-4803-bd24-f6bc90f53b59
-2025-10-13 11:05:20.782 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 11:05:20.948 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 11:05:21.192 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 11:05:21.373 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 11:05:21.423 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 11:05:21.424 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 11:05:21.425 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 348e1c42-c109-4f67-a014-1eb6e432e24e
-2025-10-13 11:05:38.055 [vert.x-eventloop-thread-0] INFO  [480850ce-9f07-4b36-98a7-1b6d43edf237] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:52390 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 480850ce-9f07-4b36-98a7-1b6d43edf237
-2025-10-13 11:05:38.056 [vert.x-eventloop-thread-0] DEBUG [480850ce-9f07-4b36-98a7-1b6d43edf237] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:05:38.110 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:05:38.111 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:05:38.113 [vert.x-eventloop-thread-0] WARN  [480850ce-9f07-4b36-98a7-1b6d43edf237] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 480850ce-9f07-4b36-98a7-1b6d43edf237
-2025-10-13 11:53:28.185 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 11:53:28.360 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 11:53:28.628 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 11:53:28.834 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 11:53:28.877 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 11:53:28.878 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 11:53:28.879 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 496b5884-adbb-49cb-9822-5d25636b7857
-2025-10-13 11:53:34.741 [vert.x-eventloop-thread-0] INFO  [cab82940-67db-422c-9093-a965c3236ae3] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: cab82940-67db-422c-9093-a965c3236ae3
-2025-10-13 11:53:34.742 [vert.x-eventloop-thread-0] DEBUG [cab82940-67db-422c-9093-a965c3236ae3] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:53:34.777 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:53:34.777 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:53:34.780 [vert.x-eventloop-thread-0] WARN  [cab82940-67db-422c-9093-a965c3236ae3] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: cab82940-67db-422c-9093-a965c3236ae3
-2025-10-13 11:53:38.796 [vert.x-eventloop-thread-0] INFO  [8461429a-7906-49d7-90ad-ede9ede870d7] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8461429a-7906-49d7-90ad-ede9ede870d7
-2025-10-13 11:53:38.796 [vert.x-eventloop-thread-0] DEBUG [8461429a-7906-49d7-90ad-ede9ede870d7] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:53:38.807 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:53:38.807 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:53:38.808 [vert.x-eventloop-thread-0] WARN  [8461429a-7906-49d7-90ad-ede9ede870d7] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 8461429a-7906-49d7-90ad-ede9ede870d7
-2025-10-13 11:53:40.330 [vert.x-eventloop-thread-0] INFO  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8129c7d6-28c8-4dcc-84a5-280e5a7af5f5
-2025-10-13 11:53:40.331 [vert.x-eventloop-thread-0] DEBUG [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:53:40.339 [vert.x-eventloop-thread-0] WARN  [8129c7d6-28c8-4dcc-84a5-280e5a7af5f5] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 8129c7d6-28c8-4dcc-84a5-280e5a7af5f5
-2025-10-13 11:53:41.915 [vert.x-eventloop-thread-0] INFO  [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:59644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c4315f15-6442-4d05-84b9-3cc0ff25d438
-2025-10-13 11:53:41.915 [vert.x-eventloop-thread-0] DEBUG [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:53:41.923 [vert.x-eventloop-thread-0] WARN  [c4315f15-6442-4d05-84b9-3cc0ff25d438] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: c4315f15-6442-4d05-84b9-3cc0ff25d438
-2025-10-13 11:55:33.991 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 11:55:34.149 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 11:55:34.378 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 11:55:34.576 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 11:55:34.633 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 11:55:34.634 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 11:55:34.634 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 7c064f02-171e-4eed-adad-987c1c753ecd
-2025-10-13 11:55:44.318 [vert.x-eventloop-thread-0] INFO  [be083a62-6c83-445e-a455-e53b0dc3265c] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: be083a62-6c83-445e-a455-e53b0dc3265c
-2025-10-13 11:55:44.319 [vert.x-eventloop-thread-0] DEBUG [be083a62-6c83-445e-a455-e53b0dc3265c] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:55:44.345 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:55:44.345 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:55:44.347 [vert.x-eventloop-thread-0] WARN  [be083a62-6c83-445e-a455-e53b0dc3265c] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: be083a62-6c83-445e-a455-e53b0dc3265c
-2025-10-13 11:55:45.965 [vert.x-eventloop-thread-0] INFO  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: ce12a97b-0f96-4b92-8a23-8b2ee703e04e
-2025-10-13 11:55:45.966 [vert.x-eventloop-thread-0] DEBUG [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:55:45.976 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:55:45.976 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:55:45.977 [vert.x-eventloop-thread-0] WARN  [ce12a97b-0f96-4b92-8a23-8b2ee703e04e] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: ce12a97b-0f96-4b92-8a23-8b2ee703e04e
-2025-10-13 11:55:53.926 [vert.x-eventloop-thread-0] INFO  [5e477198-0b15-4425-85a3-cf3e625aa68f] c.nms.middleware.LoggingMiddleware - POST /api/auth/ from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 5e477198-0b15-4425-85a3-cf3e625aa68f
-2025-10-13 11:55:53.927 [vert.x-eventloop-thread-0] DEBUG [5e477198-0b15-4425-85a3-cf3e625aa68f] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:55:53.928 [vert.x-eventloop-thread-0] WARN  [5e477198-0b15-4425-85a3-cf3e625aa68f] c.nms.middleware.LoggingMiddleware - POST /api/auth/ - Status: 401 - Response time: 0ms - Correlation-ID: 5e477198-0b15-4425-85a3-cf3e625aa68f
-2025-10-13 11:56:02.610 [vert.x-eventloop-thread-0] INFO  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c1576c6e-6b61-4f9d-90e2-627b6c7b66a6
-2025-10-13 11:56:02.610 [vert.x-eventloop-thread-0] DEBUG [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:56:02.625 [vert.x-eventloop-thread-0] WARN  [c1576c6e-6b61-4f9d-90e2-627b6c7b66a6] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: c1576c6e-6b61-4f9d-90e2-627b6c7b66a6
-2025-10-13 11:56:03.976 [vert.x-eventloop-thread-0] INFO  [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:50468 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 47033f07-ff1c-44a3-aba8-6043ffedcb15
-2025-10-13 11:56:03.977 [vert.x-eventloop-thread-0] DEBUG [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 11:56:03.985 [vert.x-eventloop-thread-0] WARN  [47033f07-ff1c-44a3-aba8-6043ffedcb15] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 47033f07-ff1c-44a3-aba8-6043ffedcb15
-2025-10-13 12:00:34.076 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 12:00:34.246 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 12:00:34.469 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 12:00:34.688 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 12:00:34.736 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 12:00:34.737 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 12:00:34.738 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 75132bda-ced3-4579-8656-9b64c905632e
-2025-10-13 12:00:49.243 [vert.x-eventloop-thread-0] INFO  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:57644 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 1a186bcd-7140-43eb-8b5c-006dd5d46b40
-2025-10-13 12:00:49.244 [vert.x-eventloop-thread-0] DEBUG [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 12:00:49.268 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] com.nms.services.AuthService - Authentication failed for user admin: Invalid username or password
-2025-10-13 12:00:49.268 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] com.nms.handlers.AuthHandler - Login failed for user admin: Invalid username or password
-2025-10-13 12:00:49.270 [vert.x-eventloop-thread-0] WARN  [1a186bcd-7140-43eb-8b5c-006dd5d46b40] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 401 - Response time: 0ms - Correlation-ID: 1a186bcd-7140-43eb-8b5c-006dd5d46b40
-2025-10-13 12:33:02.571 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
-2025-10-13 12:33:02.732 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
-2025-10-13 12:33:02.962 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
-2025-10-13 12:33:03.154 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
-2025-10-13 12:33:03.208 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
-2025-10-13 12:33:03.210 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
-2025-10-13 12:33:03.210 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 382e4bb8-96c2-47f7-a6be-7ccec1bdc629
-2025-10-13 12:33:08.916 [vert.x-eventloop-thread-0] INFO  [de48c982-5296-4395-b20d-7eb0e3e4fb99] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:48272 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: de48c982-5296-4395-b20d-7eb0e3e4fb99
-2025-10-13 12:33:08.917 [vert.x-eventloop-thread-0] DEBUG [de48c982-5296-4395-b20d-7eb0e3e4fb99] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 12:33:09.240 [vert.x-eventloop-thread-0] DEBUG [de48c982-5296-4395-b20d-7eb0e3e4fb99] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
-2025-10-13 12:33:09.247 [vert.x-eventloop-thread-0] INFO  [de48c982-5296-4395-b20d-7eb0e3e4fb99] com.nms.services.AuthService - User admin authenticated successfully
-2025-10-13 12:33:09.247 [vert.x-eventloop-thread-0] INFO  [de48c982-5296-4395-b20d-7eb0e3e4fb99] com.nms.handlers.AuthHandler - User admin logged in successfully
-2025-10-13 12:33:09.249 [vert.x-eventloop-thread-0] INFO  [de48c982-5296-4395-b20d-7eb0e3e4fb99] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: de48c982-5296-4395-b20d-7eb0e3e4fb99
-2025-10-13 12:53:31.342 [vert.x-eventloop-thread-0] INFO  [610f4045-279e-449e-b9fe-3d3a8d0437b2] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:55462 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 610f4045-279e-449e-b9fe-3d3a8d0437b2
-2025-10-13 12:53:31.342 [vert.x-eventloop-thread-0] DEBUG [610f4045-279e-449e-b9fe-3d3a8d0437b2] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 12:53:31.358 [vert.x-eventloop-thread-0] DEBUG [610f4045-279e-449e-b9fe-3d3a8d0437b2] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
-2025-10-13 12:53:31.364 [vert.x-eventloop-thread-0] ERROR [610f4045-279e-449e-b9fe-3d3a8d0437b2] com.nms.utils.EncryptionUtils - Failed to encrypt data
+2025-10-13 16:24:07.566 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 16:24:07.763 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 16:24:08.064 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 16:24:08.349 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 16:24:08.409 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 16:24:08.410 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 16:24:08.411 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: b40a6ee6-34b2-45ea-a38e-3ead3797bdaf
+2025-10-13 16:24:21.010 [vert.x-eventloop-thread-0] INFO  [00c6220d-c8fd-491d-b7ac-b4697330fea3] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:60126 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 00c6220d-c8fd-491d-b7ac-b4697330fea3
+2025-10-13 16:24:21.012 [vert.x-eventloop-thread-0] DEBUG [00c6220d-c8fd-491d-b7ac-b4697330fea3] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:24:21.030 [vert.x-eventloop-thread-0] WARN  [00c6220d-c8fd-491d-b7ac-b4697330fea3] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-13 16:24:21.030 [vert.x-eventloop-thread-0] WARN  [00c6220d-c8fd-491d-b7ac-b4697330fea3] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-13 16:24:21.034 [vert.x-eventloop-thread-0] WARN  [00c6220d-c8fd-491d-b7ac-b4697330fea3] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 401 - Response time: 0ms - Correlation-ID: 00c6220d-c8fd-491d-b7ac-b4697330fea3
+2025-10-13 16:24:36.175 [vert.x-eventloop-thread-0] INFO  [2c51c733-04c9-4d67-a6a7-408968eeaa4f] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:60126 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 2c51c733-04c9-4d67-a6a7-408968eeaa4f
+2025-10-13 16:24:36.176 [vert.x-eventloop-thread-0] DEBUG [2c51c733-04c9-4d67-a6a7-408968eeaa4f] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:24:36.685 [vert.x-eventloop-thread-0] DEBUG [2c51c733-04c9-4d67-a6a7-408968eeaa4f] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-13 16:24:36.692 [vert.x-eventloop-thread-0] INFO  [2c51c733-04c9-4d67-a6a7-408968eeaa4f] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-13 16:24:36.693 [vert.x-eventloop-thread-0] INFO  [2c51c733-04c9-4d67-a6a7-408968eeaa4f] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-13 16:24:36.694 [vert.x-eventloop-thread-0] INFO  [2c51c733-04c9-4d67-a6a7-408968eeaa4f] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: 2c51c733-04c9-4d67-a6a7-408968eeaa4f
+2025-10-13 16:24:55.591 [vert.x-eventloop-thread-0] INFO  [5a7a6685-c09b-47b2-a19b-5127094954d9] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:60126 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 5a7a6685-c09b-47b2-a19b-5127094954d9
+2025-10-13 16:24:55.592 [vert.x-eventloop-thread-0] DEBUG [5a7a6685-c09b-47b2-a19b-5127094954d9] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:24:55.607 [vert.x-eventloop-thread-0] DEBUG [5a7a6685-c09b-47b2-a19b-5127094954d9] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 16:24:55.615 [vert.x-eventloop-thread-0] ERROR [5a7a6685-c09b-47b2-a19b-5127094954d9] com.nms.utils.EncryptionUtils - Failed to encrypt data
 java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
 	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
@@ -167,7 +80,7 @@ java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-10-13 12:53:31.369 [vert.x-eventloop-thread-0] ERROR [610f4045-279e-449e-b9fe-3d3a8d0437b2] com.nms.services.CredentialService - Error creating credential profile
+2025-10-13 16:24:55.617 [vert.x-eventloop-thread-0] ERROR [5a7a6685-c09b-47b2-a19b-5127094954d9] com.nms.services.CredentialService - Error creating credential profile
 java.lang.RuntimeException: Failed to encrypt data
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
 	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
@@ -231,7 +144,7 @@ Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
 	... 50 common frames omitted
-2025-10-13 12:53:31.370 [vert.x-eventloop-thread-0] ERROR [610f4045-279e-449e-b9fe-3d3a8d0437b2] com.nms.handlers.CredentialHandler - Failed to create credential profile
+2025-10-13 16:24:55.618 [vert.x-eventloop-thread-0] ERROR [5a7a6685-c09b-47b2-a19b-5127094954d9] com.nms.handlers.CredentialHandler - Failed to create credential profile
 java.lang.RuntimeException: Failed to encrypt data
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
 	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
@@ -295,11 +208,18 @@ Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
 	... 50 common frames omitted
-2025-10-13 12:53:31.371 [vert.x-eventloop-thread-0] WARN  [610f4045-279e-449e-b9fe-3d3a8d0437b2] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: 610f4045-279e-449e-b9fe-3d3a8d0437b2
-2025-10-13 12:54:53.844 [vert.x-eventloop-thread-0] INFO  [ca915f55-de1a-40b5-ae60-7dba3fe5759c] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:49482 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: ca915f55-de1a-40b5-ae60-7dba3fe5759c
-2025-10-13 12:54:53.845 [vert.x-eventloop-thread-0] DEBUG [ca915f55-de1a-40b5-ae60-7dba3fe5759c] c.n.m.SecurityHeadersMiddleware - Security headers added to response
-2025-10-13 12:54:53.851 [vert.x-eventloop-thread-0] DEBUG [ca915f55-de1a-40b5-ae60-7dba3fe5759c] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
-2025-10-13 12:54:53.852 [vert.x-eventloop-thread-0] ERROR [ca915f55-de1a-40b5-ae60-7dba3fe5759c] com.nms.utils.EncryptionUtils - Failed to encrypt data
+2025-10-13 16:24:55.619 [vert.x-eventloop-thread-0] WARN  [5a7a6685-c09b-47b2-a19b-5127094954d9] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: 5a7a6685-c09b-47b2-a19b-5127094954d9
+2025-10-13 16:43:44.411 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 16:43:44.565 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 16:43:44.784 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 16:43:44.953 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 16:43:45.001 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 16:43:45.002 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 16:43:45.003 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: c8bf326a-dcb1-4eba-bf9d-15d66201b116
+2025-10-13 16:43:53.405 [vert.x-eventloop-thread-0] INFO  [928028c4-1d92-416d-9d27-448df125827b] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:32888 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 928028c4-1d92-416d-9d27-448df125827b
+2025-10-13 16:43:53.406 [vert.x-eventloop-thread-0] DEBUG [928028c4-1d92-416d-9d27-448df125827b] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:43:53.432 [vert.x-eventloop-thread-0] DEBUG [928028c4-1d92-416d-9d27-448df125827b] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 16:43:53.438 [vert.x-eventloop-thread-0] ERROR [928028c4-1d92-416d-9d27-448df125827b] com.nms.utils.EncryptionUtils - Failed to encrypt data
 java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
 	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
@@ -360,7 +280,7 @@ java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-10-13 12:54:53.852 [vert.x-eventloop-thread-0] ERROR [ca915f55-de1a-40b5-ae60-7dba3fe5759c] com.nms.services.CredentialService - Error creating credential profile
+2025-10-13 16:43:53.440 [vert.x-eventloop-thread-0] ERROR [928028c4-1d92-416d-9d27-448df125827b] com.nms.services.CredentialService - Error creating credential profile
 java.lang.RuntimeException: Failed to encrypt data
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
 	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
@@ -424,7 +344,7 @@ Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
 	... 50 common frames omitted
-2025-10-13 12:54:53.853 [vert.x-eventloop-thread-0] ERROR [ca915f55-de1a-40b5-ae60-7dba3fe5759c] com.nms.handlers.CredentialHandler - Failed to create credential profile
+2025-10-13 16:43:53.441 [vert.x-eventloop-thread-0] ERROR [928028c4-1d92-416d-9d27-448df125827b] com.nms.handlers.CredentialHandler - Failed to create credential profile
 java.lang.RuntimeException: Failed to encrypt data
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
 	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
@@ -488,4 +408,1093 @@ Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
 	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
 	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
 	... 50 common frames omitted
-2025-10-13 12:54:53.853 [vert.x-eventloop-thread-0] WARN  [ca915f55-de1a-40b5-ae60-7dba3fe5759c] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: ca915f55-de1a-40b5-ae60-7dba3fe5759c
+2025-10-13 16:43:53.442 [vert.x-eventloop-thread-0] WARN  [928028c4-1d92-416d-9d27-448df125827b] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: 928028c4-1d92-416d-9d27-448df125827b
+2025-10-13 16:43:58.725 [vert.x-eventloop-thread-0] INFO  [e2795c4a-7bbb-45ae-bed8-a08131b352df] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:32888 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: e2795c4a-7bbb-45ae-bed8-a08131b352df
+2025-10-13 16:43:58.725 [vert.x-eventloop-thread-0] DEBUG [e2795c4a-7bbb-45ae-bed8-a08131b352df] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:43:59.047 [vert.x-eventloop-thread-0] DEBUG [e2795c4a-7bbb-45ae-bed8-a08131b352df] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-13 16:43:59.052 [vert.x-eventloop-thread-0] INFO  [e2795c4a-7bbb-45ae-bed8-a08131b352df] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-13 16:43:59.052 [vert.x-eventloop-thread-0] INFO  [e2795c4a-7bbb-45ae-bed8-a08131b352df] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-13 16:43:59.052 [vert.x-eventloop-thread-0] INFO  [e2795c4a-7bbb-45ae-bed8-a08131b352df] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: e2795c4a-7bbb-45ae-bed8-a08131b352df
+2025-10-13 16:44:23.806 [vert.x-eventloop-thread-0] INFO  [faad38bc-8fde-428a-92bc-b99a211985b4] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:32888 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: faad38bc-8fde-428a-92bc-b99a211985b4
+2025-10-13 16:44:23.806 [vert.x-eventloop-thread-0] DEBUG [faad38bc-8fde-428a-92bc-b99a211985b4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:44:23.812 [vert.x-eventloop-thread-0] DEBUG [faad38bc-8fde-428a-92bc-b99a211985b4] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 16:44:23.813 [vert.x-eventloop-thread-0] ERROR [faad38bc-8fde-428a-92bc-b99a211985b4] com.nms.utils.EncryptionUtils - Failed to encrypt data
+java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 16:44:23.813 [vert.x-eventloop-thread-0] ERROR [faad38bc-8fde-428a-92bc-b99a211985b4] com.nms.services.CredentialService - Error creating credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:23.814 [vert.x-eventloop-thread-0] ERROR [faad38bc-8fde-428a-92bc-b99a211985b4] com.nms.handlers.CredentialHandler - Failed to create credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:23.814 [vert.x-eventloop-thread-0] WARN  [faad38bc-8fde-428a-92bc-b99a211985b4] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: faad38bc-8fde-428a-92bc-b99a211985b4
+2025-10-13 16:44:25.617 [vert.x-eventloop-thread-0] INFO  [cfb8192d-b701-477c-a253-81631a37741a] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:32888 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: cfb8192d-b701-477c-a253-81631a37741a
+2025-10-13 16:44:25.617 [vert.x-eventloop-thread-0] DEBUG [cfb8192d-b701-477c-a253-81631a37741a] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:44:25.625 [vert.x-eventloop-thread-0] DEBUG [cfb8192d-b701-477c-a253-81631a37741a] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 16:44:25.626 [vert.x-eventloop-thread-0] ERROR [cfb8192d-b701-477c-a253-81631a37741a] com.nms.utils.EncryptionUtils - Failed to encrypt data
+java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 16:44:25.626 [vert.x-eventloop-thread-0] ERROR [cfb8192d-b701-477c-a253-81631a37741a] com.nms.services.CredentialService - Error creating credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:25.627 [vert.x-eventloop-thread-0] ERROR [cfb8192d-b701-477c-a253-81631a37741a] com.nms.handlers.CredentialHandler - Failed to create credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:25.627 [vert.x-eventloop-thread-0] WARN  [cfb8192d-b701-477c-a253-81631a37741a] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: cfb8192d-b701-477c-a253-81631a37741a
+2025-10-13 16:44:26.435 [vert.x-eventloop-thread-0] INFO  [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:39322 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 26c5b35e-07c7-476c-bbaa-4e8aa74d072a
+2025-10-13 16:44:26.436 [vert.x-eventloop-thread-0] DEBUG [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 16:44:26.444 [vert.x-eventloop-thread-0] DEBUG [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 16:44:26.444 [vert.x-eventloop-thread-0] ERROR [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] com.nms.utils.EncryptionUtils - Failed to encrypt data
+java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 16:44:26.444 [vert.x-eventloop-thread-0] ERROR [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] com.nms.services.CredentialService - Error creating credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:26.444 [vert.x-eventloop-thread-0] ERROR [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] com.nms.handlers.CredentialHandler - Failed to create credential profile
+java.lang.RuntimeException: Failed to encrypt data
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:85)
+	at com.nms.services.CredentialService.createCredentialProfile(CredentialService.java:62)
+	at com.nms.handlers.CredentialHandler.handleCreateCredentialProfile(CredentialHandler.java:80)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1286)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextWrapper.next(RoutingContextWrapper.java:200)
+	at com.nms.middleware.AuthMiddleware.lambda$handle$0(AuthMiddleware.java:50)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.AuthService.lambda$validateToken$6(AuthService.java:197)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at com.nms.services.DatabaseService.lambda$findUserById$6(DatabaseService.java:137)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.security.InvalidKeyException: Invalid AES key length: 43 bytes
+	at java.base/com.sun.crypto.provider.AESCrypt.makeSessionKey(AESCrypt.java:1329)
+	at java.base/com.sun.crypto.provider.AESCrypt.init(AESCrypt.java:1053)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.init(GaloisCounterMode.java:178)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineInit(GaloisCounterMode.java:304)
+	at java.base/javax.crypto.Cipher.implInit(Cipher.java:876)
+	at java.base/javax.crypto.Cipher.chooseProvider(Cipher.java:934)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1466)
+	at java.base/javax.crypto.Cipher.init(Cipher.java:1393)
+	at com.nms.utils.EncryptionUtils.encrypt(EncryptionUtils.java:69)
+	... 50 common frames omitted
+2025-10-13 16:44:26.445 [vert.x-eventloop-thread-0] WARN  [26c5b35e-07c7-476c-bbaa-4e8aa74d072a] c.nms.middleware.LoggingMiddleware - POST /api/credentials - Status: 500 - Response time: 0ms - Correlation-ID: 26c5b35e-07c7-476c-bbaa-4e8aa74d072a
+2025-10-13 18:08:06.168 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:08:06.397 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:08:06.682 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:08:06.924 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:08:06.946 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:08:06.965 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:08:21.625 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:08:21.847 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:08:22.137 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:08:22.397 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:08:22.414 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:08:22.429 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:09:03.615 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:09:03.815 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:09:04.166 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:09:04.416 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:09:04.486 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:09:04.503 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:09:30.725 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:09:30.928 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:09:31.215 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:09:31.469 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:09:31.530 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:09:31.545 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasksFrom(SingleThreadEventExecutor.java:426)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:375)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:557)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:10:33.054 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:10:33.252 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:10:33.538 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:10:33.808 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:10:33.865 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 18:10:33.866 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 18:10:33.867 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 24dff710-041a-4be2-a8d5-4628dd9a7add
+2025-10-13 18:11:29.365 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:11:29.587 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:11:29.855 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:11:30.142 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:11:30.167 [vert.x-eventloop-thread-0] ERROR [] com.nms.Main - Failed to start NMS Lite Backend Service
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:11:30.183 [vert.x-eventloop-thread-2] ERROR [] com.nms.Main - Failed to deploy Main verticle
+java.lang.IllegalArgumentException: Illegal base64 character 2d
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:852)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:570)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:593)
+	at com.nms.utils.EncryptionUtils.<init>(EncryptionUtils.java:35)
+	at com.nms.Main.lambda$start$3(Main.java:82)
+	at io.vertx.core.impl.future.Composition.onSuccess(Composition.java:38)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Mapping.onSuccess(Mapping.java:40)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:32:58.293 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-13 18:32:58.489 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-13 18:32:58.769 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-13 18:32:59.026 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-13 18:32:59.092 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-13 18:32:59.093 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-13 18:32:59.094 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: d5a96dee-0afc-4381-96b6-a36df7f0f0d6
+2025-10-13 18:33:09.543 [vert.x-eventloop-thread-0] INFO  [2f86a8cd-9295-4fa1-b505-fb111256a841] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:42944 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 2f86a8cd-9295-4fa1-b505-fb111256a841
+2025-10-13 18:33:09.544 [vert.x-eventloop-thread-0] DEBUG [2f86a8cd-9295-4fa1-b505-fb111256a841] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 18:33:10.037 [vert.x-eventloop-thread-0] DEBUG [2f86a8cd-9295-4fa1-b505-fb111256a841] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-13 18:33:10.045 [vert.x-eventloop-thread-0] INFO  [2f86a8cd-9295-4fa1-b505-fb111256a841] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-13 18:33:10.046 [vert.x-eventloop-thread-0] INFO  [2f86a8cd-9295-4fa1-b505-fb111256a841] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-13 18:33:10.048 [vert.x-eventloop-thread-0] INFO  [2f86a8cd-9295-4fa1-b505-fb111256a841] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: 2f86a8cd-9295-4fa1-b505-fb111256a841
+2025-10-13 18:33:31.842 [vert.x-eventloop-thread-0] INFO  [f1c529e2-36e6-4e18-b506-f9f4ca3b6000] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:42944 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: f1c529e2-36e6-4e18-b506-f9f4ca3b6000
+2025-10-13 18:33:31.842 [vert.x-eventloop-thread-0] DEBUG [f1c529e2-36e6-4e18-b506-f9f4ca3b6000] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 18:33:31.864 [vert.x-eventloop-thread-0] DEBUG [f1c529e2-36e6-4e18-b506-f9f4ca3b6000] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 18:33:31.892 [vert.x-eventloop-thread-0] ERROR [f1c529e2-36e6-4e18-b506-f9f4ca3b6000] io.vertx.core.impl.ContextBase - Unhandled exception
+java.util.NoSuchElementException: Column created_by_username does not exist
+	at io.vertx.sqlclient.Row.getValue(Row.java:65)
+	at com.nms.services.CredentialService.mapRowToDTO(CredentialService.java:330)
+	at com.nms.services.CredentialService.lambda$createCredentialProfile$0(CredentialService.java:89)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:34:32.456 [vert.x-eventloop-thread-0] INFO  [c09a9d28-1e82-46a8-8e3f-2c10f6538a13] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:57658 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c09a9d28-1e82-46a8-8e3f-2c10f6538a13
+2025-10-13 18:34:32.456 [vert.x-eventloop-thread-0] DEBUG [c09a9d28-1e82-46a8-8e3f-2c10f6538a13] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 18:34:32.468 [vert.x-eventloop-thread-0] DEBUG [c09a9d28-1e82-46a8-8e3f-2c10f6538a13] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 18:34:32.487 [vert.x-eventloop-thread-0] ERROR [c09a9d28-1e82-46a8-8e3f-2c10f6538a13] io.vertx.core.impl.ContextBase - Unhandled exception
+java.util.NoSuchElementException: Column created_by_username does not exist
+	at io.vertx.sqlclient.Row.getValue(Row.java:65)
+	at com.nms.services.CredentialService.mapRowToDTO(CredentialService.java:330)
+	at com.nms.services.CredentialService.lambda$createCredentialProfile$0(CredentialService.java:89)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-13 18:36:45.014 [vert.x-eventloop-thread-0] INFO  [d39b8b7d-d947-4d80-8c72-641319770be4] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:53694 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: d39b8b7d-d947-4d80-8c72-641319770be4
+2025-10-13 18:36:45.015 [vert.x-eventloop-thread-0] DEBUG [d39b8b7d-d947-4d80-8c72-641319770be4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 18:36:45.517 [vert.x-eventloop-thread-0] DEBUG [d39b8b7d-d947-4d80-8c72-641319770be4] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-13 18:36:45.518 [vert.x-eventloop-thread-0] INFO  [d39b8b7d-d947-4d80-8c72-641319770be4] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-13 18:36:45.518 [vert.x-eventloop-thread-0] INFO  [d39b8b7d-d947-4d80-8c72-641319770be4] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-13 18:36:45.518 [vert.x-eventloop-thread-0] INFO  [d39b8b7d-d947-4d80-8c72-641319770be4] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: d39b8b7d-d947-4d80-8c72-641319770be4
+2025-10-13 18:37:10.029 [vert.x-eventloop-thread-0] INFO  [37aac463-0821-4e04-8807-2871fc8d8e1f] c.nms.middleware.LoggingMiddleware - POST /api/credentials from 0:0:0:0:0:0:0:1:53694 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 37aac463-0821-4e04-8807-2871fc8d8e1f
+2025-10-13 18:37:10.029 [vert.x-eventloop-thread-0] DEBUG [37aac463-0821-4e04-8807-2871fc8d8e1f] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-13 18:37:10.040 [vert.x-eventloop-thread-0] DEBUG [37aac463-0821-4e04-8807-2871fc8d8e1f] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-13 18:37:10.054 [vert.x-eventloop-thread-0] ERROR [37aac463-0821-4e04-8807-2871fc8d8e1f] io.vertx.core.impl.ContextBase - Unhandled exception
+java.util.NoSuchElementException: Column created_by_username does not exist
+	at io.vertx.sqlclient.Row.getValue(Row.java:65)
+	at com.nms.services.CredentialService.mapRowToDTO(CredentialService.java:330)
+	at com.nms.services.CredentialService.lambda$createCredentialProfile$0(CredentialService.java:89)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

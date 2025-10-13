@@ -4,7 +4,6 @@ com/nms/config/ApplicationConfig.class
 com/nms/Main.class
 com/nms/handlers/HealthHandler.class
 com/nms/utils/PasswordUtils.class
-com/nms/utils/PasswordUtils$BCrypt.class
 com/nms/middleware/RateLimitMiddleware.class
 com/nms/middleware/SecurityHeadersMiddleware.class
 com/nms/middleware/CorsMiddleware.class

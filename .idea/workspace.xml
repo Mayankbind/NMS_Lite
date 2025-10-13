@@ -6,23 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="74c8d62d-b1a0-41b2-8e07-13019c265446" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/AuthMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/AuthMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfileDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfileDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/CredentialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/CredentialService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite-error.2025-10-07.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/nms-lite-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite.2025-10-07.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite.2025-10-08.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/nms-lite.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/EncryptionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/EncryptionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$BCrypt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/nms-lite-backend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/nms-lite-backend-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/original-nms-lite-backend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/original-nms-lite-backend-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.2025-10-08.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.2025-10-10.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite.2025-10-08.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite.2025-10-10.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

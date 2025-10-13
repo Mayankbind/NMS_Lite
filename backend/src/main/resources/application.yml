@@ -43,7 +43,7 @@ jwt:
   audience: "nms-lite-api"
 
 encryption:
-  key: "nms-lite-encryption-key-32-characters-long"
+  key: "VzRB9+ejr3iKFh2GjdN97cT2Qb9UNUdOJ6L8Uxe/cSg="
 
 logging:
   level: "INFO"
