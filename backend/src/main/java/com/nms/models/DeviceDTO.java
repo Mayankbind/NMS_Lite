@@ -16,6 +16,7 @@ public class DeviceDTO {
     private String deviceType;
     private JsonObject osInfo;
     private UUID credentialProfileId;
+    private String credentialProfileName;
     private String status;
     private String lastSeen;
     private String createdAt;
@@ -73,6 +74,14 @@ public class DeviceDTO {
         this.credentialProfileId = credentialProfileId;
     }
     
+    public String getCredentialProfileName() {
+        return credentialProfileName;
+    }
+    
+    public void setCredentialProfileName(String credentialProfileName) {
+        this.credentialProfileName = credentialProfileName;
+    }
+    
     public String getStatus() {
         return status;
     }
@@ -113,6 +122,7 @@ public class DeviceDTO {
                 ", ipAddress='" + ipAddress + '\'' +
                 ", deviceType='" + deviceType + '\'' +
                 ", credentialProfileId=" + credentialProfileId +
+                ", credentialProfileName='" + credentialProfileName + '\'' +
                 ", status='" + status + '\'' +
                 ", lastSeen='" + lastSeen + '\'' +
                 ", createdAt='" + createdAt + '\'' +

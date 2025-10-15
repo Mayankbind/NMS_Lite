@@ -7,6 +7,7 @@ import com.nms.config.ApplicationConfig;
 import com.nms.config.DatabaseConfig;
 import com.nms.handlers.AuthHandler;
 import com.nms.handlers.CredentialHandler;
+import com.nms.handlers.DiscoveryHandler;
 import com.nms.handlers.HealthHandler;
 import com.nms.middleware.AuthMiddleware;
 import com.nms.middleware.CorsMiddleware;
@@ -16,6 +17,7 @@ import com.nms.middleware.SecurityHeadersMiddleware;
 import com.nms.services.AuthService;
 import com.nms.services.CredentialService;
 import com.nms.services.DatabaseService;
+import com.nms.services.DeviceService;
 import com.nms.services.DiscoveryService;
 import com.nms.utils.EncryptionUtils;
 
@@ -88,8 +90,11 @@ public class Main extends AbstractVerticle {
                 // Initialize discovery service
                 DiscoveryService discoveryService = new DiscoveryService(pgPool, vertx, encryptionUtils);
                 
+                // Initialize device service
+                DeviceService deviceService = new DeviceService(pgPool);
+                
                 // Setup HTTP server
-                return setupHttpServer(authService, databaseService, credentialService, discoveryService);
+                return setupHttpServer(authService, databaseService, credentialService, discoveryService, deviceService);
             })
             .onSuccess(server -> {
                 logger.info("NMS Lite Backend Service started successfully on port: {}", 
@@ -121,9 +126,9 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService) {
+    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
         try {
-            Router router = createRouter(authService, databaseService, credentialService, discoveryService);
+            Router router = createRouter(authService, databaseService, credentialService, discoveryService, deviceService);
             
             // Create HTTP server
             return vertx.createHttpServer()
@@ -142,7 +147,7 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService) {
+    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
         Router router = Router.router(vertx);
         
         // Global middleware
@@ -195,18 +200,25 @@ public class Main extends AbstractVerticle {
         protectedRouter.put("/credentials/:id").handler(credentialHandler.updateCredentialProfile);
         protectedRouter.delete("/credentials/:id").handler(credentialHandler.deleteCredentialProfile);
         
+        // Discovery routes
+        DiscoveryHandler discoveryHandler = new DiscoveryHandler(discoveryService);
+        protectedRouter.post("/discovery/start").handler(discoveryHandler.startDiscovery);
+        protectedRouter.get("/discovery/status/:jobId").handler(discoveryHandler.getDiscoveryStatus);
+        protectedRouter.get("/discovery/results/:jobId").handler(discoveryHandler.getDiscoveryResults);
+        protectedRouter.delete("/discovery/job/:jobId").handler(discoveryHandler.cancelDiscovery);
+        
         // TODO: Add other protected routes here
-        // Discovery routes (DiscoveryHandler to be implemented)
-        // DiscoveryHandler discoveryHandler = new DiscoveryHandler(discoveryService);
-        // protectedRouter.post("/discovery/start").handler(discoveryHandler.startDiscovery);
-        // protectedRouter.get("/discovery/status/:jobId").handler(discoveryHandler.getDiscoveryStatus);
-        // protectedRouter.get("/discovery/results/:jobId").handler(discoveryHandler.getDiscoveryResults);
-        // protectedRouter.delete("/discovery/job/:jobId").handler(discoveryHandler.cancelDiscovery);
         
         // Device routes (DeviceHandler to be implemented)
-        // protectedRouter.get("/devices").handler(deviceHandler::getDevices);
-        // protectedRouter.post("/devices").handler(deviceHandler::createDevice);
-        // etc.
+        // DeviceHandler deviceHandler = new DeviceHandler(deviceService);
+        // protectedRouter.get("/devices").handler(deviceHandler.getAllDevices);
+        // protectedRouter.get("/devices/:id").handler(deviceHandler.getDeviceById);
+        // protectedRouter.post("/devices").handler(deviceHandler.createDevice);
+        // protectedRouter.put("/devices/:id").handler(deviceHandler.updateDevice);
+        // protectedRouter.delete("/devices/:id").handler(deviceHandler.deleteDevice);
+        // protectedRouter.get("/devices/status/:status").handler(deviceHandler.getDevicesByStatus);
+        // protectedRouter.get("/devices/search").handler(deviceHandler.searchDevices);
+        // protectedRouter.put("/devices/:id/status").handler(deviceHandler.updateDeviceStatus);
         
         // Mount routers
         router.route("/api/auth/*").subRouter(authRouter);
@@ -227,6 +239,7 @@ public class Main extends AbstractVerticle {
         // Error handler
         router.errorHandler(500, ctx -> {
             logger.error("Internal server error", ctx.failure());
+            logg
             ctx.response()
                 .setStatusCode(500)
                 .putHeader("Content-Type", "application/json")
