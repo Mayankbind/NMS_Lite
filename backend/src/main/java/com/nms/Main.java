@@ -16,6 +16,7 @@ import com.nms.middleware.SecurityHeadersMiddleware;
 import com.nms.services.AuthService;
 import com.nms.services.CredentialService;
 import com.nms.services.DatabaseService;
+import com.nms.services.DiscoveryService;
 import com.nms.utils.EncryptionUtils;
 
 import io.vertx.config.ConfigRetriever;
@@ -84,8 +85,11 @@ public class Main extends AbstractVerticle {
                 // Initialize credential service
                 CredentialService credentialService = new CredentialService(pgPool, encryptionUtils);
                 
+                // Initialize discovery service
+                DiscoveryService discoveryService = new DiscoveryService(pgPool, vertx, encryptionUtils);
+                
                 // Setup HTTP server
-                return setupHttpServer(authService, databaseService, credentialService);
+                return setupHttpServer(authService, databaseService, credentialService, discoveryService);
             })
             .onSuccess(server -> {
                 logger.info("NMS Lite Backend Service started successfully on port: {}", 
@@ -117,9 +121,9 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService) {
+    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService) {
         try {
-            Router router = createRouter(authService, databaseService, credentialService);
+            Router router = createRouter(authService, databaseService, credentialService, discoveryService);
             
             // Create HTTP server
             return vertx.createHttpServer()
@@ -138,7 +142,7 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService) {
+    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService) {
         Router router = Router.router(vertx);
         
         // Global middleware
@@ -192,6 +196,14 @@ public class Main extends AbstractVerticle {
         protectedRouter.delete("/credentials/:id").handler(credentialHandler.deleteCredentialProfile);
         
         // TODO: Add other protected routes here
+        // Discovery routes (DiscoveryHandler to be implemented)
+        // DiscoveryHandler discoveryHandler = new DiscoveryHandler(discoveryService);
+        // protectedRouter.post("/discovery/start").handler(discoveryHandler.startDiscovery);
+        // protectedRouter.get("/discovery/status/:jobId").handler(discoveryHandler.getDiscoveryStatus);
+        // protectedRouter.get("/discovery/results/:jobId").handler(discoveryHandler.getDiscoveryResults);
+        // protectedRouter.delete("/discovery/job/:jobId").handler(discoveryHandler.cancelDiscovery);
+        
+        // Device routes (DeviceHandler to be implemented)
         // protectedRouter.get("/devices").handler(deviceHandler::getDevices);
         // protectedRouter.post("/devices").handler(deviceHandler::createDevice);
         // etc.
