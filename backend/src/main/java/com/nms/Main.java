@@ -239,7 +239,6 @@ public class Main extends AbstractVerticle {
         // Error handler
         router.errorHandler(500, ctx -> {
             logger.error("Internal server error", ctx.failure());
-            logg
             ctx.response()
                 .setStatusCode(500)
                 .putHeader("Content-Type", "application/json")
