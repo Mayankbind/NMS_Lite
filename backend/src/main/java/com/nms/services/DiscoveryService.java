@@ -41,7 +41,7 @@ public class DiscoveryService {
     
     // Discovery configuration
     private static final int DEFAULT_SSH_TIMEOUT = 5000; // 5 seconds
-    private static final int DEFAULT_PING_TIMEOUT = 3000; // 3 seconds
+    private static final int DEFAULT_PING_TIMEOUT = 1000; // 1 second
     
     public DiscoveryService(PgPool dbPool, Vertx vertx, EncryptionUtils encryptionUtils) {
         this.dbPool = dbPool;
@@ -132,8 +132,10 @@ public class DiscoveryService {
                 if (rows.iterator().hasNext()) {
                     Row row = rows.iterator().next();
                     DiscoveryJob job = mapRowToDiscoveryJob(row);
+                    logger.debug("Found discovery job {} for user {}", jobId, userId);
                     promise.complete(job);
                 } else {
+                    logger.warn("Discovery job {} not found for user {}", jobId, userId);
                     promise.fail(new RuntimeException("Discovery job not found or access denied"));
                 }
             })
@@ -293,7 +295,7 @@ public class DiscoveryService {
                     List<String> reachableIps = NetworkUtils.pingSweepCidr(targetRange, DEFAULT_PING_TIMEOUT);
                     logger.info("Discovery job {} found {} reachable IPs", jobId, reachableIps.size());
                     return reachableIps;
-                }, false);
+                }, true); // Use ordered execution to prevent thread blocking warnings
             })
             .compose(reachableIps -> {
                 // Process each IP asynchronously

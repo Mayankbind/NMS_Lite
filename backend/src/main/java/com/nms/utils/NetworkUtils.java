@@ -2,6 +2,7 @@ package com.nms.utils;
 
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -112,9 +113,10 @@ public class NetworkUtils {
      * @return list of reachable IP addresses
      */
     public static List<String> pingSweep(List<String> ipList, int timeout) {
-        List<String> reachableIps = new ArrayList<>();
+        List<String> reachableIps = Collections.synchronizedList(new ArrayList<>());
         
-        for (String ip : ipList) {
+        // Use parallel stream for faster ping sweeps
+        ipList.parallelStream().forEach(ip -> {
             try {
                 InetAddress address = InetAddress.getByName(ip);
                 if (address.isReachable(timeout)) {
@@ -124,7 +126,7 @@ public class NetworkUtils {
             } catch (java.io.IOException e) {
                 logger.debug("IP {} is not reachable: {}", ip, e.getMessage());
             }
-        }
+        });
         
         logger.info("Ping sweep completed: {}/{} IPs reachable", reachableIps.size(), ipList.size());
         return reachableIps;
