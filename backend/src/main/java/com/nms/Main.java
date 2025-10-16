@@ -7,6 +7,7 @@ import com.nms.config.ApplicationConfig;
 import com.nms.config.DatabaseConfig;
 import com.nms.handlers.AuthHandler;
 import com.nms.handlers.CredentialHandler;
+import com.nms.handlers.DeviceHandler;
 import com.nms.handlers.DiscoveryHandler;
 import com.nms.handlers.HealthHandler;
 import com.nms.middleware.AuthMiddleware;
@@ -207,18 +208,18 @@ public class Main extends AbstractVerticle {
         protectedRouter.get("/discovery/results/:jobId").handler(discoveryHandler.getDiscoveryResults);
         protectedRouter.delete("/discovery/job/:jobId").handler(discoveryHandler.cancelDiscovery);
         
-        // TODO: Add other protected routes here
+        // Device routes
+        DeviceHandler deviceHandler = new DeviceHandler(deviceService);
+        protectedRouter.get("/devices").handler(deviceHandler.getAllDevices);
+        protectedRouter.get("/devices/:id").handler(deviceHandler.getDeviceById);
+        protectedRouter.post("/devices").handler(deviceHandler.createDevice);
+        protectedRouter.put("/devices/:id").handler(deviceHandler.updateDevice);
+        protectedRouter.delete("/devices/:id").handler(deviceHandler.deleteDevice);
+        protectedRouter.get("/devices/status/:status").handler(deviceHandler.getDevicesByStatus);
+        protectedRouter.get("/devices/search").handler(deviceHandler.searchDevices);
+        protectedRouter.put("/devices/:id/status").handler(deviceHandler.updateDeviceStatus);
         
-        // Device routes (DeviceHandler to be implemented)
-        // DeviceHandler deviceHandler = new DeviceHandler(deviceService);
-        // protectedRouter.get("/devices").handler(deviceHandler.getAllDevices);
-        // protectedRouter.get("/devices/:id").handler(deviceHandler.getDeviceById);
-        // protectedRouter.post("/devices").handler(deviceHandler.createDevice);
-        // protectedRouter.put("/devices/:id").handler(deviceHandler.updateDevice);
-        // protectedRouter.delete("/devices/:id").handler(deviceHandler.deleteDevice);
-        // protectedRouter.get("/devices/status/:status").handler(deviceHandler.getDevicesByStatus);
-        // protectedRouter.get("/devices/search").handler(deviceHandler.searchDevices);
-        // protectedRouter.put("/devices/:id/status").handler(deviceHandler.updateDeviceStatus);
+        // TODO: Add other protected routes here
         
         // Mount routers
         router.route("/api/auth/*").subRouter(authRouter);

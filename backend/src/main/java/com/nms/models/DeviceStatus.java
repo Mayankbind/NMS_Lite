@@ -1,5 +1,9 @@
 package com.nms.models;
 
+import org.slf4j.ILoggerFactory;
+
+import java.util.logging.Logger;
+
 /**
  * Enum representing the real-time health status of a device
  * Maps to the database CHECK constraint values
@@ -27,6 +31,7 @@ public enum DeviceStatus {
      */
     public static DeviceStatus fromValue(String value) {
         if (value == null) {
+
             return null;
         }
         

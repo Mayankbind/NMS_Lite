@@ -292,6 +292,18 @@ test_error_cases() {
         }')
     echo "$MISSING_FIELDS_RESPONSE" | jq '.'
     
+    # Test invalid UUID format
+    print_status "Testing invalid UUID format for credentialProfileId..."
+    INVALID_UUID_RESPONSE=$(curl -s -X POST "$API_BASE/devices" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $TOKEN" \
+        -d '{
+            "hostname": "test-server",
+            "ipAddress": "192.168.1.100",
+            "credentialProfileId": "invalid-uuid-format"
+        }')
+    echo "$INVALID_UUID_RESPONSE" | jq '.'
+    
     # Test invalid status
     print_status "Testing invalid status..."
     INVALID_STATUS_RESPONSE=$(curl -s -X GET "$API_BASE/devices/status/invalid" \

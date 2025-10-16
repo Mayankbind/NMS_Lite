@@ -23,6 +23,7 @@ import io.vertx.sqlclient.Tuple;
  * Handles CRUD operations for discovered and monitored devices
  */
 public class DeviceService {
+
     
     private static final Logger logger = LoggerFactory.getLogger(DeviceService.class);
     
