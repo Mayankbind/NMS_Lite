@@ -434,6 +434,7 @@ public class DiscoveryService {
                         credentials.put("username", row.getString("username"));
                         credentials.put("password", decryptedPassword); // Now using decrypted password
                         credentials.put("port", row.getInteger("port"));
+//                        System.out.println("This is CREDENTIAL::::::"+credentials.encodePrettily());
                         promise.complete(credentials);
                     } catch (Exception e) {
                         logger.error("Error decrypting password for credential profile {}: {}", credentialProfileId, e.getMessage(), e);

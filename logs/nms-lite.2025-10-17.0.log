@@ -1,0 +1,377 @@
+2025-10-17 15:11:57.415 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-17 15:11:57.691 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-17 15:11:57.937 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-17 15:11:58.178 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-17 15:11:58.245 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-17 15:11:58.246 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-17 15:11:58.246 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: c3c62cbe-71f4-4246-936a-7cc8473d6083
+2025-10-17 15:12:11.968 [vert.x-eventloop-thread-0] INFO  [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:40800 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 0d9f741c-32b8-4104-aa74-5e4c7665d8eb
+2025-10-17 15:12:11.968 [vert.x-eventloop-thread-0] DEBUG [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:12:12.333 [vert.x-eventloop-thread-0] DEBUG [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:12:12.339 [vert.x-eventloop-thread-0] INFO  [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-17 15:12:12.339 [vert.x-eventloop-thread-0] INFO  [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-17 15:12:12.340 [vert.x-eventloop-thread-0] INFO  [0d9f741c-32b8-4104-aa74-5e4c7665d8eb] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: 0d9f741c-32b8-4104-aa74-5e4c7665d8eb
+2025-10-17 15:13:50.240 [vert.x-eventloop-thread-0] INFO  [e54cd0dc-38ca-4487-ba76-6521acae0885] c.nms.middleware.LoggingMiddleware - GET /api/credentials from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: e54cd0dc-38ca-4487-ba76-6521acae0885
+2025-10-17 15:13:50.240 [vert.x-eventloop-thread-0] DEBUG [e54cd0dc-38ca-4487-ba76-6521acae0885] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:13:50.245 [vert.x-eventloop-thread-0] WARN  [e54cd0dc-38ca-4487-ba76-6521acae0885] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:13:50.245 [vert.x-eventloop-thread-0] WARN  [e54cd0dc-38ca-4487-ba76-6521acae0885] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:13:50.246 [vert.x-eventloop-thread-0] WARN  [e54cd0dc-38ca-4487-ba76-6521acae0885] c.nms.middleware.LoggingMiddleware - GET /api/credentials - Status: 401 - Response time: 0ms - Correlation-ID: e54cd0dc-38ca-4487-ba76-6521acae0885
+2025-10-17 15:13:56.476 [vert.x-eventloop-thread-0] INFO  [8d002a98-4170-4ecf-a2ad-35dc7528af95] c.nms.middleware.LoggingMiddleware - GET /api/credentials from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8d002a98-4170-4ecf-a2ad-35dc7528af95
+2025-10-17 15:13:56.476 [vert.x-eventloop-thread-0] DEBUG [8d002a98-4170-4ecf-a2ad-35dc7528af95] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:13:56.492 [vert.x-eventloop-thread-0] DEBUG [8d002a98-4170-4ecf-a2ad-35dc7528af95] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-17 15:13:56.513 [vert.x-eventloop-thread-0] INFO  [8d002a98-4170-4ecf-a2ad-35dc7528af95] com.nms.services.CredentialService - Retrieved 6 credential profiles for user
+2025-10-17 15:13:56.525 [vert.x-eventloop-thread-0] INFO  [8d002a98-4170-4ecf-a2ad-35dc7528af95] c.nms.middleware.LoggingMiddleware - GET /api/credentials - Status: 200 - Response time: 0ms - Correlation-ID: 8d002a98-4170-4ecf-a2ad-35dc7528af95
+2025-10-17 15:14:20.278 [vert.x-eventloop-thread-0] INFO  [2339ade8-6f9f-4ab4-84dd-281b7f5949d1] c.nms.middleware.LoggingMiddleware - GET /api/credentials/570e8049-619b-44ab-99e8-1ebf1c148621 from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 2339ade8-6f9f-4ab4-84dd-281b7f5949d1
+2025-10-17 15:14:20.279 [vert.x-eventloop-thread-0] DEBUG [2339ade8-6f9f-4ab4-84dd-281b7f5949d1] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:14:20.279 [vert.x-eventloop-thread-0] WARN  [2339ade8-6f9f-4ab4-84dd-281b7f5949d1] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:14:20.279 [vert.x-eventloop-thread-0] WARN  [2339ade8-6f9f-4ab4-84dd-281b7f5949d1] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:14:20.280 [vert.x-eventloop-thread-0] WARN  [2339ade8-6f9f-4ab4-84dd-281b7f5949d1] c.nms.middleware.LoggingMiddleware - GET /api/credentials/570e8049-619b-44ab-99e8-1ebf1c148621 - Status: 401 - Response time: 0ms - Correlation-ID: 2339ade8-6f9f-4ab4-84dd-281b7f5949d1
+2025-10-17 15:14:25.561 [vert.x-eventloop-thread-0] INFO  [af44e390-27ff-4411-aa6a-1473808e59a2] c.nms.middleware.LoggingMiddleware - GET /api/credentials/570e8049-619b-44ab-99e8-1ebf1c148621 from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: af44e390-27ff-4411-aa6a-1473808e59a2
+2025-10-17 15:14:25.562 [vert.x-eventloop-thread-0] DEBUG [af44e390-27ff-4411-aa6a-1473808e59a2] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:14:25.569 [vert.x-eventloop-thread-0] DEBUG [af44e390-27ff-4411-aa6a-1473808e59a2] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-17 15:14:25.576 [vert.x-eventloop-thread-0] INFO  [af44e390-27ff-4411-aa6a-1473808e59a2] com.nms.services.CredentialService - Retrieved credential profile: Linux
+2025-10-17 15:14:25.578 [vert.x-eventloop-thread-0] INFO  [af44e390-27ff-4411-aa6a-1473808e59a2] c.nms.middleware.LoggingMiddleware - GET /api/credentials/570e8049-619b-44ab-99e8-1ebf1c148621 - Status: 200 - Response time: 0ms - Correlation-ID: af44e390-27ff-4411-aa6a-1473808e59a2
+2025-10-17 15:15:09.538 [vert.x-eventloop-thread-0] INFO  [27a47d99-0c62-4742-98bc-83bf76ae641e] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 27a47d99-0c62-4742-98bc-83bf76ae641e
+2025-10-17 15:15:09.538 [vert.x-eventloop-thread-0] DEBUG [27a47d99-0c62-4742-98bc-83bf76ae641e] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:15:09.538 [vert.x-eventloop-thread-0] WARN  [27a47d99-0c62-4742-98bc-83bf76ae641e] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:15:09.539 [vert.x-eventloop-thread-0] WARN  [27a47d99-0c62-4742-98bc-83bf76ae641e] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:15:09.539 [vert.x-eventloop-thread-0] WARN  [27a47d99-0c62-4742-98bc-83bf76ae641e] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: 27a47d99-0c62-4742-98bc-83bf76ae641e
+2025-10-17 15:15:27.856 [vert.x-eventloop-thread-0] INFO  [5e276030-df53-4f2c-9f2b-de8c494a4371] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:37770 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 5e276030-df53-4f2c-9f2b-de8c494a4371
+2025-10-17 15:15:27.856 [vert.x-eventloop-thread-0] DEBUG [5e276030-df53-4f2c-9f2b-de8c494a4371] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:15:27.857 [vert.x-eventloop-thread-0] WARN  [5e276030-df53-4f2c-9f2b-de8c494a4371] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:15:27.857 [vert.x-eventloop-thread-0] WARN  [5e276030-df53-4f2c-9f2b-de8c494a4371] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:15:27.857 [vert.x-eventloop-thread-0] WARN  [5e276030-df53-4f2c-9f2b-de8c494a4371] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: 5e276030-df53-4f2c-9f2b-de8c494a4371
+2025-10-17 15:16:44.178 [vert.x-eventloop-thread-0] INFO  [7a7ba876-a45f-4a5c-95f2-5797968e452d] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:58878 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 7a7ba876-a45f-4a5c-95f2-5797968e452d
+2025-10-17 15:16:44.178 [vert.x-eventloop-thread-0] DEBUG [7a7ba876-a45f-4a5c-95f2-5797968e452d] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:16:44.178 [vert.x-eventloop-thread-0] WARN  [7a7ba876-a45f-4a5c-95f2-5797968e452d] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:16:44.178 [vert.x-eventloop-thread-0] WARN  [7a7ba876-a45f-4a5c-95f2-5797968e452d] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:16:44.179 [vert.x-eventloop-thread-0] WARN  [7a7ba876-a45f-4a5c-95f2-5797968e452d] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: 7a7ba876-a45f-4a5c-95f2-5797968e452d
+2025-10-17 15:16:45.218 [vert.x-eventloop-thread-0] INFO  [4942be4c-f150-40d4-bb87-3b5b8fc49c76] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:58878 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 4942be4c-f150-40d4-bb87-3b5b8fc49c76
+2025-10-17 15:16:45.219 [vert.x-eventloop-thread-0] DEBUG [4942be4c-f150-40d4-bb87-3b5b8fc49c76] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:16:45.219 [vert.x-eventloop-thread-0] WARN  [4942be4c-f150-40d4-bb87-3b5b8fc49c76] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:16:45.219 [vert.x-eventloop-thread-0] WARN  [4942be4c-f150-40d4-bb87-3b5b8fc49c76] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:16:45.219 [vert.x-eventloop-thread-0] WARN  [4942be4c-f150-40d4-bb87-3b5b8fc49c76] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: 4942be4c-f150-40d4-bb87-3b5b8fc49c76
+2025-10-17 15:36:39.279 [vert.x-eventloop-thread-0] INFO  [362e6a11-41d1-45ff-8a06-3c940ef27b34] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:51358 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 362e6a11-41d1-45ff-8a06-3c940ef27b34
+2025-10-17 15:36:39.280 [vert.x-eventloop-thread-0] DEBUG [362e6a11-41d1-45ff-8a06-3c940ef27b34] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:36:39.280 [vert.x-eventloop-thread-0] WARN  [362e6a11-41d1-45ff-8a06-3c940ef27b34] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:36:39.280 [vert.x-eventloop-thread-0] WARN  [362e6a11-41d1-45ff-8a06-3c940ef27b34] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:36:39.280 [vert.x-eventloop-thread-0] WARN  [362e6a11-41d1-45ff-8a06-3c940ef27b34] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: 362e6a11-41d1-45ff-8a06-3c940ef27b34
+2025-10-17 15:36:40.917 [vert.x-eventloop-thread-0] INFO  [e8108a35-9a05-41ec-b825-e0ac46d69aa4] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:51358 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: e8108a35-9a05-41ec-b825-e0ac46d69aa4
+2025-10-17 15:36:40.917 [vert.x-eventloop-thread-0] DEBUG [e8108a35-9a05-41ec-b825-e0ac46d69aa4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:36:40.917 [vert.x-eventloop-thread-0] WARN  [e8108a35-9a05-41ec-b825-e0ac46d69aa4] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:36:40.917 [vert.x-eventloop-thread-0] WARN  [e8108a35-9a05-41ec-b825-e0ac46d69aa4] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:36:40.917 [vert.x-eventloop-thread-0] WARN  [e8108a35-9a05-41ec-b825-e0ac46d69aa4] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 401 - Response time: 0ms - Correlation-ID: e8108a35-9a05-41ec-b825-e0ac46d69aa4
+2025-10-17 15:40:11.420 [vert.x-eventloop-thread-0] INFO  [ae82ad67-eff8-439f-8f5e-708f273f19ce] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:45284 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: ae82ad67-eff8-439f-8f5e-708f273f19ce
+2025-10-17 15:40:11.420 [vert.x-eventloop-thread-0] DEBUG [ae82ad67-eff8-439f-8f5e-708f273f19ce] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:40:11.714 [vert.x-eventloop-thread-0] DEBUG [ae82ad67-eff8-439f-8f5e-708f273f19ce] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:40:11.715 [vert.x-eventloop-thread-0] INFO  [ae82ad67-eff8-439f-8f5e-708f273f19ce] com.nms.services.AuthService - User admin authenticated successfully
+2025-10-17 15:40:11.715 [vert.x-eventloop-thread-0] INFO  [ae82ad67-eff8-439f-8f5e-708f273f19ce] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-10-17 15:40:11.715 [vert.x-eventloop-thread-0] INFO  [ae82ad67-eff8-439f-8f5e-708f273f19ce] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: ae82ad67-eff8-439f-8f5e-708f273f19ce
+2025-10-17 15:41:46.823 [vert.x-eventloop-thread-0] INFO  [8bc14cc0-908f-4853-be9e-f528ea91b1b7] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:49708 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: 8bc14cc0-908f-4853-be9e-f528ea91b1b7
+2025-10-17 15:41:46.824 [vert.x-eventloop-thread-0] DEBUG [8bc14cc0-908f-4853-be9e-f528ea91b1b7] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:41:46.830 [vert.x-eventloop-thread-0] DEBUG [8bc14cc0-908f-4853-be9e-f528ea91b1b7] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-17 15:41:46.854 [vert.x-eventloop-thread-0] INFO  [8bc14cc0-908f-4853-be9e-f528ea91b1b7] com.nms.services.DiscoveryService - Created discovery job: 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:41:46.855 [vert.x-eventloop-thread-0] INFO  [8bc14cc0-908f-4853-be9e-f528ea91b1b7] com.nms.handlers.DiscoveryHandler - Started discovery job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:41:46.855 [vert.x-eventloop-thread-0] INFO  [8bc14cc0-908f-4853-be9e-f528ea91b1b7] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 201 - Response time: 0ms - Correlation-ID: 8bc14cc0-908f-4853-be9e-f528ea91b1b7
+2025-10-17 15:41:46.866 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b status to running
+2025-10-17 15:41:46.882 [vert.x-worker-thread-0] INFO  [] com.nms.utils.NetworkUtils - Parsed CIDR 10.20.40.0/22 into 1022 IP addresses
+2025-10-17 15:41:46.911 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.224 is reachable
+2025-10-17 15:41:47.932 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.161 is reachable
+2025-10-17 15:41:47.980 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.33 is reachable
+2025-10-17 15:41:48.039 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.65 is reachable
+2025-10-17 15:41:48.965 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.66 is reachable
+2025-10-17 15:41:49.900 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.4 is reachable
+2025-10-17 15:41:49.947 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.228 is reachable
+2025-10-17 15:41:50.951 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.165 is reachable
+2025-10-17 15:41:51.015 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.37 is reachable
+2025-10-17 15:41:51.052 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.69 is reachable
+2025-10-17 15:41:52.926 [ForkJoinPool.commonPool-worker-6] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.102 is reachable
+2025-10-17 15:41:53.033 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.40 is reachable
+2025-10-17 15:41:53.042 [ForkJoinPool.commonPool-worker-6] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.103 is reachable
+2025-10-17 15:41:54.042 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.42 is reachable
+2025-10-17 15:41:54.065 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.43 is reachable
+2025-10-17 15:41:54.919 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.10 is reachable
+2025-10-17 15:41:54.923 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.11 is reachable
+2025-10-17 15:41:54.929 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.12 is reachable
+2025-10-17 15:41:54.933 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.13 is reachable
+2025-10-17 15:41:54.938 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.14 is reachable
+2025-10-17 15:41:54.943 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.15 is reachable
+2025-10-17 15:41:54.947 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.16 is reachable
+2025-10-17 15:41:54.952 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.17 is reachable
+2025-10-17 15:41:54.961 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.234 is reachable
+2025-10-17 15:41:55.107 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.45 is reachable
+2025-10-17 15:41:56.018 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.236 is reachable
+2025-10-17 15:41:56.076 [ForkJoinPool.commonPool-worker-6] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.107 is reachable
+2025-10-17 15:41:56.164 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.74 is reachable
+2025-10-17 15:41:57.040 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.238 is reachable
+2025-10-17 15:41:57.181 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.76 is reachable
+2025-10-17 15:41:57.962 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.21 is reachable
+2025-10-17 15:41:57.969 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.22 is reachable
+2025-10-17 15:41:57.973 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.23 is reachable
+2025-10-17 15:41:57.984 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.24 is reachable
+2025-10-17 15:41:57.990 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.25 is reachable
+2025-10-17 15:41:57.996 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.26 is reachable
+2025-10-17 15:41:58.003 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.27 is reachable
+2025-10-17 15:41:58.129 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.49 is reachable
+2025-10-17 15:41:59.056 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.241 is reachable
+2025-10-17 15:41:59.190 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.79 is reachable
+2025-10-17 15:41:59.288 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.51 is reachable
+2025-10-17 15:41:59.289 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.52 is reachable
+2025-10-17 15:42:00.074 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.79 is reachable
+2025-10-17 15:42:01.069 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.244 is reachable
+2025-10-17 15:42:02.303 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.56 is reachable
+2025-10-17 15:42:02.306 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.83 is reachable
+2025-10-17 15:42:02.315 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.84 is reachable
+2025-10-17 15:42:03.310 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.247 is reachable
+2025-10-17 15:42:03.327 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.58 is reachable
+2025-10-17 15:42:04.327 [ForkJoinPool.commonPool-worker-3] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.87 is reachable
+2025-10-17 15:42:05.346 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.61 is reachable
+2025-10-17 15:42:06.036 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.132 is reachable
+2025-10-17 15:42:06.070 [vert.x-eventloop-thread-0] INFO  [efcbde19-b390-401f-82c2-9c9e1480c2f4] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b from 0:0:0:0:0:0:0:1:49708 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: efcbde19-b390-401f-82c2-9c9e1480c2f4
+2025-10-17 15:42:06.070 [vert.x-eventloop-thread-0] DEBUG [efcbde19-b390-401f-82c2-9c9e1480c2f4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:42:06.071 [vert.x-eventloop-thread-0] WARN  [efcbde19-b390-401f-82c2-9c9e1480c2f4] com.nms.services.AuthService - Token validation failed: Invalid token
+2025-10-17 15:42:06.071 [vert.x-eventloop-thread-0] WARN  [efcbde19-b390-401f-82c2-9c9e1480c2f4] com.nms.middleware.AuthMiddleware - Authentication failed: Invalid token
+2025-10-17 15:42:06.071 [vert.x-eventloop-thread-0] WARN  [efcbde19-b390-401f-82c2-9c9e1480c2f4] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b - Status: 401 - Response time: 0ms - Correlation-ID: efcbde19-b390-401f-82c2-9c9e1480c2f4
+2025-10-17 15:42:06.102 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.86 is reachable
+2025-10-17 15:42:06.406 [ForkJoinPool.commonPool-worker-4] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.63 is reachable
+2025-10-17 15:42:07.097 [ForkJoinPool.commonPool-worker-6] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.119 is reachable
+2025-10-17 15:42:08.096 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.183 is reachable
+2025-10-17 15:42:08.110 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.184 is reachable
+2025-10-17 15:42:08.150 [ForkJoinPool.commonPool-worker-6] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.121 is reachable
+2025-10-17 15:42:08.390 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.253 is reachable
+2025-10-17 15:42:13.413 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.195 is reachable
+2025-10-17 15:42:15.057 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.142 is reachable
+2025-10-17 15:42:15.103 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.143 is reachable
+2025-10-17 15:42:16.224 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.193 is reachable
+2025-10-17 15:42:17.121 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.98 is reachable
+2025-10-17 15:42:19.208 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.101 is reachable
+2025-10-17 15:42:21.502 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.204 is reachable
+2025-10-17 15:42:22.385 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.105 is reachable
+2025-10-17 15:42:22.582 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.106 is reachable
+2025-10-17 15:42:25.388 [vert.x-eventloop-thread-0] INFO  [e650fe04-5306-40c7-8a96-002b2c5327be] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b from 0:0:0:0:0:0:0:1:49708 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: e650fe04-5306-40c7-8a96-002b2c5327be
+2025-10-17 15:42:25.388 [vert.x-eventloop-thread-0] DEBUG [e650fe04-5306-40c7-8a96-002b2c5327be] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:42:25.394 [vert.x-eventloop-thread-0] DEBUG [e650fe04-5306-40c7-8a96-002b2c5327be] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-17 15:42:25.401 [vert.x-eventloop-thread-0] DEBUG [e650fe04-5306-40c7-8a96-002b2c5327be] com.nms.services.DiscoveryService - Found discovery job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:42:25.401 [vert.x-eventloop-thread-0] DEBUG [e650fe04-5306-40c7-8a96-002b2c5327be] com.nms.handlers.DiscoveryHandler - Retrieved discovery job status for job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:42:25.401 [vert.x-eventloop-thread-0] INFO  [e650fe04-5306-40c7-8a96-002b2c5327be] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b - Status: 200 - Response time: 0ms - Correlation-ID: e650fe04-5306-40c7-8a96-002b2c5327be
+2025-10-17 15:42:27.647 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.211 is reachable
+2025-10-17 15:42:28.715 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.113 is reachable
+2025-10-17 15:42:30.762 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.116 is reachable
+2025-10-17 15:42:31.935 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.118 is reachable
+2025-10-17 15:42:31.984 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.119 is reachable
+2025-10-17 15:42:34.150 [ForkJoinPool.commonPool-worker-5] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.163 is reachable
+2025-10-17 15:42:35.062 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.123 is reachable
+2025-10-17 15:42:35.669 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.220 is reachable
+2025-10-17 15:42:37.782 [ForkJoinPool.commonPool-worker-7] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.223 is reachable
+2025-10-17 15:42:40.082 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.33 is reachable
+2025-10-17 15:42:40.089 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.34 is reachable
+2025-10-17 15:42:43.211 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.38 is reachable
+2025-10-17 15:42:44.700 [vert.x-eventloop-thread-0] INFO  [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b from 0:0:0:0:0:0:0:1:49708 - User-Agent: PostmanRuntime/7.48.0 - Correlation-ID: c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d
+2025-10-17 15:42:44.700 [vert.x-eventloop-thread-0] DEBUG [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-17 15:42:44.707 [vert.x-eventloop-thread-0] DEBUG [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-10-17 15:42:44.712 [vert.x-eventloop-thread-0] DEBUG [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] com.nms.services.DiscoveryService - Found discovery job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:42:44.712 [vert.x-eventloop-thread-0] DEBUG [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] com.nms.handlers.DiscoveryHandler - Retrieved discovery job status for job 444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-10-17 15:42:44.713 [vert.x-eventloop-thread-0] INFO  [c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/444d1cef-bc0c-42b5-a5b3-6b77d8b7e98b - Status: 200 - Response time: 0ms - Correlation-ID: c6b47c46-6bc4-46cd-b83a-6e5c7df96b6d
+2025-10-17 15:42:47.224 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.43 is reachable
+2025-10-17 15:42:47.814 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 60931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-17 15:42:48.233 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.45 is reachable
+2025-10-17 15:42:48.813 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 61931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-17 15:42:49.403 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.3 is reachable
+2025-10-17 15:42:49.813 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 62931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-17 15:42:50.314 [ForkJoinPool.commonPool-worker-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.48 is reachable
+2025-10-17 15:42:50.813 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 63931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-17 15:42:51.490 [ForkJoinPool.commonPool-worker-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.6 is reachable
+2025-10-17 15:42:51.813 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 64931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-10-17 15:42:52.814 [vertx-blocked-thread-checker] WARN  [] i.v.core.impl.BlockedThreadChecker - Thread Thread[#41,vert.x-worker-thread-0,5,main] has been blocked for 65931 ms, time limit is 60000 ms
+io.vertx.core.VertxException: Thread blocked
+	at java.base/java.net.Inet6AddressImpl.isReachable0(Native Method)
+	at java.base/java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:98)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:725)
+	at java.base/java.net.InetAddress.isReachable(InetAddress.java:684)
+	at com.nms.utils.NetworkUtils.lambda$pingSweep$0(NetworkUtils.java:122)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:291)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:754)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.helpComplete(ForkJoinPool.java:1395)
+	at java.base/java.util.concurrent.ForkJoinPool.helpComplete(ForkJoinPool.java:2104)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:420)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:668)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:160)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:765)
+	at com.nms.utils.NetworkUtils.pingSweep(NetworkUtils.java:119)
+	at com.nms.utils.NetworkUtils.pingSweepCidr(NetworkUtils.java:143)
+	at com.nms.services.DiscoveryService.lambda$startBackgroundDiscovery$15(DiscoveryService.java:295)
+	at io.vertx.core.impl.ContextBase.lambda$executeBlocking$0(ContextBase.java:167)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:277)
+	at io.vertx.core.impl.ContextBase.lambda$internalExecuteBlocking$2(ContextBase.java:199)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
