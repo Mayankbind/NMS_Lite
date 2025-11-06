@@ -2,5 +2,6 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/3f044aca-e737-4ee3-a71b-edef784ca056/console.sql" value="3f044aca-e737-4ee3-a71b-edef784ca056" />
+    <file url="das://3f044aca-e737-4ee3-a71b-edef784ca056/database/nms_lite/schema/public/table/devices.sql" value="3f044aca-e737-4ee3-a71b-edef784ca056" />
   </component>
 </project>

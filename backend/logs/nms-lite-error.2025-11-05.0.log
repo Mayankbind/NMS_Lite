@@ -1,0 +1,4 @@
+2025-11-05 18:23:00.573 [vert.x-eventloop-thread-0] ERROR [] com.nms.services.DiscoveryService - Error storing discovered device helpin-lakkad-ThinkPad-T14s-Gen-1: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502) | ip_address='10.20.41.6' os_info_len=908
+io.vertx.pgclient.PgException: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)
+2025-11-05 18:37:39.907 [vert.x-eventloop-thread-0] ERROR [] com.nms.services.DiscoveryService - Error storing discovered device helpin-lakkad-ThinkPad-T14s-Gen-1: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502) | ip_address='10.20.41.6' os_info_len=908
+io.vertx.pgclient.PgException: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)

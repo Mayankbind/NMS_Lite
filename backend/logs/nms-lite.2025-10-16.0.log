@@ -1,0 +1,22 @@
+2025-10-16 17:29:49.369 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-16 17:29:49.527 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-16 17:29:49.685 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-16 17:29:49.907 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-16 17:29:49.959 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-16 17:29:49.960 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-16 17:29:49.960 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: ea4a23b6-c960-40a0-b985-4db0e76497ab
+2025-10-16 17:30:04.702 [vert.x-eventloop-thread-0] INFO  [c365cffa-e01e-42b7-9bac-a1aeaefdc694] c.nms.middleware.LoggingMiddleware - GET /health from 0:0:0:0:0:0:0:1:43652 - User-Agent: curl/8.5.0 - Correlation-ID: c365cffa-e01e-42b7-9bac-a1aeaefdc694
+2025-10-16 17:30:04.704 [vert.x-eventloop-thread-0] DEBUG [c365cffa-e01e-42b7-9bac-a1aeaefdc694] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-16 17:30:04.732 [vert.x-eventloop-thread-0] DEBUG [c365cffa-e01e-42b7-9bac-a1aeaefdc694] com.nms.services.DatabaseService - Database connection test successful
+2025-10-16 17:30:04.737 [vert.x-eventloop-thread-0] INFO  [c365cffa-e01e-42b7-9bac-a1aeaefdc694] c.nms.middleware.LoggingMiddleware - GET /health - Status: 200 - Response time: 0ms - Correlation-ID: c365cffa-e01e-42b7-9bac-a1aeaefdc694
+2025-10-16 17:57:57.889 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-10-16 17:57:58.124 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-10-16 17:57:58.349 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-10-16 17:57:58.639 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-10-16 17:57:58.698 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-10-16 17:57:58.699 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-10-16 17:57:58.702 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: ff4e083a-bced-45d6-94e0-5097a50552d5
+2025-10-16 17:58:09.664 [vert.x-eventloop-thread-0] INFO  [3f68c898-dd16-4cc3-8f42-b214341fb890] c.nms.middleware.LoggingMiddleware - GET /health from 0:0:0:0:0:0:0:1:48244 - User-Agent: curl/8.5.0 - Correlation-ID: 3f68c898-dd16-4cc3-8f42-b214341fb890
+2025-10-16 17:58:09.665 [vert.x-eventloop-thread-0] DEBUG [3f68c898-dd16-4cc3-8f42-b214341fb890] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-10-16 17:58:09.690 [vert.x-eventloop-thread-0] DEBUG [3f68c898-dd16-4cc3-8f42-b214341fb890] com.nms.services.DatabaseService - Database connection test successful
+2025-10-16 17:58:09.695 [vert.x-eventloop-thread-0] INFO  [3f68c898-dd16-4cc3-8f42-b214341fb890] c.nms.middleware.LoggingMiddleware - GET /health - Status: 200 - Response time: 0ms - Correlation-ID: 3f68c898-dd16-4cc3-8f42-b214341fb890

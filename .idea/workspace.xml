@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74c8d62d-b1a0-41b2-8e07-13019c265446" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f044aca-e737-4ee3-a71b-edef784ca056.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3f044aca-e737-4ee3-a71b-edef784ca056.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f044aca-e737-4ee3-a71b-edef784ca056/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3f044aca-e737-4ee3-a71b-edef784ca056/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/nms-lite-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/nms-lite.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DiscoveryHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DiscoveryHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/nms-lite-backend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/nms-lite-backend-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/original-nms-lite-backend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/original-nms-lite-backend-1.0.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite-error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite.log" afterDir="false" />
     </list>
@@ -51,7 +57,20 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nms.Main" />
+      <module name="nms-lite-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test-ratelimit.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />

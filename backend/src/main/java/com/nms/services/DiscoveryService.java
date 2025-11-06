@@ -480,12 +480,35 @@ public class DiscoveryService {
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             """;
         
+        // Defensive normalization and debug logging
+        String hostname = device.getHostname();
+        String ipAddress = device.getIpAddress() != null ? device.getIpAddress().trim() : null;
+        String deviceType = device.getDeviceType();
+        JsonObject osInfo = device.getOsInfo() != null ? device.getOsInfo() : new JsonObject();
+        System.out.println("OS info json:::"+osInfo.encodePrettily());
+
+        if (ipAddress == null || ipAddress.isEmpty()) {
+            logger.error("Attempting to store device with null/empty ip_address. Hostname: {}", hostname);
+            promise.fail("ip_address is null/empty");
+            return promise.future();
+        } else {
+            logger.debug("Storing discovered device. hostname={}, ip_address={}, type={}", hostname, ipAddress, deviceType);
+        }
+        // Validate IP format early to avoid NULL from failed casts
+        try {
+            java.net.InetAddress.getByName(ipAddress);
+        } catch (java.net.UnknownHostException ex) {
+            logger.error("Invalid IP address '{}' for hostname {}", ipAddress, hostname, ex);
+            promise.fail("Invalid IP address: " + ipAddress);
+            return promise.future();
+        }
+
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(
-                device.getHostname(),
-                device.getIpAddress(),
-                device.getDeviceType(),
-                device.getOsInfo(),
+                hostname,
+                ipAddress,
+                deviceType,
+                osInfo,
                 device.getCredentialProfileId(),
                 device.getStatus().getValue(),
                 device.getLastSeen(),
@@ -497,7 +520,14 @@ public class DiscoveryService {
                 promise.complete();
             })
             .onFailure(throwable -> {
-                logger.error("Error storing discovered device {}: {}", device.getHostname(), throwable.getMessage(), throwable);
+                logger.error(
+                    "Error storing discovered device {}: {} | ip_address='{}' os_info_len={}",
+                    device.getHostname(),
+                    throwable.getMessage(),
+                    ipAddress,
+                    osInfo != null ? osInfo.encode().length() : -1,
+                    throwable
+                );
                 promise.fail(throwable);
             });
         

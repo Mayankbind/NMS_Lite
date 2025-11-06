@@ -1,0 +1,63 @@
+2025-11-05 18:14:23.702 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-05 18:14:23.836 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-11-05 18:14:23.974 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-05 18:14:24.161 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-11-05 18:14:24.206 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-11-05 18:14:24.207 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-11-05 18:14:24.208 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 653d3b06-2e92-4740-bfaf-c291052d38b0
+2025-11-05 18:22:51.144 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-05 18:22:51.267 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-11-05 18:22:51.404 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-05 18:22:51.577 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-11-05 18:22:51.621 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-11-05 18:22:51.622 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-11-05 18:22:51.622 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 530f2ac9-fb8e-4097-8260-95c2fd3d0466
+2025-11-05 18:22:59.591 [vert.x-eventloop-thread-0] INFO  [3a246e83-015b-42ec-a9ad-162a84f81036] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:47056 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: 3a246e83-015b-42ec-a9ad-162a84f81036
+2025-11-05 18:22:59.592 [vert.x-eventloop-thread-0] DEBUG [3a246e83-015b-42ec-a9ad-162a84f81036] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-05 18:22:59.621 [vert.x-eventloop-thread-0] DEBUG [3a246e83-015b-42ec-a9ad-162a84f81036] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-05 18:22:59.664 [vert.x-eventloop-thread-0] INFO  [3a246e83-015b-42ec-a9ad-162a84f81036] com.nms.services.DiscoveryService - Created discovery job: a114dcee-0980-4848-b542-c1d735bec453 for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-05 18:22:59.666 [vert.x-eventloop-thread-0] INFO  [3a246e83-015b-42ec-a9ad-162a84f81036] com.nms.handlers.DiscoveryHandler - Started discovery job a114dcee-0980-4848-b542-c1d735bec453 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-05 18:22:59.671 [vert.x-eventloop-thread-0] INFO  [3a246e83-015b-42ec-a9ad-162a84f81036] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 201 - Response time: 0ms - Correlation-ID: 3a246e83-015b-42ec-a9ad-162a84f81036
+2025-11-05 18:22:59.686 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job a114dcee-0980-4848-b542-c1d735bec453 status to running
+2025-11-05 18:22:59.711 [vert.x-worker-thread-0] INFO  [] com.nms.utils.NetworkUtils - Parsed CIDR 10.20.41.6/32 into 1 IP addresses
+2025-11-05 18:22:59.832 [vert.x-worker-thread-0] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.6 is reachable
+2025-11-05 18:22:59.833 [vert.x-worker-thread-0] INFO  [] com.nms.utils.NetworkUtils - Ping sweep completed: 1/1 IPs reachable
+2025-11-05 18:22:59.833 [vert.x-worker-thread-0] INFO  [] com.nms.services.DiscoveryService - Discovery job a114dcee-0980-4848-b542-c1d735bec453 found 1 reachable IPs
+2025-11-05 18:23:00.092 [vert.x-worker-thread-1] DEBUG [] com.nms.utils.SshUtils - SSH connection successful to 10.20.41.6:22
+2025-11-05 18:23:00.552 [vert.x-worker-thread-1] INFO  [] com.nms.utils.SshUtils - Gathered device info for 10.20.41.6: helpin-lakkad-ThinkPad-T14s-Gen-1
+2025-11-05 18:23:00.553 [vert.x-worker-thread-1] INFO  [] com.nms.services.DiscoveryService - Discovered device: helpin-lakkad-ThinkPad-T14s-Gen-1 (10.20.41.6)
+2025-11-05 18:23:00.554 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Storing discovered device. hostname=helpin-lakkad-ThinkPad-T14s-Gen-1, ip_address=10.20.41.6, type=linux
+2025-11-05 18:23:00.573 [vert.x-eventloop-thread-0] ERROR [] com.nms.services.DiscoveryService - Error storing discovered device helpin-lakkad-ThinkPad-T14s-Gen-1: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502) | ip_address='10.20.41.6' os_info_len=908
+io.vertx.pgclient.PgException: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)
+2025-11-05 18:23:00.578 [vert.x-eventloop-thread-0] WARN  [] com.nms.services.DiscoveryService - Error processing IP 10.20.41.6: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)
+2025-11-05 18:23:00.601 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job a114dcee-0980-4848-b542-c1d735bec453 results
+2025-11-05 18:23:00.619 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job a114dcee-0980-4848-b542-c1d735bec453 status to completed
+2025-11-05 18:23:00.619 [vert.x-eventloop-thread-0] INFO  [] com.nms.services.DiscoveryService - Discovery job a114dcee-0980-4848-b542-c1d735bec453 completed: 0 devices discovered
+2025-11-05 18:37:29.060 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-05 18:37:29.188 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-11-05 18:37:29.342 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-05 18:37:29.572 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-11-05 18:37:29.621 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-11-05 18:37:29.622 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-11-05 18:37:29.623 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: 7dbba208-9da5-4cae-a0f9-e13559b1d98e
+2025-11-05 18:37:38.870 [vert.x-eventloop-thread-0] INFO  [d58a2219-b71a-48aa-b74d-a1bfef30dae3] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:52046 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: d58a2219-b71a-48aa-b74d-a1bfef30dae3
+2025-11-05 18:37:38.871 [vert.x-eventloop-thread-0] DEBUG [d58a2219-b71a-48aa-b74d-a1bfef30dae3] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-05 18:37:38.899 [vert.x-eventloop-thread-0] DEBUG [d58a2219-b71a-48aa-b74d-a1bfef30dae3] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-05 18:37:38.930 [vert.x-eventloop-thread-0] INFO  [d58a2219-b71a-48aa-b74d-a1bfef30dae3] com.nms.services.DiscoveryService - Created discovery job: e89e4d83-cff8-48e7-a983-5db70c172426 for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-05 18:37:38.932 [vert.x-eventloop-thread-0] INFO  [d58a2219-b71a-48aa-b74d-a1bfef30dae3] com.nms.handlers.DiscoveryHandler - Started discovery job e89e4d83-cff8-48e7-a983-5db70c172426 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-05 18:37:38.935 [vert.x-eventloop-thread-0] INFO  [d58a2219-b71a-48aa-b74d-a1bfef30dae3] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 201 - Response time: 0ms - Correlation-ID: d58a2219-b71a-48aa-b74d-a1bfef30dae3
+2025-11-05 18:37:38.950 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job e89e4d83-cff8-48e7-a983-5db70c172426 status to running
+2025-11-05 18:37:38.970 [vert.x-worker-thread-0] INFO  [] com.nms.utils.NetworkUtils - Parsed CIDR 10.20.41.6/32 into 1 IP addresses
+2025-11-05 18:37:39.092 [vert.x-worker-thread-0] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.41.6 is reachable
+2025-11-05 18:37:39.092 [vert.x-worker-thread-0] INFO  [] com.nms.utils.NetworkUtils - Ping sweep completed: 1/1 IPs reachable
+2025-11-05 18:37:39.092 [vert.x-worker-thread-0] INFO  [] com.nms.services.DiscoveryService - Discovery job e89e4d83-cff8-48e7-a983-5db70c172426 found 1 reachable IPs
+2025-11-05 18:37:39.373 [vert.x-worker-thread-1] DEBUG [] com.nms.utils.SshUtils - SSH connection successful to 10.20.41.6:22
+2025-11-05 18:37:39.846 [vert.x-worker-thread-1] INFO  [] com.nms.utils.SshUtils - Gathered device info for 10.20.41.6: helpin-lakkad-ThinkPad-T14s-Gen-1
+2025-11-05 18:37:39.848 [vert.x-worker-thread-1] INFO  [] com.nms.services.DiscoveryService - Discovered device: helpin-lakkad-ThinkPad-T14s-Gen-1 (10.20.41.6)
+2025-11-05 18:37:39.858 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Storing discovered device. hostname=helpin-lakkad-ThinkPad-T14s-Gen-1, ip_address=10.20.41.6, type=linux
+2025-11-05 18:37:39.907 [vert.x-eventloop-thread-0] ERROR [] com.nms.services.DiscoveryService - Error storing discovered device helpin-lakkad-ThinkPad-T14s-Gen-1: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502) | ip_address='10.20.41.6' os_info_len=908
+io.vertx.pgclient.PgException: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)
+2025-11-05 18:37:39.912 [vert.x-eventloop-thread-0] WARN  [] com.nms.services.DiscoveryService - Error processing IP 10.20.41.6: ERROR: null value in column "ip_address" of relation "devices" violates not-null constraint (23502)
+2025-11-05 18:37:39.955 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job e89e4d83-cff8-48e7-a983-5db70c172426 results
+2025-11-05 18:37:39.980 [vert.x-eventloop-thread-0] DEBUG [] com.nms.services.DiscoveryService - Updated job e89e4d83-cff8-48e7-a983-5db70c172426 status to completed
+2025-11-05 18:37:39.981 [vert.x-eventloop-thread-0] INFO  [] com.nms.services.DiscoveryService - Discovery job e89e4d83-cff8-48e7-a983-5db70c172426 completed: 0 devices discovered
