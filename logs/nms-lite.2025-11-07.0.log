@@ -1,0 +1,7 @@
+2025-11-07 11:49:53.452 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-07 11:49:53.807 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Starting NMS Lite Backend Service...
+2025-11-07 11:49:54.159 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-07 11:49:54.561 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Database connection established successfully
+2025-11-07 11:49:54.630 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HTTP server started on 0.0.0.0:8080
+2025-11-07 11:49:54.631 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Service started successfully on port: 8080
+2025-11-07 11:49:54.631 [vert.x-eventloop-thread-2] INFO  [] com.nms.Main - Main verticle deployed successfully with ID: bfb5bb23-d478-44b6-b8a0-847761670e77

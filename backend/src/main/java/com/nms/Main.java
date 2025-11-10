@@ -1,6 +1,5 @@
 package com.nms;
 
-import io.vertx.core.http.HttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,14 +19,18 @@ import com.nms.services.AuthService;
 import com.nms.services.CredentialService;
 import com.nms.services.DatabaseService;
 import com.nms.services.DeviceService;
-import com.nms.services.DiscoveryService;
+import com.nms.services.DiscoveryServiceProxy;
+import com.nms.services.IDiscoveryService;
 import com.nms.utils.EncryptionUtils;
+import com.nms.verticles.DiscoveryWorkerVerticle;
 
 import io.vertx.config.ConfigRetriever;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
+import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
@@ -78,25 +81,31 @@ public class Main extends AbstractVerticle {
                 return initializeDatabase(appConfig);
             })
             .compose((PgPool pgPool) -> {
-                // Initialize services
-                var databaseService = new DatabaseService(pgPool);
-                var authService = new AuthService(databaseService, config());
-                
-                // Initialize encryption utility
-                String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
-                EncryptionUtils encryptionUtils = new EncryptionUtils(encryptionKey);
-                
-                // Initialize credential service
-                CredentialService credentialService = new CredentialService(pgPool, encryptionUtils);
-                
-                // Initialize discovery service
-                DiscoveryService discoveryService = new DiscoveryService(pgPool, vertx, encryptionUtils);
-                
-                // Initialize device service
-                DeviceService deviceService = new DeviceService(pgPool);
-                
-                // Setup HTTP server
-                return setupHttpServer(authService, databaseService, credentialService, discoveryService, deviceService);
+                // Deploy Discovery Worker Verticle first
+                return deployDiscoveryWorkerVerticle()
+                    .compose(deploymentId -> {
+                        logger.info("Discovery Worker Verticle deployed with ID: {}", deploymentId);
+                        
+                        // Initialize services
+                        var databaseService = new DatabaseService(pgPool);
+                        var authService = new AuthService(databaseService, config());
+                        
+                        // Initialize encryption utility
+                        String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
+                        EncryptionUtils encryptionUtils = new EncryptionUtils(encryptionKey);
+                        
+                        // Initialize credential service
+                        CredentialService credentialService = new CredentialService(pgPool, encryptionUtils);
+                        
+                        // Initialize discovery service proxy (communicates with worker via Event Bus)
+                        IDiscoveryService discoveryService = new DiscoveryServiceProxy(vertx);
+                        
+                        // Initialize device service
+                        DeviceService deviceService = new DeviceService(pgPool);
+                        
+                        // Setup HTTP server
+                        return setupHttpServer(authService, databaseService, credentialService, discoveryService, deviceService);
+                    });
             })
             .onSuccess(server -> {
                 logger.info("NMS Lite Backend Service started successfully on port: {}", 
@@ -128,7 +137,29 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Future<HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
+    /**
+     * Deploy Discovery Worker Verticle
+     * This verticle runs in a worker thread pool to handle blocking discovery operations
+     * The worker verticle creates its own database connection pool for isolation
+     */
+    private Future<String> deployDiscoveryWorkerVerticle() {
+        // Configure worker verticle deployment options
+        DeploymentOptions options = new DeploymentOptions();
+        options.setWorker(true); // Run in worker thread pool
+        options.setInstances(config().getInteger("discovery.worker.instances", 2)); // Number of worker instances
+        options.setWorkerPoolName("discovery-worker-pool");
+        options.setWorkerPoolSize(config().getInteger("discovery.worker.poolSize", 4)); // Worker pool size
+        
+        // Share configuration with worker verticle
+        options.setConfig(config());
+        
+        logger.info("Deploying Discovery Worker Verticle with {} instances and pool size {}", 
+            options.getInstances(), options.getWorkerPoolSize());
+        
+        return vertx.deployVerticle(DiscoveryWorkerVerticle.class.getName(), options);
+    }
+    
+    private Future<HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, IDiscoveryService discoveryService, DeviceService deviceService) {
         try {
             var router = createRouter(authService, databaseService, credentialService, discoveryService, deviceService);
             
@@ -149,7 +180,7 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
+    private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, IDiscoveryService discoveryService, DeviceService deviceService) {
         Router router = Router.router(vertx);
         
         // Global middleware

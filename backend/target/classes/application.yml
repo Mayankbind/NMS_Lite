@@ -69,3 +69,12 @@ monitoring:
   readinessPath: "/ready"
   livenessPath: "/live"
 
+discovery:
+  worker:
+    # Number of worker verticle instances (default: 2)
+    # Each instance can handle discovery jobs in parallel
+    instances: 2
+    # Worker thread pool size (default: 4)
+    # Total worker threads = instances * poolSize
+    poolSize: 4
+

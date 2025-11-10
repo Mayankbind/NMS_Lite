@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.nms.models.Device;
 import com.nms.models.DiscoveryJob;
 import com.nms.models.DiscoveryJobDTO;
-import com.nms.services.DiscoveryService;
+import com.nms.services.IDiscoveryService;
 
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
@@ -23,9 +23,9 @@ public class DiscoveryHandler {
     
     private static final Logger logger = LoggerFactory.getLogger(DiscoveryHandler.class);
     
-    private final DiscoveryService discoveryService;
+    private final IDiscoveryService discoveryService;
     
-    public DiscoveryHandler(DiscoveryService discoveryService) {
+    public DiscoveryHandler(IDiscoveryService discoveryService) {
         this.discoveryService = discoveryService;
     }
     

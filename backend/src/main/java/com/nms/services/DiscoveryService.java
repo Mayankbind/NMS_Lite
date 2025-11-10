@@ -30,7 +30,7 @@ import io.vertx.sqlclient.Tuple;
  * Service for managing device discovery operations
  * Handles discovery job creation, execution, and result management
  */
-public class DiscoveryService {
+public class DiscoveryService implements IDiscoveryService {
     
     private static final Logger logger = LoggerFactory.getLogger(DiscoveryService.class);
     
@@ -55,6 +55,7 @@ public class DiscoveryService {
      * @param userId the user ID creating the job
      * @return Future containing the job ID
      */
+    @Override
     public Future<UUID> startDiscovery(DiscoveryJobDTO request, UUID userId) {
         Promise<UUID> promise = Promise.promise();
         
@@ -116,6 +117,7 @@ public class DiscoveryService {
      * @param userId the user ID
      * @return Future containing the discovery job
      */
+    @Override
     public Future<DiscoveryJob> getDiscoveryStatus(UUID jobId, UUID userId) {
         Promise<DiscoveryJob> promise = Promise.promise();
         
@@ -153,6 +155,7 @@ public class DiscoveryService {
      * @param userId the user ID
      * @return Future containing list of discovered devices
      */
+    @Override
     public Future<List<Device>> getDiscoveryResults(UUID jobId, UUID userId) {
         Promise<List<Device>> promise = Promise.promise();
         
@@ -192,6 +195,7 @@ public class DiscoveryService {
      * @param userId the user ID
      * @return Future indicating success
      */
+    @Override
     public Future<Void> cancelDiscovery(UUID jobId, UUID userId) {
         Promise<Void> promise = Promise.promise();
         
