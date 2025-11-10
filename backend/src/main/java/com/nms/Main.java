@@ -1,5 +1,6 @@
 package com.nms;
 
+import io.vertx.core.http.HttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,14 +73,14 @@ public class Main extends AbstractVerticle {
                 
                 // Initialize application configuration
                 ApplicationConfig appConfig = new ApplicationConfig(config);
-                
+
                 // Initialize database
                 return initializeDatabase(appConfig);
             })
             .compose((PgPool pgPool) -> {
                 // Initialize services
-                DatabaseService databaseService = new DatabaseService(pgPool);
-                AuthService authService = new AuthService(databaseService, config());
+                var databaseService = new DatabaseService(pgPool);
+                var authService = new AuthService(databaseService, config());
                 
                 // Initialize encryption utility
                 String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
@@ -127,9 +128,9 @@ public class Main extends AbstractVerticle {
         }
     }
     
-    private Future<io.vertx.core.http.HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
+    private Future<HttpServer> setupHttpServer(AuthService authService, DatabaseService databaseService, CredentialService credentialService, DiscoveryService discoveryService, DeviceService deviceService) {
         try {
-            Router router = createRouter(authService, databaseService, credentialService, discoveryService, deviceService);
+            var router = createRouter(authService, databaseService, credentialService, discoveryService, deviceService);
             
             // Create HTTP server
             return vertx.createHttpServer()
@@ -249,7 +250,7 @@ public class Main extends AbstractVerticle {
                     .put("timestamp", System.currentTimeMillis())
                     .encode());
         });
-        
+
         return router;
     }
 }
