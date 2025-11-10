@@ -6,34 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="74c8d62d-b1a0-41b2-8e07-13019c265446" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/config/DatabaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/AuthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/AuthHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/CredentialHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/CredentialHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/DeviceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/DeviceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/DiscoveryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/DiscoveryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/HealthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/handlers/HealthHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/AuthMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/AuthMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/CorsMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/CorsMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/LoggingMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/LoggingMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/RateLimitMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/middleware/RateLimitMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/models/DeviceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/models/DeviceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/models/DiscoveryJobStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/models/DiscoveryJobStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/CredentialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/CredentialService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DatabaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DeviceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/EncryptionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/EncryptionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/NetworkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/PasswordUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/SshUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/SshUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/verticles/DiscoveryWorkerVerticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/verticles/DiscoveryWorkerVerticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/Device.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
