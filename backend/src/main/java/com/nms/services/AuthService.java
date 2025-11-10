@@ -63,7 +63,7 @@ public class AuthService {
                 }
                 
                 // Verify password
-                String storedPasswordHash = user.getString("passwordHash");
+                var storedPasswordHash = user.getString("passwordHash");
                 if (!PasswordUtils.verifyPassword(password, storedPasswordHash)) {
                     recordFailedLoginAttempt(username);
                     return Future.failedFuture("Invalid username or password");
@@ -78,15 +78,15 @@ public class AuthService {
             })
             .onSuccess(user -> {
                 // Create tokens
-                String accessToken = jwtUtils.createAccessToken(
+                var accessToken = jwtUtils.createAccessToken(
                     user.getString("id"),
                     user.getString("username"),
                     user.getString("role")
                 );
-                
-                String refreshToken = jwtUtils.createRefreshToken(user.getString("id"));
-                
-                JsonObject authResult = new JsonObject()
+
+                var refreshToken = jwtUtils.createRefreshToken(user.getString("id"));
+
+                var authResult = new JsonObject()
                     .put("accessToken", accessToken)
                     .put("refreshToken", refreshToken)
                     .put("tokenType", "Bearer")
@@ -125,7 +125,7 @@ public class AuthService {
             }
             
             // Get user information
-            String userId = decodedJWT.getSubject();
+            var userId = decodedJWT.getSubject();
             
             // Find user in database
             databaseService.findUserById(userId)
@@ -136,13 +136,13 @@ public class AuthService {
                     }
                     
                     // Create new access token
-                    String newAccessToken = jwtUtils.createAccessToken(
+                    var newAccessToken = jwtUtils.createAccessToken(
                         user.getString("id"),
                         user.getString("username"),
                         user.getString("role")
                     );
-                    
-                    JsonObject tokenResult = new JsonObject()
+
+                    var tokenResult = new JsonObject()
                         .put("accessToken", newAccessToken)
                         .put("tokenType", "Bearer")
                         .put("expiresIn", appConfig.getJwtExpiration());
@@ -179,7 +179,7 @@ public class AuthService {
             }
             
             // Extract user information
-            JsonObject userInfo = jwtUtils.extractUserInfo(decodedJWT);
+            var userInfo = jwtUtils.extractUserInfo(decodedJWT);
             
             // Verify user still exists in database
             databaseService.findUserById(userInfo.getString("userId"))
@@ -216,7 +216,7 @@ public class AuthService {
         Promise<JsonObject> promise = Promise.promise();
         
         // Validate password
-        PasswordUtils.PasswordValidationResult validation = PasswordUtils.validatePassword(
+        var validation = PasswordUtils.validatePassword(
             password,
             appConfig.getPasswordMinLength(),
             appConfig.isPasswordRequireUppercase(),
@@ -246,7 +246,7 @@ public class AuthService {
                 }
                 
                 // Hash password and create user
-                String passwordHash = PasswordUtils.hashPassword(password);
+                var passwordHash = PasswordUtils.hashPassword(password);
                 return databaseService.createUser(username, email, passwordHash, role);
             })
             .onSuccess(user -> {
@@ -265,7 +265,7 @@ public class AuthService {
      * Check if user is locked out
      */
     private boolean isUserLockedOut(String username) {
-        Long lockoutTime = lockoutTimes.get(username);
+        var lockoutTime = lockoutTimes.get(username);
         if (lockoutTime != null && System.currentTimeMillis() < lockoutTime) {
             return true;
         }
@@ -283,12 +283,12 @@ public class AuthService {
      * Record failed login attempt
      */
     private void recordFailedLoginAttempt(String username) {
-        AtomicInteger attempts = loginAttempts.computeIfAbsent(username, k -> new AtomicInteger(0));
-        int currentAttempts = attempts.incrementAndGet();
+        var attempts = loginAttempts.computeIfAbsent(username, k -> new AtomicInteger(0));
+        var currentAttempts = attempts.incrementAndGet();
         
         if (currentAttempts >= appConfig.getMaxLoginAttempts()) {
-            long lockoutDuration = appConfig.getLockoutDuration() * 1000L; // Convert to milliseconds
-            long lockoutTime = System.currentTimeMillis() + lockoutDuration;
+            var lockoutDuration = appConfig.getLockoutDuration() * 1000L; // Convert to milliseconds
+            var lockoutTime = System.currentTimeMillis() + lockoutDuration;
             lockoutTimes.put(username, lockoutTime);
             
             logger.warn("User {} locked out for {} seconds due to {} failed login attempts", 

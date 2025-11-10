@@ -43,7 +43,7 @@ public class HealthHandler {
     
     private void handleHealth(RoutingContext ctx) {
         try {
-            JsonObject healthStatus = new JsonObject()
+            var healthStatus = new JsonObject()
                 .put("status", "UP")
                 .put("timestamp", System.currentTimeMillis())
                 .put("uptime", getUptime())
@@ -89,7 +89,7 @@ public class HealthHandler {
             databaseService.testConnection()
                 .onSuccess(connected -> {
                     if (connected) {
-                        JsonObject readinessStatus = new JsonObject()
+                        var readinessStatus = new JsonObject()
                             .put("status", "READY")
                             .put("timestamp", System.currentTimeMillis())
                             .put("checks", new JsonObject()
@@ -117,7 +117,7 @@ public class HealthHandler {
     private void handleLiveness(RoutingContext ctx) {
         try {
             // Simple liveness check - if we can respond, we're alive
-            JsonObject livenessStatus = new JsonObject()
+            var livenessStatus = new JsonObject()
                 .put("status", "ALIVE")
                 .put("timestamp", System.currentTimeMillis())
                 .put("uptime", getUptime());
@@ -134,7 +134,7 @@ public class HealthHandler {
     }
     
     private void sendNotReadyResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("status", "NOT_READY")
             .put("message", message)
             .put("timestamp", System.currentTimeMillis());
@@ -146,7 +146,7 @@ public class HealthHandler {
     }
     
     private void sendErrorResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("status", "ERROR")
             .put("message", message)
             .put("timestamp", System.currentTimeMillis());
@@ -158,12 +158,12 @@ public class HealthHandler {
     }
     
     private long getUptime() {
-        RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
+        var runtimeBean = ManagementFactory.getRuntimeMXBean();
         return runtimeBean.getUptime();
     }
     
     private String getApplicationVersion() {
-        Package pkg = this.getClass().getPackage();
+        var pkg = this.getClass().getPackage();
         return pkg != null ? pkg.getImplementationVersion() : "unknown";
     }
     
@@ -172,7 +172,7 @@ public class HealthHandler {
     }
     
     private JsonObject getSystemInfo() {
-        MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
+        var memoryBean = ManagementFactory.getMemoryMXBean();
         
         return new JsonObject()
             .put("javaVersion", System.getProperty("java.version"))

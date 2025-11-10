@@ -31,18 +31,18 @@ public class RateLimitMiddleware implements Handler<RoutingContext> {
     
     @Override
     public void handle(RoutingContext ctx) {
-        JsonObject rateLimitConfig = config.getJsonObject("server.rateLimit", new JsonObject());
+        var rateLimitConfig = config.getJsonObject("server.rateLimit", new JsonObject());
         
         if (!rateLimitConfig.getBoolean("enabled", true)) {
             ctx.next();
             return;
         }
-        
-        String clientId = getClientIdentifier(ctx);
+
+        var clientId = getClientIdentifier(ctx);
         int requestsPerMinute = rateLimitConfig.getInteger("requestsPerMinute", 100);
         int burstSize = rateLimitConfig.getInteger("burstSize", 20);
-        
-        TokenBucket bucket = buckets.computeIfAbsent(clientId, 
+
+        var bucket = buckets.computeIfAbsent(clientId,
             k -> new TokenBucket(requestsPerMinute, burstSize));
         
         if (bucket.tryConsume()) {
@@ -61,12 +61,12 @@ public class RateLimitMiddleware implements Handler<RoutingContext> {
     
     private String getClientIdentifier(RoutingContext ctx) {
         // Use IP address as client identifier
-        String xForwardedFor = ctx.request().getHeader("X-Forwarded-For");
+        var xForwardedFor = ctx.request().getHeader("X-Forwarded-For");
         if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
             return xForwardedFor.split(",")[0].trim();
         }
-        
-        String xRealIp = ctx.request().getHeader("X-Real-IP");
+
+        var xRealIp = ctx.request().getHeader("X-Real-IP");
         if (xRealIp != null && !xRealIp.isEmpty()) {
             return xRealIp;
         }
@@ -108,7 +108,7 @@ public class RateLimitMiddleware implements Handler<RoutingContext> {
         
         public boolean tryConsume() {
             refill();
-            int currentTokens = tokens.get();
+            var currentTokens = tokens.get();
             if (currentTokens > 0) {
                 return tokens.compareAndSet(currentTokens, currentTokens - 1);
             }
@@ -116,14 +116,14 @@ public class RateLimitMiddleware implements Handler<RoutingContext> {
         }
         
         private void refill() {
-            long now = System.currentTimeMillis();
-            long lastRefillTime = lastRefill.get();
-            long timePassed = now - lastRefillTime;
+            var now = System.currentTimeMillis();
+            var lastRefillTime = lastRefill.get();
+            var timePassed = now - lastRefillTime;
             
             if (timePassed >= 60000) { // 1 minute
-                int tokensToAdd = (int) (timePassed / 60000 * refillRate);
-                int currentTokens = tokens.get();
-                int newTokens = Math.min(capacity, currentTokens + tokensToAdd);
+                var tokensToAdd = (int) (timePassed / 60000 * refillRate);
+                var currentTokens = tokens.get();
+                var newTokens = Math.min(capacity, currentTokens + tokensToAdd);
                 
                 if (tokens.compareAndSet(currentTokens, newTokens)) {
                     lastRefill.set(now);
@@ -145,8 +145,8 @@ public class RateLimitMiddleware implements Handler<RoutingContext> {
         }
         
         public long getTimeUntilReset() {
-            long resetTime = getResetTime();
-            long now = System.currentTimeMillis();
+            var resetTime = getResetTime();
+            var now = System.currentTimeMillis();
             return Math.max(0, (resetTime - now) / 1000);
         }
     }

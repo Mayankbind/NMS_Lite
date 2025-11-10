@@ -48,30 +48,30 @@ public class NetworkUtils {
         }
         
         try {
-            String[] parts = cidr.split("/");
-            String network = parts[0];
-            int prefixLength = Integer.parseInt(parts[1]);
+            var parts = cidr.split("/");
+            var network = parts[0];
+            var prefixLength = Integer.parseInt(parts[1]);
             
             // Convert network address to integer
-            InetAddress networkAddr = InetAddress.getByName(network);
-            byte[] networkBytes = networkAddr.getAddress();
-            long networkInt = bytesToLong(networkBytes);
+            var networkAddr = InetAddress.getByName(network);
+            var networkBytes = networkAddr.getAddress();
+            var networkInt = bytesToLong(networkBytes);
             
             // Calculate network mask
-            long mask = (0xFFFFFFFFL << (32 - prefixLength)) & 0xFFFFFFFFL;
-            long networkAddress = networkInt & mask;
+            var mask = (0xFFFFFFFFL << (32 - prefixLength)) & 0xFFFFFFFFL;
+            var networkAddress = networkInt & mask;
             
             // Calculate number of host addresses
-            int hostBits = 32 - prefixLength;
-            long numHosts = (1L << hostBits);
+            var hostBits = 32 - prefixLength;
+            var numHosts = (1L << hostBits);
             
             // Generate IP addresses (excluding network and broadcast for /31 and smaller)
             long startHost = (prefixLength <= 30) ? 1 : 0;
-            long endHost = (prefixLength <= 30) ? numHosts - 2 : numHosts - 1;
+            var endHost = (prefixLength <= 30) ? numHosts - 2 : numHosts - 1;
             
-            for (long i = startHost; i <= endHost; i++) {
-                long hostAddress = networkAddress | i;
-                InetAddress ip = longToInetAddress(hostAddress);
+            for (var i = startHost; i <= endHost; i++) {
+                var hostAddress = networkAddress | i;
+                var ip = longToInetAddress(hostAddress);
                 ipList.add(ip.getHostAddress());
             }
             
@@ -89,7 +89,7 @@ public class NetworkUtils {
      */
     private static long bytesToLong(byte[] bytes) {
         long result = 0;
-        for (int i = 0; i < 4; i++) {
+        for (var i = 0; i < 4; i++) {
             result = (result << 8) | (bytes[i] & 0xFF);
         }
         return result;
@@ -99,8 +99,8 @@ public class NetworkUtils {
      * Convert long to InetAddress
      */
     private static InetAddress longToInetAddress(long address) throws java.net.UnknownHostException {
-        byte[] bytes = new byte[4];
-        for (int i = 3; i >= 0; i--) {
+        var bytes = new byte[4];
+        for (var i = 3; i >= 0; i--) {
             bytes[3 - i] = (byte) ((address >> (i * 8)) & 0xFF);
         }
         return InetAddress.getByAddress(bytes);
@@ -118,7 +118,7 @@ public class NetworkUtils {
         // Use parallel stream for faster ping sweeps
         ipList.parallelStream().forEach(ip -> {
             try {
-                InetAddress address = InetAddress.getByName(ip);
+                var address = InetAddress.getByName(ip);
                 if (address.isReachable(timeout)) {
                     reachableIps.add(ip);
                     logger.debug("IP {} is reachable", ip);
@@ -139,7 +139,7 @@ public class NetworkUtils {
      * @return list of reachable IP addresses
      */
     public static List<String> pingSweepCidr(String cidr, int timeout) {
-        List<String> ipList = parseCidr(cidr);
+        var ipList = parseCidr(cidr);
         return pingSweep(ipList, timeout);
     }
 }

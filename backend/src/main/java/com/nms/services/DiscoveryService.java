@@ -120,8 +120,8 @@ public class DiscoveryService implements IDiscoveryService {
     @Override
     public Future<DiscoveryJob> getDiscoveryStatus(UUID jobId, UUID userId) {
         Promise<DiscoveryJob> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT id, name, status, credential_profile_id, target_range, results, 
                    started_at, completed_at, created_by, created_at
             FROM discovery_jobs 
@@ -132,8 +132,8 @@ public class DiscoveryService implements IDiscoveryService {
             .execute(Tuple.of(jobId, userId))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    DiscoveryJob job = mapRowToDiscoveryJob(row);
+                    var row = rows.iterator().next();
+                    var job = mapRowToDiscoveryJob(row);
                     logger.debug("Found discovery job {} for user {}", jobId, userId);
                     promise.complete(job);
                 } else {
@@ -163,7 +163,7 @@ public class DiscoveryService implements IDiscoveryService {
         getDiscoveryStatus(jobId, userId)
             .compose(job -> {
                 // Get devices discovered by this job
-                String sql = """
+                var sql = """
                     SELECT d.id, d.hostname, d.ip_address, d.device_type, d.os_info, 
                            d.credential_profile_id, d.status, d.last_seen, d.created_at, d.updated_at
                     FROM devices d
@@ -176,7 +176,7 @@ public class DiscoveryService implements IDiscoveryService {
             })
             .onSuccess(rows -> {
                 List<Device> devices = new ArrayList<>();
-                for (Row row : rows) {
+                for (var row : rows) {
                     devices.add(mapRowToDevice(row));
                 }
                 promise.complete(devices);
@@ -198,8 +198,8 @@ public class DiscoveryService implements IDiscoveryService {
     @Override
     public Future<Void> cancelDiscovery(UUID jobId, UUID userId) {
         Promise<Void> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             UPDATE discovery_jobs 
             SET status = 'failed', completed_at = CURRENT_TIMESTAMP,
                 results = COALESCE(results, '{}'::jsonb) || '{"cancelled": true, "cancelled_at": "' || CURRENT_TIMESTAMP || '"}'::jsonb
@@ -229,8 +229,8 @@ public class DiscoveryService implements IDiscoveryService {
      */
     private Future<Boolean> validateCredentialProfileAccess(UUID credentialProfileId, UUID userId) {
         Promise<Boolean> promise = Promise.promise();
-        
-        String sql = "SELECT id FROM credential_profiles WHERE id = $1 AND created_by = $2";
+
+        var sql = "SELECT id FROM credential_profiles WHERE id = $1 AND created_by = $2";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(credentialProfileId, userId))
@@ -250,8 +250,8 @@ public class DiscoveryService implements IDiscoveryService {
      */
     private Future<UUID> createDiscoveryJob(DiscoveryJobDTO request, UUID userId) {
         Promise<UUID> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             INSERT INTO discovery_jobs (name, status, credential_profile_id, target_range, created_by)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING id
@@ -267,7 +267,7 @@ public class DiscoveryService implements IDiscoveryService {
             ))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    UUID jobId = rows.iterator().next().getUUID("id");
+                    var jobId = rows.iterator().next().getUUID("id");
                     logger.info("Created discovery job: {} for user: {}", jobId, userId);
                     promise.complete(jobId);
                 } else {
@@ -296,7 +296,7 @@ public class DiscoveryService implements IDiscoveryService {
                 
                 // Perform network scan (this is the only blocking operation)
                 return vertx.executeBlocking(() -> {
-                    List<String> reachableIps = NetworkUtils.pingSweepCidr(targetRange, DEFAULT_PING_TIMEOUT);
+                    var reachableIps = NetworkUtils.pingSweepCidr(targetRange, DEFAULT_PING_TIMEOUT);
                     logger.info("Discovery job {} found {} reachable IPs", jobId, reachableIps.size());
                     return reachableIps;
                 }, true); // Use ordered execution to prevent thread blocking warnings
@@ -305,8 +305,8 @@ public class DiscoveryService implements IDiscoveryService {
                 // Process each IP asynchronously
                 List<Future<Device>> deviceFutures = new ArrayList<>();
                 
-                for (String ip : reachableIps) {
-                    Future<Device> deviceFuture = processDeviceAsync(ip, credentialProfileId)
+                for (var ip : reachableIps) {
+                    var deviceFuture = processDeviceAsync(ip, credentialProfileId)
                         .recover(throwable -> {
                             logger.warn("Error processing IP {}: {}", ip, throwable.getMessage());
                             return Future.succeededFuture(null); // Return null for failed devices
@@ -318,13 +318,13 @@ public class DiscoveryService implements IDiscoveryService {
                 return Future.all(deviceFutures)
                     .map(results -> {
                         List<Device> discoveredDevices = new ArrayList<>();
-                        for (Future<Device> future : deviceFutures) {
+                        for (var future : deviceFutures) {
                             if (future.succeeded() && future.result() != null) {
                                 discoveredDevices.add(future.result());
                             }
                         }
                         // Return both the discovered devices and the total IPs scanned
-                        JsonObject result = new JsonObject();
+                        var result = new JsonObject();
                         result.put("discoveredDevices", discoveredDevices);
                         result.put("totalIpsScanned", reachableIps.size());
                         return result;
@@ -336,7 +336,7 @@ public class DiscoveryService implements IDiscoveryService {
                 int totalIpsScanned = result.getInteger("totalIpsScanned");
                 
                 // Update results
-                JsonObject results = new JsonObject();
+                var results = new JsonObject();
                 results.put("totalIpsScanned", totalIpsScanned);
                 results.put("devicesDiscovered", discoveredDevices.size());
                 results.put("devices", discoveredDevices.stream().map(Device::getHostname).toList());
@@ -353,7 +353,7 @@ public class DiscoveryService implements IDiscoveryService {
                 logger.error("Discovery job {} failed: {}", jobId, throwable.getMessage(), throwable);
                 
                 // Update job status to failed
-                JsonObject errorResults = new JsonObject();
+                var errorResults = new JsonObject();
                 errorResults.put("error", throwable.getMessage());
                 errorResults.put("failedAt", LocalDateTime.now().format(dateTimeFormatter));
                 
@@ -375,7 +375,7 @@ public class DiscoveryService implements IDiscoveryService {
                 
                 // Test SSH connection (blocking operation)
                 return vertx.executeBlocking(() -> {
-                    boolean sshConnected = SshUtils.testConnection(
+                    var sshConnected = SshUtils.testConnection(
                         ip, 
                         credentials.getString("username"),
                         credentials.getString("password"),
@@ -385,7 +385,7 @@ public class DiscoveryService implements IDiscoveryService {
                     
                     if (sshConnected) {
                         // Gather device information (blocking operation)
-                        JsonObject deviceInfo = SshUtils.gatherDeviceInfo(
+                        var deviceInfo = SshUtils.gatherDeviceInfo(
                             ip,
                             credentials.getString("username"),
                             credentials.getString("password"),
@@ -394,7 +394,7 @@ public class DiscoveryService implements IDiscoveryService {
                         );
                         
                         // Create device record
-                        Device device = createDeviceFromDiscovery(ip, deviceInfo, credentialProfileId);
+                        var device = createDeviceFromDiscovery(ip, deviceInfo, credentialProfileId);
                         logger.info("Discovered device: {} ({})", device.getHostname(), ip);
                         return device;
                     }
@@ -417,8 +417,8 @@ public class DiscoveryService implements IDiscoveryService {
      */
     private Future<JsonObject> getCredentialProfileDetailsAsync(UUID credentialProfileId) {
         Promise<JsonObject> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT username, password_encrypted, port 
             FROM credential_profiles 
             WHERE id = $1
@@ -428,13 +428,13 @@ public class DiscoveryService implements IDiscoveryService {
             .execute(Tuple.of(credentialProfileId))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
+                    var row = rows.iterator().next();
                     try {
                         // Decrypt the password
-                        String encryptedPassword = row.getString("password_encrypted");
-                        String decryptedPassword = encryptionUtils.decrypt(encryptedPassword);
-                        
-                        JsonObject credentials = new JsonObject();
+                        var encryptedPassword = row.getString("password_encrypted");
+                        var decryptedPassword = encryptionUtils.decrypt(encryptedPassword);
+
+                        var credentials = new JsonObject();
                         credentials.put("username", row.getString("username"));
                         credentials.put("password", decryptedPassword); // Now using decrypted password
                         credentials.put("port", row.getInteger("port"));
@@ -460,7 +460,7 @@ public class DiscoveryService implements IDiscoveryService {
      * Create device from discovery information
      */
     private Device createDeviceFromDiscovery(String ip, JsonObject deviceInfo, UUID credentialProfileId) {
-        Device device = new Device();
+        var device = new Device();
         device.setHostname(deviceInfo.getString("hostname", "unknown"));
         device.setIpAddress(ip);
         device.setDeviceType(deviceInfo.getString("deviceType", "unknown"));
@@ -478,17 +478,17 @@ public class DiscoveryService implements IDiscoveryService {
      */
     private Future<Void> storeDiscoveredDeviceAsync(Device device) {
         Promise<Void> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             INSERT INTO devices (hostname, ip_address, device_type, os_info, credential_profile_id, status, last_seen, created_at, updated_at)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             """;
         
         // Defensive normalization and debug logging
-        String hostname = device.getHostname();
-        String ipAddress = device.getIpAddress() != null ? device.getIpAddress().trim() : null;
-        String deviceType = device.getDeviceType();
-        JsonObject osInfo = device.getOsInfo() != null ? device.getOsInfo() : new JsonObject();
+        var hostname = device.getHostname();
+        var ipAddress = device.getIpAddress() != null ? device.getIpAddress().trim() : null;
+        var deviceType = device.getDeviceType();
+        var osInfo = device.getOsInfo() != null ? device.getOsInfo() : new JsonObject();
         System.out.println("OS info json:::"+osInfo.encodePrettily());
 
         if (ipAddress == null || ipAddress.isEmpty()) {
@@ -580,8 +580,8 @@ public class DiscoveryService implements IDiscoveryService {
      */
     private Future<Void> updateJobResultsAsync(UUID jobId, JsonObject results) {
         Promise<Void> promise = Promise.promise();
-        
-        String sql = "UPDATE discovery_jobs SET results = $1 WHERE id = $2";
+
+        var sql = "UPDATE discovery_jobs SET results = $1 WHERE id = $2";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(results, jobId))
@@ -601,7 +601,7 @@ public class DiscoveryService implements IDiscoveryService {
      * Map database row to DiscoveryJob
      */
     private DiscoveryJob mapRowToDiscoveryJob(Row row) {
-        DiscoveryJob job = new DiscoveryJob();
+        var job = new DiscoveryJob();
         job.setId(row.getUUID("id"));
         job.setName(row.getString("name"));
         job.setStatus(DiscoveryJobStatus.fromValue(row.getString("status")));
@@ -619,7 +619,7 @@ public class DiscoveryService implements IDiscoveryService {
      * Map database row to Device
      */
     private Device mapRowToDevice(Row row) {
-        Device device = new Device();
+        var device = new Device();
         device.setId(row.getUUID("id"));
         device.setHostname(row.getString("hostname"));
         device.setIpAddress(row.getString("ip_address"));

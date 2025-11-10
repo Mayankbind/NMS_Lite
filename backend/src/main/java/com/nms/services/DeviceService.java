@@ -41,8 +41,8 @@ public class DeviceService {
      */
     public Future<List<DeviceDTO>> getAllDevices(UUID userId) {
         Promise<List<DeviceDTO>> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT d.id, d.hostname, d.ip_address, d.device_type, d.os_info, 
                    d.credential_profile_id, d.status, d.last_seen, d.created_at, d.updated_at,
                    cp.name as credential_profile_name
@@ -56,7 +56,7 @@ public class DeviceService {
             .execute(Tuple.of(userId))
             .onSuccess(rows -> {
                 List<DeviceDTO> devices = new ArrayList<>();
-                for (Row row : rows) {
+                for (var row : rows) {
                     devices.add(mapRowToDeviceDTO(row));
                 }
                 logger.info("Retrieved {} devices for user", devices.size());
@@ -78,8 +78,8 @@ public class DeviceService {
      */
     public Future<DeviceDTO> getDeviceById(UUID deviceId, UUID userId) {
         Promise<DeviceDTO> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT d.id, d.hostname, d.ip_address, d.device_type, d.os_info, 
                    d.credential_profile_id, d.status, d.last_seen, d.created_at, d.updated_at,
                    cp.name as credential_profile_name
@@ -92,8 +92,8 @@ public class DeviceService {
             .execute(Tuple.of(deviceId, userId))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    DeviceDTO device = mapRowToDeviceDTO(row);
+                    var row = rows.iterator().next();
+                    var device = mapRowToDeviceDTO(row);
                     logger.info("Retrieved device: {}", device.getHostname());
                     promise.complete(device);
                 } else {
@@ -231,7 +231,7 @@ public class DeviceService {
         Promise<Void> promise = Promise.promise();
         
         // Delete device with access check in a single query
-        String sql = """
+        var sql = """
             DELETE FROM devices d
             USING credential_profiles cp
             WHERE d.id = $1
@@ -270,7 +270,7 @@ public class DeviceService {
         // First check if device exists and user has access
         getDeviceById(deviceId, userId)
             .compose(device -> {
-                String sql = "UPDATE devices SET status = $1, last_seen = $2, updated_at = CURRENT_TIMESTAMP WHERE id = $3";
+                var sql = "UPDATE devices SET status = $1, last_seen = $2, updated_at = CURRENT_TIMESTAMP WHERE id = $3";
                 return dbPool.preparedQuery(sql)
                     .execute(Tuple.of(status.getValue(), LocalDateTime.now(), deviceId));
             })
@@ -294,8 +294,8 @@ public class DeviceService {
      */
     public Future<List<DeviceDTO>> getDevicesByStatus(DeviceStatus status, UUID userId) {
         Promise<List<DeviceDTO>> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT d.id, d.hostname, d.ip_address, d.device_type, d.os_info, 
                    d.credential_profile_id, d.status, d.last_seen, d.created_at, d.updated_at,
                    cp.name as credential_profile_name
@@ -309,7 +309,7 @@ public class DeviceService {
             .execute(Tuple.of(status.getValue(), userId))
             .onSuccess(rows -> {
                 List<DeviceDTO> devices = new ArrayList<>();
-                for (Row row : rows) {
+                for (var row : rows) {
                     devices.add(mapRowToDeviceDTO(row));
                 }
                 logger.info("Retrieved {} devices with status {} for user", devices.size(), status.getValue());
@@ -331,8 +331,8 @@ public class DeviceService {
      */
     public Future<List<DeviceDTO>> searchDevices(String query, UUID userId) {
         Promise<List<DeviceDTO>> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT d.id, d.hostname, d.ip_address, d.device_type, d.os_info, 
                    d.credential_profile_id, d.status, d.last_seen, d.created_at, d.updated_at,
                    cp.name as credential_profile_name
@@ -341,14 +341,14 @@ public class DeviceService {
             WHERE (d.hostname ILIKE $1 OR d.ip_address::text ILIKE $1) AND cp.created_by = $2
             ORDER BY d.created_at DESC
             """;
-        
-        String searchPattern = "%" + query + "%";
+
+        var searchPattern = "%" + query + "%";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(searchPattern, userId))
             .onSuccess(rows -> {
                 List<DeviceDTO> devices = new ArrayList<>();
-                for (Row row : rows) {
+                for (var row : rows) {
                     devices.add(mapRowToDeviceDTO(row));
                 }
                 logger.info("Found {} devices matching query '{}' for user", devices.size(), query);
@@ -367,8 +367,8 @@ public class DeviceService {
      */
     private Future<Boolean> validateCredentialProfileAccess(UUID credentialProfileId, UUID userId) {
         Promise<Boolean> promise = Promise.promise();
-        
-        String sql = "SELECT id FROM credential_profiles WHERE id = $1 AND created_by = $2";
+
+        var sql = "SELECT id FROM credential_profiles WHERE id = $1 AND created_by = $2";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(credentialProfileId, userId))
@@ -388,14 +388,14 @@ public class DeviceService {
      */
     private Future<DeviceDTO> createDeviceInDatabase(DeviceDTO deviceDTO) {
         Promise<DeviceDTO> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             INSERT INTO devices (hostname, ip_address, device_type, os_info, credential_profile_id, status, last_seen)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING id, hostname, ip_address, device_type, os_info, credential_profile_id, status, last_seen, created_at, updated_at
             """;
-        
-        LocalDateTime now = LocalDateTime.now();
+
+        var now = LocalDateTime.now();
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(
@@ -409,8 +409,8 @@ public class DeviceService {
             ))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    DeviceDTO createdDevice = mapRowToDeviceDTO(row);
+                    var row = rows.iterator().next();
+                    var createdDevice = mapRowToDeviceDTO(row);
                     promise.complete(createdDevice);
                 } else {
                     promise.fail(new RuntimeException("Failed to create device"));
@@ -429,8 +429,8 @@ public class DeviceService {
      */
     private Future<DeviceDTO> updateDeviceInDatabase(UUID deviceId, DeviceDTO deviceDTO, UUID userId) {
         Promise<DeviceDTO> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             UPDATE devices d
             SET hostname = $1, ip_address = $2, device_type = $3, os_info = $4, 
                 credential_profile_id = $5, status = $6, updated_at = CURRENT_TIMESTAMP
@@ -454,8 +454,8 @@ public class DeviceService {
             ))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    DeviceDTO updatedDevice = mapRowToDeviceDTO(row);
+                    var row = rows.iterator().next();
+                    var updatedDevice = mapRowToDeviceDTO(row);
                     promise.complete(updatedDevice);
                 } else {
                     promise.fail(new RuntimeException("Device not found or access denied"));
@@ -473,7 +473,7 @@ public class DeviceService {
      * Map database row to DeviceDTO
      */
     private DeviceDTO mapRowToDeviceDTO(Row row) {
-        DeviceDTO dto = new DeviceDTO();
+        var dto = new DeviceDTO();
         dto.setId(row.getUUID("id"));
         dto.setHostname(row.getString("hostname"));
         dto.setIpAddress(row.getString("ip_address"));

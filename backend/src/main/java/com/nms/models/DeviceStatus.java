@@ -35,7 +35,7 @@ public enum DeviceStatus {
             return null;
         }
         
-        for (DeviceStatus status : values()) {
+        for (var status : values()) {
             if (status.value.equalsIgnoreCase(value)) {
                 return status;
             }

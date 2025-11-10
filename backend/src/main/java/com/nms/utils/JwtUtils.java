@@ -43,8 +43,8 @@ public class JwtUtils {
      */
     public String createAccessToken(String userId, String username, String role) {
         try {
-            Instant now = Instant.now();
-            Instant expiresAt = now.plusSeconds(expirationSeconds);
+            var now = Instant.now();
+            var expiresAt = now.plusSeconds(expirationSeconds);
             
             return JWT.create()
                 .withIssuer(issuer)
@@ -68,8 +68,8 @@ public class JwtUtils {
      */
     public String createRefreshToken(String userId) {
         try {
-            Instant now = Instant.now();
-            Instant expiresAt = now.plusSeconds(refreshExpirationSeconds);
+            var now = Instant.now();
+            var expiresAt = now.plusSeconds(refreshExpirationSeconds);
             
             return JWT.create()
                 .withIssuer(issuer)
@@ -143,8 +143,8 @@ public class JwtUtils {
      * Get remaining time until token expires in seconds
      */
     public long getRemainingTime(DecodedJWT jwt) {
-        long expirationTime = getTokenExpirationTime(jwt);
-        long currentTime = System.currentTimeMillis() / 1000;
+        var expirationTime = getTokenExpirationTime(jwt);
+        var currentTime = System.currentTimeMillis() / 1000;
         return Math.max(0, expirationTime - currentTime);
     }
 }

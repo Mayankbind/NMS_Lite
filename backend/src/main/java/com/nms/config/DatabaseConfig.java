@@ -22,7 +22,7 @@ public class DatabaseConfig {
      */
     public PgPool createPgPool(Vertx vertx) {
         // Configure connection options
-        PgConnectOptions connectOptions = new PgConnectOptions()
+        var connectOptions = new PgConnectOptions()
             .setHost(appConfig.getDatabaseHost())
             .setPort(appConfig.getDatabasePort())
             .setDatabase(appConfig.getDatabaseName())
@@ -42,7 +42,7 @@ public class DatabaseConfig {
         }
         
         // Configure pool options
-        PoolOptions poolOptions = new PoolOptions()
+        var poolOptions = new PoolOptions()
             .setMaxSize(appConfig.getDatabaseMaxConnections())
             .setMaxWaitQueueSize(100)
             .setMaxWaitQueueSize(100)

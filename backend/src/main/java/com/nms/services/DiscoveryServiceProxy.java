@@ -47,7 +47,7 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
         
         try {
             // Prepare request message
-            JsonObject message = new JsonObject()
+            var message = new JsonObject()
                 .put("name", request.getName())
                 .put("targetRange", request.getTargetRange())
                 .put("credentialProfileId", request.getCredentialProfileId() != null ? request.getCredentialProfileId().toString() : null)
@@ -57,13 +57,13 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
             vertx.eventBus().request(DISCOVERY_START_ADDRESS, message)
                 .onSuccess(reply -> {
                     try {
-                        JsonObject response = (JsonObject) reply.body();
+                        var response = (JsonObject) reply.body();
                         if (response.getBoolean("success", false)) {
-                            UUID jobId = UUID.fromString(response.getString("jobId"));
+                            var jobId = UUID.fromString(response.getString("jobId"));
                             logger.debug("Discovery proxy: Started discovery job {} for user {}", jobId, userId);
                             promise.complete(jobId);
                         } else {
-                            String error = response.getString("error", "Unknown error");
+                            var error = response.getString("error", "Unknown error");
                             logger.error("Discovery proxy: Failed to start discovery job: {}", error);
                             promise.fail(new RuntimeException(error));
                         }
@@ -97,7 +97,7 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
         
         try {
             // Prepare request message
-            JsonObject message = new JsonObject()
+            var message = new JsonObject()
                 .put("jobId", jobId.toString())
                 .put("userId", userId.toString());
             
@@ -105,14 +105,14 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
             vertx.eventBus().request(DISCOVERY_STATUS_ADDRESS, message)
                 .onSuccess(reply -> {
                     try {
-                        JsonObject response = (JsonObject) reply.body();
+                        var response = (JsonObject) reply.body();
                         if (response.getBoolean("success", false)) {
-                            JsonObject jobJson = response.getJsonObject("job");
-                            DiscoveryJob job = mapJsonToDiscoveryJob(jobJson);
+                            var jobJson = response.getJsonObject("job");
+                            var job = mapJsonToDiscoveryJob(jobJson);
                             logger.debug("Discovery proxy: Retrieved discovery job status for job {} and user {}", jobId, userId);
                             promise.complete(job);
                         } else {
-                            String error = response.getString("error", "Unknown error");
+                            var error = response.getString("error", "Unknown error");
                             logger.error("Discovery proxy: Failed to get discovery status: {}", error);
                             promise.fail(new RuntimeException(error));
                         }
@@ -146,7 +146,7 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
         
         try {
             // Prepare request message
-            JsonObject message = new JsonObject()
+            var message = new JsonObject()
                 .put("jobId", jobId.toString())
                 .put("userId", userId.toString());
             
@@ -154,14 +154,14 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
             vertx.eventBus().request(DISCOVERY_RESULTS_ADDRESS, message)
                 .onSuccess(reply -> {
                     try {
-                        JsonObject response = (JsonObject) reply.body();
+                        var response = (JsonObject) reply.body();
                         if (response.getBoolean("success", false)) {
-                            List<Device> devices = mapJsonArrayToDevices(response.getJsonArray("devices"));
+                            var devices = mapJsonArrayToDevices(response.getJsonArray("devices"));
                             logger.debug("Discovery proxy: Retrieved discovery results for job {} and user {}: {} devices", 
                                 jobId, userId, devices.size());
                             promise.complete(devices);
                         } else {
-                            String error = response.getString("error", "Unknown error");
+                            var error = response.getString("error", "Unknown error");
                             logger.error("Discovery proxy: Failed to get discovery results: {}", error);
                             promise.fail(new RuntimeException(error));
                         }
@@ -195,7 +195,7 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
         
         try {
             // Prepare request message
-            JsonObject message = new JsonObject()
+            var message = new JsonObject()
                 .put("jobId", jobId.toString())
                 .put("userId", userId.toString());
             
@@ -203,12 +203,12 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
             vertx.eventBus().request(DISCOVERY_CANCEL_ADDRESS, message)
                 .onSuccess(reply -> {
                     try {
-                        JsonObject response = (JsonObject) reply.body();
+                        var response = (JsonObject) reply.body();
                         if (response.getBoolean("success", false)) {
                             logger.info("Discovery proxy: Cancelled discovery job {} for user {}", jobId, userId);
                             promise.complete();
                         } else {
-                            String error = response.getString("error", "Unknown error");
+                            var error = response.getString("error", "Unknown error");
                             logger.error("Discovery proxy: Failed to cancel discovery job: {}", error);
                             promise.fail(new RuntimeException(error));
                         }
@@ -234,43 +234,43 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
      * Map JSON to DiscoveryJob
      */
     private DiscoveryJob mapJsonToDiscoveryJob(JsonObject jobJson) {
-        DiscoveryJob job = new DiscoveryJob();
+        var job = new DiscoveryJob();
         job.setId(UUID.fromString(jobJson.getString("id")));
         job.setName(jobJson.getString("name"));
-        
-        String status = jobJson.getString("status");
+
+        var status = jobJson.getString("status");
         if (status != null) {
             job.setStatus(com.nms.models.DiscoveryJobStatus.fromValue(status));
         }
-        
-        String credentialProfileId = jobJson.getString("credentialProfileId");
+
+        var credentialProfileId = jobJson.getString("credentialProfileId");
         if (credentialProfileId != null) {
             job.setCredentialProfileId(UUID.fromString(credentialProfileId));
         }
         
         job.setTargetRange(jobJson.getString("targetRange"));
-        
-        String createdBy = jobJson.getString("createdBy");
+
+        var createdBy = jobJson.getString("createdBy");
         if (createdBy != null) {
             job.setCreatedBy(UUID.fromString(createdBy));
         }
-        
-        String createdAt = jobJson.getString("createdAt");
+
+        var createdAt = jobJson.getString("createdAt");
         if (createdAt != null) {
             job.setCreatedAt(java.time.LocalDateTime.parse(createdAt));
         }
-        
-        String startedAt = jobJson.getString("startedAt");
+
+        var startedAt = jobJson.getString("startedAt");
         if (startedAt != null) {
             job.setStartedAt(java.time.LocalDateTime.parse(startedAt));
         }
-        
-        String completedAt = jobJson.getString("completedAt");
+
+        var completedAt = jobJson.getString("completedAt");
         if (completedAt != null) {
             job.setCompletedAt(java.time.LocalDateTime.parse(completedAt));
         }
-        
-        JsonObject results = jobJson.getJsonObject("results");
+
+        var results = jobJson.getJsonObject("results");
         if (results != null) {
             job.setResults(results);
         }
@@ -284,39 +284,39 @@ public class DiscoveryServiceProxy implements IDiscoveryService {
     private List<Device> mapJsonArrayToDevices(io.vertx.core.json.JsonArray devicesArray) {
         return devicesArray.stream()
             .map(item -> {
-                JsonObject deviceJson = (JsonObject) item;
-                Device device = new Device();
+                var deviceJson = (JsonObject) item;
+                var device = new Device();
                 device.setId(UUID.fromString(deviceJson.getString("id")));
                 device.setHostname(deviceJson.getString("hostname"));
                 device.setIpAddress(deviceJson.getString("ipAddress"));
                 device.setDeviceType(deviceJson.getString("deviceType"));
-                
-                String status = deviceJson.getString("status");
+
+                var status = deviceJson.getString("status");
                 if (status != null) {
                     device.setStatus(com.nms.models.DeviceStatus.fromValue(status));
                 }
-                
-                String credentialProfileId = deviceJson.getString("credentialProfileId");
+
+                var credentialProfileId = deviceJson.getString("credentialProfileId");
                 if (credentialProfileId != null) {
                     device.setCredentialProfileId(UUID.fromString(credentialProfileId));
                 }
-                
-                String createdAt = deviceJson.getString("createdAt");
+
+                var createdAt = deviceJson.getString("createdAt");
                 if (createdAt != null) {
                     device.setCreatedAt(java.time.LocalDateTime.parse(createdAt));
                 }
-                
-                String updatedAt = deviceJson.getString("updatedAt");
+
+                var updatedAt = deviceJson.getString("updatedAt");
                 if (updatedAt != null) {
                     device.setUpdatedAt(java.time.LocalDateTime.parse(updatedAt));
                 }
-                
-                String lastSeen = deviceJson.getString("lastSeen");
+
+                var lastSeen = deviceJson.getString("lastSeen");
                 if (lastSeen != null) {
                     device.setLastSeen(java.time.LocalDateTime.parse(lastSeen));
                 }
-                
-                JsonObject osInfo = deviceJson.getJsonObject("osInfo");
+
+                var osInfo = deviceJson.getJsonObject("osInfo");
                 if (osInfo != null) {
                     device.setOsInfo(osInfo);
                 }

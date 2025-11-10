@@ -41,21 +41,21 @@ public class EncryptionUtils {
         //Cursor solution
         try {
             // First try standard Base64 decoder
-            byte[] keyBytes = Base64.getDecoder().decode(secretKey);
+            var keyBytes = Base64.getDecoder().decode(secretKey);
             secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
         } catch (IllegalArgumentException e) {
             // If that fails, try URL-safe Base64 decoder
             try {
-                byte[] keyBytes = Base64.getUrlDecoder().decode(secretKey);
+                var keyBytes = Base64.getUrlDecoder().decode(secretKey);
                 secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
             } catch (IllegalArgumentException e2) {
                 // If both fail, try to clean the key and use standard decoder
-                String cleanedKey = secretKey.replace('-', '+').replace('_', '/');
+                var cleanedKey = secretKey.replace('-', '+').replace('_', '/');
                 // Add padding if needed
                 while (cleanedKey.length() % 4 != 0) {
                     cleanedKey += "=";
                 }
-                byte[] keyBytes = Base64.getDecoder().decode(cleanedKey);
+                var keyBytes = Base64.getDecoder().decode(cleanedKey);
                 secretKey1 = new SecretKeySpec(keyBytes, ALGORITHM);
             }
         }
@@ -68,9 +68,9 @@ public class EncryptionUtils {
      */
     public static String generateSecretKey() {
         try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(ALGORITHM);
+            var keyGenerator = KeyGenerator.getInstance(ALGORITHM);
             keyGenerator.init(AES_KEY_LENGTH);
-            SecretKey key = keyGenerator.generateKey();
+            var key = keyGenerator.generateKey();
             return Base64.getEncoder().encodeToString(key.getEncoded());
         } catch (java.security.NoSuchAlgorithmException e) {
             logger.error("Failed to generate secret key", e);
@@ -88,19 +88,19 @@ public class EncryptionUtils {
         
         try {
             // Generate random IV
-            byte[] iv = new byte[GCM_IV_LENGTH];
+            var iv = new byte[GCM_IV_LENGTH];
             secureRandom.nextBytes(iv);
             
             // Initialize cipher
-            Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-            GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
+            var cipher = Cipher.getInstance(TRANSFORMATION);
+            var gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, gcmParameterSpec);
             
             // Encrypt
-            byte[] encryptedData = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
+            var encryptedData = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
             
             // Combine IV and encrypted data
-            byte[] encryptedWithIv = new byte[GCM_IV_LENGTH + encryptedData.length];
+            var encryptedWithIv = new byte[GCM_IV_LENGTH + encryptedData.length];
             System.arraycopy(iv, 0, encryptedWithIv, 0, GCM_IV_LENGTH);
             System.arraycopy(encryptedData, 0, encryptedWithIv, GCM_IV_LENGTH, encryptedData.length);
             
@@ -124,23 +124,23 @@ public class EncryptionUtils {
         
         try {
             // Decode from Base64
-            byte[] encryptedWithIv = Base64.getDecoder().decode(encryptedText);
+            var encryptedWithIv = Base64.getDecoder().decode(encryptedText);
             
             // Extract IV
-            byte[] iv = new byte[GCM_IV_LENGTH];
+            var iv = new byte[GCM_IV_LENGTH];
             System.arraycopy(encryptedWithIv, 0, iv, 0, GCM_IV_LENGTH);
             
             // Extract encrypted data
-            byte[] encryptedData = new byte[encryptedWithIv.length - GCM_IV_LENGTH];
+            var encryptedData = new byte[encryptedWithIv.length - GCM_IV_LENGTH];
             System.arraycopy(encryptedWithIv, GCM_IV_LENGTH, encryptedData, 0, encryptedData.length);
             
             // Initialize cipher
-            Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-            GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
+            var cipher = Cipher.getInstance(TRANSFORMATION);
+            var gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
             cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
             
             // Decrypt
-            byte[] decryptedData = cipher.doFinal(encryptedData);
+            var decryptedData = cipher.doFinal(encryptedData);
             
             return new String(decryptedData, StandardCharsets.UTF_8);
             
@@ -161,7 +161,7 @@ public class EncryptionUtils {
         }
         
         try {
-            byte[] decoded = Base64.getDecoder().decode(text);
+            var decoded = Base64.getDecoder().decode(text);
             // Check if it's long enough to contain IV + some encrypted data
             return decoded.length > GCM_IV_LENGTH;
         } catch (IllegalArgumentException e) {

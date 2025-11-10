@@ -51,8 +51,8 @@ public class Main extends AbstractVerticle {
      */
     public static void main(String[] args) {
         logger.info("Starting NMS Lite Backend Application...");
-        
-        Vertx vertx = Vertx.vertx();
+
+        var vertx = Vertx.vertx();
         
         vertx.deployVerticle(new Main())
             .onSuccess(id -> {
@@ -75,7 +75,7 @@ public class Main extends AbstractVerticle {
                 logger.info("Configuration loaded successfully");
                 
                 // Initialize application configuration
-                ApplicationConfig appConfig = new ApplicationConfig(config);
+                var appConfig = new ApplicationConfig(config);
 
                 // Initialize database
                 return initializeDatabase(appConfig);
@@ -91,17 +91,17 @@ public class Main extends AbstractVerticle {
                         var authService = new AuthService(databaseService, config());
                         
                         // Initialize encryption utility
-                        String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
-                        EncryptionUtils encryptionUtils = new EncryptionUtils(encryptionKey);
+                        var encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
+                        var encryptionUtils = new EncryptionUtils(encryptionKey);
                         
                         // Initialize credential service
-                        CredentialService credentialService = new CredentialService(pgPool, encryptionUtils);
+                        var credentialService = new CredentialService(pgPool, encryptionUtils);
                         
                         // Initialize discovery service proxy (communicates with worker via Event Bus)
                         IDiscoveryService discoveryService = new DiscoveryServiceProxy(vertx);
                         
                         // Initialize device service
-                        DeviceService deviceService = new DeviceService(pgPool);
+                        var deviceService = new DeviceService(pgPool);
                         
                         // Setup HTTP server
                         return setupHttpServer(authService, databaseService, credentialService, discoveryService, deviceService);
@@ -120,8 +120,8 @@ public class Main extends AbstractVerticle {
     
     private Future<PgPool> initializeDatabase(ApplicationConfig appConfig) {
         try {
-            DatabaseConfig dbConfig = new DatabaseConfig(appConfig.getConfig());
-            PgPool pgPool = dbConfig.createPgPool(vertx);
+            var dbConfig = new DatabaseConfig(appConfig.getConfig());
+            var pgPool = dbConfig.createPgPool(vertx);
             
             // Test database connection
             return pgPool.query("SELECT 1")
@@ -144,7 +144,7 @@ public class Main extends AbstractVerticle {
      */
     private Future<String> deployDiscoveryWorkerVerticle() {
         // Configure worker verticle deployment options
-        DeploymentOptions options = new DeploymentOptions();
+        var options = new DeploymentOptions();
         options.setWorker(true); // Run in worker thread pool
         options.setInstances(config().getInteger("discovery.worker.instances", 2)); // Number of worker instances
         options.setWorkerPoolName("discovery-worker-pool");
@@ -181,7 +181,7 @@ public class Main extends AbstractVerticle {
     }
     
     private Router createRouter(AuthService authService, DatabaseService databaseService, CredentialService credentialService, IDiscoveryService discoveryService, DeviceService deviceService) {
-        Router router = Router.router(vertx);
+        var router = Router.router(vertx);
         
         // Global middleware
         router.route().handler(LoggingMiddleware.create());
@@ -206,17 +206,17 @@ public class Main extends AbstractVerticle {
             .setDeleteUploadedFilesOnEnd(true));
         
         // Health check endpoints (no authentication required)
-        HealthHandler healthHandler = new HealthHandler(databaseService);
+        var healthHandler = new HealthHandler(databaseService);
         router.get("/health").handler(healthHandler.health);
         router.get("/ready").handler(healthHandler.readiness);
         router.get("/live").handler(healthHandler.liveness);
         
         // Create separate routers for different route types
-        Router authRouter = Router.router(vertx);
-        Router protectedRouter = Router.router(vertx);
+        var authRouter = Router.router(vertx);
+        var protectedRouter = Router.router(vertx);
         
         // Authentication routes (no auth required)
-        AuthHandler authHandler = new AuthHandler(authService);
+        var authHandler = new AuthHandler(authService);
         authRouter.post("/login").handler(authHandler.login);
         authRouter.post("/refresh").handler(authHandler.refresh);
         authRouter.post("/logout").handler(AuthMiddleware.create(authService))
@@ -226,7 +226,7 @@ public class Main extends AbstractVerticle {
         protectedRouter.route().handler(AuthMiddleware.create(authService));
         
         // Credential profile routes
-        CredentialHandler credentialHandler = new CredentialHandler(credentialService);
+        var credentialHandler = new CredentialHandler(credentialService);
         protectedRouter.post("/credentials").handler(credentialHandler.createCredentialProfile);
         protectedRouter.get("/credentials").handler(credentialHandler.getAllCredentialProfiles);
         protectedRouter.get("/credentials/:id").handler(credentialHandler.getCredentialProfile);
@@ -234,14 +234,14 @@ public class Main extends AbstractVerticle {
         protectedRouter.delete("/credentials/:id").handler(credentialHandler.deleteCredentialProfile);
         
         // Discovery routes
-        DiscoveryHandler discoveryHandler = new DiscoveryHandler(discoveryService);
+        var discoveryHandler = new DiscoveryHandler(discoveryService);
         protectedRouter.post("/discovery/start").handler(discoveryHandler.startDiscovery);
         protectedRouter.get("/discovery/status/:jobId").handler(discoveryHandler.getDiscoveryStatus);
         protectedRouter.get("/discovery/results/:jobId").handler(discoveryHandler.getDiscoveryResults);
         protectedRouter.delete("/discovery/job/:jobId").handler(discoveryHandler.cancelDiscovery);
         
         // Device routes
-        DeviceHandler deviceHandler = new DeviceHandler(deviceService);
+        var deviceHandler = new DeviceHandler(deviceService);
         protectedRouter.get("/devices").handler(deviceHandler.getAllDevices);
         protectedRouter.get("/devices/:id").handler(deviceHandler.getDeviceById);
         protectedRouter.post("/devices").handler(deviceHandler.createDevice);

@@ -24,7 +24,7 @@ public class LoggingMiddleware implements Handler<RoutingContext> {
     @Override
     public void handle(RoutingContext ctx) {
         // Generate correlation ID
-        String correlationId = ctx.request().getHeader("X-Correlation-ID");
+        var correlationId = ctx.request().getHeader("X-Correlation-ID");
         if (correlationId == null || correlationId.isEmpty()) {
             correlationId = UUID.randomUUID().toString();
         }
@@ -39,28 +39,28 @@ public class LoggingMiddleware implements Handler<RoutingContext> {
         logRequest(ctx, correlationId);
         
         // Add response handler
-        final String finalCorrelationId = correlationId;
+        final var finalCorrelationId = correlationId;
         ctx.addHeadersEndHandler(v -> logResponse(ctx, finalCorrelationId));
         
         ctx.next();
     }
     
     private void logRequest(RoutingContext ctx, String correlationId) {
-        String method = ctx.request().method().name();
-        String uri = ctx.request().uri();
-        String userAgent = ctx.request().getHeader(HttpHeaders.USER_AGENT);
-        String remoteAddress = ctx.request().remoteAddress().host();
-        int remotePort = ctx.request().remoteAddress().port();
+        var method = ctx.request().method().name();
+        var uri = ctx.request().uri();
+        var userAgent = ctx.request().getHeader(HttpHeaders.USER_AGENT);
+        var remoteAddress = ctx.request().remoteAddress().host();
+        var remotePort = ctx.request().remoteAddress().port();
         
         logger.info("{} {} from {}:{} - User-Agent: {} - Correlation-ID: {}", 
             method, uri, remoteAddress, remotePort, userAgent, correlationId);
     }
     
     private void logResponse(RoutingContext ctx, String correlationId) {
-        int statusCode = ctx.response().getStatusCode();
-        String method = ctx.request().method().name();
-        String uri = ctx.request().uri();
-        long responseTime = System.currentTimeMillis() - ctx.get("startTime", System.currentTimeMillis());
+        var statusCode = ctx.response().getStatusCode();
+        var method = ctx.request().method().name();
+        var uri = ctx.request().uri();
+        var responseTime = System.currentTimeMillis() - ctx.get("startTime", System.currentTimeMillis());
         
         if (statusCode >= 400) {
             logger.warn("{} {} - Status: {} - Response time: {}ms - Correlation-ID: {}", 

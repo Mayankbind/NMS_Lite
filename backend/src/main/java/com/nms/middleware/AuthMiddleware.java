@@ -29,14 +29,14 @@ public class AuthMiddleware implements Handler<RoutingContext> {
     
     @Override
     public void handle(RoutingContext ctx) {
-        String authorization = ctx.request().getHeader(HttpHeaders.AUTHORIZATION);
+        var authorization = ctx.request().getHeader(HttpHeaders.AUTHORIZATION);
         
         if (authorization == null || !authorization.startsWith("Bearer ")) {
             sendUnauthorizedResponse(ctx, "Missing or invalid authorization header");
             return;
         }
-        
-        String token = authorization.substring(7); // Remove "Bearer " prefix
+
+        var token = authorization.substring(7); // Remove "Bearer " prefix
         
         authService.validateToken(token)
             .onSuccess(userInfo -> {

@@ -45,8 +45,8 @@ public class PasswordUtils {
                                                           boolean requireLowercase,
                                                           boolean requireNumbers,
                                                           boolean requireSpecialChars) {
-        
-        PasswordValidationResult result = new PasswordValidationResult();
+
+        var result = new PasswordValidationResult();
         
         if (password == null || password.length() < minLength) {
             result.addError("Password must be at least " + minLength + " characters long");
@@ -75,10 +75,10 @@ public class PasswordUtils {
      * Generate secure random password
      */
     public static String generateSecurePassword(int length) {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
-        StringBuilder password = new StringBuilder(length);
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+        var password = new StringBuilder(length);
         
-        for (int i = 0; i < length; i++) {
+        for (var i = 0; i < length; i++) {
             password.append(chars.charAt(SECURE_RANDOM.nextInt(chars.length())));
         }
         
@@ -89,7 +89,7 @@ public class PasswordUtils {
      * Generate secure random salt
      */
     public static String generateSalt() {
-        byte[] salt = new byte[16];
+        var salt = new byte[16];
         SECURE_RANDOM.nextBytes(salt);
         return java.util.Base64.getEncoder().encodeToString(salt);
     }

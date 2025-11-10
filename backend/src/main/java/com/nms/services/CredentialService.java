@@ -59,7 +59,7 @@ public class CredentialService {
             }
             
             // Encrypt password
-            String encryptedPassword = encryptionUtils.encrypt(dto.getPassword());
+            var encryptedPassword = encryptionUtils.encrypt(dto.getPassword());
             
             // Encrypt private key if provided
             String encryptedPrivateKey = null;
@@ -68,7 +68,7 @@ public class CredentialService {
             }
             
             // Insert into database
-            String sql = """
+            var sql = """
                 INSERT INTO credential_profiles (name, username, password_encrypted, private_key_encrypted, port, created_by)
                 VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING id, name, username, password_encrypted, private_key_encrypted, port, created_by, created_at, updated_at
@@ -85,8 +85,8 @@ public class CredentialService {
                 ))
                 .onSuccess(rows -> {
                     if (rows.iterator().hasNext()) {
-                        Row row = rows.iterator().next();
-                        CredentialProfileDTO result = mapRowToDTO(row);
+                        var row = rows.iterator().next();
+                        var result = mapRowToDTO(row);
                         logger.info("Created credential profile: {}", result.getName());
                         promise.complete(result);
                     } else {
@@ -111,8 +111,8 @@ public class CredentialService {
      */
     public Future<List<CredentialProfileDTO>> getAllCredentialProfiles(UUID userId) {
         Promise<List<CredentialProfileDTO>> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT cp.id, cp.name, cp.username, cp.password_encrypted, cp.private_key_encrypted, 
                    cp.port, cp.created_by, cp.created_at, cp.updated_at, u.username as created_by_username
             FROM credential_profiles cp
@@ -125,7 +125,7 @@ public class CredentialService {
             .execute(Tuple.of(userId))
             .onSuccess(rows -> {
                 List<CredentialProfileDTO> profiles = new ArrayList<>();
-                for (Row row : rows) {
+                for (var row : rows) {
                     profiles.add(mapRowToDTO(row));
                 }
                 logger.info("Retrieved {} credential profiles for user", profiles.size());
@@ -144,8 +144,8 @@ public class CredentialService {
      */
     public Future<CredentialProfileDTO> getCredentialProfileById(UUID id, UUID userId) {
         Promise<CredentialProfileDTO> promise = Promise.promise();
-        
-        String sql = """
+
+        var sql = """
             SELECT cp.id, cp.name, cp.username, cp.password_encrypted, cp.private_key_encrypted, 
                    cp.port, cp.created_by, cp.created_at, cp.updated_at, u.username as created_by_username
             FROM credential_profiles cp
@@ -157,8 +157,8 @@ public class CredentialService {
             .execute(Tuple.of(id, userId))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    CredentialProfileDTO result = mapRowToDTO(row);
+                    var row = rows.iterator().next();
+                    var result = mapRowToDTO(row);
                     logger.info("Retrieved credential profile: {}", result.getName());
                     promise.complete(result);
                 } else {
@@ -192,9 +192,9 @@ public class CredentialService {
             }
             
             // Build dynamic SQL for partial updates
-            StringBuilder sqlBuilder = new StringBuilder("UPDATE credential_profiles SET ");
+            var sqlBuilder = new StringBuilder("UPDATE credential_profiles SET ");
             List<Object> params = new ArrayList<>();
-            int paramIndex = 1;
+            var paramIndex = 1;
             
             sqlBuilder.append("name = $").append(paramIndex++).append(", ");
             params.add(dto.getName().trim());
@@ -204,14 +204,14 @@ public class CredentialService {
             
             // Only update password if provided
             if (dto.getPassword() != null && !dto.getPassword().trim().isEmpty()) {
-                String encryptedPassword = encryptionUtils.encrypt(dto.getPassword());
+                var encryptedPassword = encryptionUtils.encrypt(dto.getPassword());
                 sqlBuilder.append("password_encrypted = $").append(paramIndex++).append(", ");
                 params.add(encryptedPassword);
             }
             
             // Only update private key if provided
             if (dto.getPrivateKey() != null && !dto.getPrivateKey().trim().isEmpty()) {
-                String encryptedPrivateKey = encryptionUtils.encrypt(dto.getPrivateKey());
+                var encryptedPrivateKey = encryptionUtils.encrypt(dto.getPrivateKey());
                 sqlBuilder.append("private_key_encrypted = $").append(paramIndex++).append(", ");
                 params.add(encryptedPrivateKey);
             }
@@ -228,15 +228,15 @@ public class CredentialService {
             params.add(userId);
             
             sqlBuilder.append(" RETURNING id, name, username, password_encrypted, private_key_encrypted, port, created_by, created_at, updated_at");
-            
-            String sql = sqlBuilder.toString();
+
+            var sql = sqlBuilder.toString();
             
             dbPool.preparedQuery(sql)
                 .execute(Tuple.tuple(params))
                 .onSuccess(rows -> {
                     if (rows.iterator().hasNext()) {
-                        Row row = rows.iterator().next();
-                        CredentialProfileDTO result = mapRowToDTO(row);
+                        var row = rows.iterator().next();
+                        var result = mapRowToDTO(row);
                         logger.info("Updated credential profile: {}", result.getName());
                         promise.complete(result);
                     } else {
@@ -261,8 +261,8 @@ public class CredentialService {
      */
     public Future<Void> deleteCredentialProfile(UUID id, UUID userId) {
         Promise<Void> promise = Promise.promise();
-        
-        String sql = "DELETE FROM credential_profiles WHERE id = $1 AND created_by = $2";
+
+        var sql = "DELETE FROM credential_profiles WHERE id = $1 AND created_by = $2";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(id, userId))
@@ -287,17 +287,17 @@ public class CredentialService {
      */
     public Future<String> getDecryptedPassword(UUID credentialProfileId) {
         Promise<String> promise = Promise.promise();
-        
-        String sql = "SELECT password_encrypted FROM credential_profiles WHERE id = $1";
+
+        var sql = "SELECT password_encrypted FROM credential_profiles WHERE id = $1";
         
         dbPool.preparedQuery(sql)
             .execute(Tuple.of(credentialProfileId))
             .onSuccess(rows -> {
                 if (rows.iterator().hasNext()) {
-                    Row row = rows.iterator().next();
-                    String encryptedPassword = row.getString("password_encrypted");
+                    var row = rows.iterator().next();
+                    var encryptedPassword = row.getString("password_encrypted");
                     try {
-                        String decryptedPassword = encryptionUtils.decrypt(encryptedPassword);
+                        var decryptedPassword = encryptionUtils.decrypt(encryptedPassword);
                         promise.complete(decryptedPassword);
                     } catch (Exception e) {
                         logger.error("Failed to decrypt password", e);
@@ -319,7 +319,7 @@ public class CredentialService {
      * Map database row to DTO
      */
     private CredentialProfileDTO mapRowToDTO(Row row) {
-        CredentialProfileDTO dto = new CredentialProfileDTO();
+        var dto = new CredentialProfileDTO();
         dto.setId(row.getUUID("id"));
         dto.setName(row.getString("name"));
         dto.setUsername(row.getString("username"));
@@ -332,12 +332,12 @@ public class CredentialService {
         }
         
         // Format timestamps
-        LocalDateTime createdAt = row.getLocalDateTime("created_at");
+        var createdAt = row.getLocalDateTime("created_at");
         if (createdAt != null) {
             dto.setCreatedAt(createdAt.format(dateTimeFormatter));
         }
-        
-        LocalDateTime updatedAt = row.getLocalDateTime("updated_at");
+
+        var updatedAt = row.getLocalDateTime("updated_at");
         if (updatedAt != null) {
             dto.setUpdatedAt(updatedAt.format(dateTimeFormatter));
         }

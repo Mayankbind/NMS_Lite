@@ -27,14 +27,14 @@ public class CorsMiddleware implements Handler<RoutingContext> {
     
     @Override
     public void handle(RoutingContext ctx) {
-        JsonObject corsConfig = config.getJsonObject("server.cors", new JsonObject());
+        var corsConfig = config.getJsonObject("server.cors", new JsonObject());
         
         if (!corsConfig.getBoolean("enabled", true)) {
             ctx.next();
             return;
         }
-        
-        String origin = ctx.request().getHeader(HttpHeaders.ORIGIN);
+
+        var origin = ctx.request().getHeader(HttpHeaders.ORIGIN);
         
         // Set CORS headers
         setCorsHeaders(ctx, corsConfig, origin);
@@ -55,7 +55,7 @@ public class CorsMiddleware implements Handler<RoutingContext> {
             ctx.response().putHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, origin);
         } else {
             // If no specific origin match, use the first allowed origin or *
-            String[] allowedOrigins = getStringArray(corsConfig, "allowedOrigins");
+            var allowedOrigins = getStringArray(corsConfig, "allowedOrigins");
             if (allowedOrigins.length > 0) {
                 ctx.response().putHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, allowedOrigins[0]);
             }
@@ -78,11 +78,11 @@ public class CorsMiddleware implements Handler<RoutingContext> {
         if (origin == null) {
             return false;
         }
-        
-        String[] allowedOrigins = getStringArray(corsConfig, "allowedOrigins");
+
+        var allowedOrigins = getStringArray(corsConfig, "allowedOrigins");
         
         // Check for wildcard
-        for (String allowedOrigin : allowedOrigins) {
+        for (var allowedOrigin : allowedOrigins) {
             if ("*".equals(allowedOrigin)) {
                 return true;
             }

@@ -53,33 +53,33 @@ public class CredentialHandler {
     
     private void handleCreateCredentialProfile(RoutingContext ctx) {
         try {
-            JsonObject body = ctx.body().asJsonObject();
+            var body = ctx.body().asJsonObject();
             if (body == null) {
                 sendBadRequestResponse(ctx, "Request body is required");
                 return;
             }
             
             // Extract user ID from JWT context (set by AuthMiddleware)
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendUnauthorizedResponse(ctx, "User not authenticated");
                 return;
             }
             
             // Create DTO from request body
-            CredentialProfileDTO dto = new CredentialProfileDTO();
+            var dto = new CredentialProfileDTO();
             dto.setName(body.getString("name"));
             dto.setUsername(body.getString("username"));
             dto.setPassword(body.getString("password"));
             dto.setPrivateKey(body.getString("privateKey"));
-            
-            Integer port = body.getInteger("port");
+
+            var port = body.getInteger("port");
             dto.setPort(port);
             
             // Create credential profile
             credentialService.createCredentialProfile(dto, userId)
                 .onSuccess(result -> {
-                    JsonObject response = JsonObject.mapFrom(result);
+                    var response = JsonObject.mapFrom(result);
                     sendSuccessResponse(ctx, response, "Credential profile created successfully");
                 })
                 .onFailure(throwable -> {
@@ -100,7 +100,7 @@ public class CredentialHandler {
     private void handleGetAllCredentialProfiles(RoutingContext ctx) {
         try {
             // Extract user ID from JWT context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendUnauthorizedResponse(ctx, "User not authenticated");
                 return;
@@ -109,7 +109,7 @@ public class CredentialHandler {
             // Get all credential profiles
             credentialService.getAllCredentialProfiles(userId)
                 .onSuccess(profiles -> {
-                    JsonObject response = new JsonObject()
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Credential profiles retrieved successfully")
                         .put("data", profiles)
@@ -130,7 +130,7 @@ public class CredentialHandler {
     private void handleGetCredentialProfile(RoutingContext ctx) {
         try {
             // Extract credential profile ID from path
-            String idParam = ctx.pathParam("id");
+            var idParam = ctx.pathParam("id");
             if (idParam == null || idParam.trim().isEmpty()) {
                 sendBadRequestResponse(ctx, "Credential profile ID is required");
                 return;
@@ -145,7 +145,7 @@ public class CredentialHandler {
             }
             
             // Extract user ID from JWT context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendUnauthorizedResponse(ctx, "User not authenticated");
                 return;
@@ -154,7 +154,7 @@ public class CredentialHandler {
             // Get credential profile
             credentialService.getCredentialProfileById(credentialProfileId, userId)
                 .onSuccess(profile -> {
-                    JsonObject response = JsonObject.mapFrom(profile);
+                    var response = JsonObject.mapFrom(profile);
                     sendSuccessResponse(ctx, response, "Credential profile retrieved successfully");
                 })
                 .onFailure(throwable -> {
@@ -174,14 +174,14 @@ public class CredentialHandler {
     
     private void handleUpdateCredentialProfile(RoutingContext ctx) {
         try {
-            JsonObject body = ctx.body().asJsonObject();
+            var body = ctx.body().asJsonObject();
             if (body == null) {
                 sendBadRequestResponse(ctx, "Request body is required");
                 return;
             }
             
             // Extract credential profile ID from path
-            String idParam = ctx.pathParam("id");
+            var idParam = ctx.pathParam("id");
             if (idParam == null || idParam.trim().isEmpty()) {
                 sendBadRequestResponse(ctx, "Credential profile ID is required");
                 return;
@@ -196,26 +196,26 @@ public class CredentialHandler {
             }
             
             // Extract user ID from JWT context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendUnauthorizedResponse(ctx, "User not authenticated");
                 return;
             }
             
             // Create DTO from request body
-            CredentialProfileDTO dto = new CredentialProfileDTO();
+            var dto = new CredentialProfileDTO();
             dto.setName(body.getString("name"));
             dto.setUsername(body.getString("username"));
             dto.setPassword(body.getString("password"));
             dto.setPrivateKey(body.getString("privateKey"));
-            
-            Integer port = body.getInteger("port");
+
+            var port = body.getInteger("port");
             dto.setPort(port);
             
             // Update credential profile
             credentialService.updateCredentialProfile(credentialProfileId, dto, userId)
                 .onSuccess(result -> {
-                    JsonObject response = JsonObject.mapFrom(result);
+                    var response = JsonObject.mapFrom(result);
                     sendSuccessResponse(ctx, response, "Credential profile updated successfully");
                 })
                 .onFailure(throwable -> {
@@ -238,7 +238,7 @@ public class CredentialHandler {
     private void handleDeleteCredentialProfile(RoutingContext ctx) {
         try {
             // Extract credential profile ID from path
-            String idParam = ctx.pathParam("id");
+            var idParam = ctx.pathParam("id");
             if (idParam == null || idParam.trim().isEmpty()) {
                 sendBadRequestResponse(ctx, "Credential profile ID is required");
                 return;
@@ -253,7 +253,7 @@ public class CredentialHandler {
             }
             
             // Extract user ID from JWT context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendUnauthorizedResponse(ctx, "User not authenticated");
                 return;
@@ -262,7 +262,7 @@ public class CredentialHandler {
             // Delete credential profile
             credentialService.deleteCredentialProfile(credentialProfileId, userId)
                 .onSuccess(v -> {
-                    JsonObject response = new JsonObject()
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Credential profile deleted successfully");
                     sendSuccessResponse(ctx, response);
@@ -289,7 +289,7 @@ public class CredentialHandler {
         try {
             JsonObject userContext = ctx.get("user");
             if (userContext != null && userContext.containsKey("userId")) {
-                String userIdStr = userContext.getString("userId");
+                var userIdStr = userContext.getString("userId");
                 if (userIdStr != null) {
                     return UUID.fromString(userIdStr);
                 }
@@ -308,7 +308,7 @@ public class CredentialHandler {
     }
     
     private void sendSuccessResponse(RoutingContext ctx, JsonObject data, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("success", true)
             .put("message", message);
         
@@ -326,7 +326,7 @@ public class CredentialHandler {
      * Send bad request response
      */
     private void sendBadRequestResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("success", false)
             .put("error", "Bad Request")
             .put("message", message);
@@ -341,7 +341,7 @@ public class CredentialHandler {
      * Send unauthorized response
      */
     private void sendUnauthorizedResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("success", false)
             .put("error", "Unauthorized")
             .put("message", message);
@@ -356,7 +356,7 @@ public class CredentialHandler {
      * Send not found response
      */
     private void sendNotFoundResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("success", false)
             .put("error", "Not Found")
             .put("message", message);
@@ -371,7 +371,7 @@ public class CredentialHandler {
      * Send internal server error response
      */
     private void sendInternalServerErrorResponse(RoutingContext ctx, String message) {
-        JsonObject response = new JsonObject()
+        var response = new JsonObject()
             .put("success", false)
             .put("error", "Internal Server Error")
             .put("message", message);

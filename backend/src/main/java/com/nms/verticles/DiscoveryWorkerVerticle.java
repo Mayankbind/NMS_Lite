@@ -50,14 +50,14 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                 logger.info("Discovery Worker: Configuration loaded successfully");
                 
                 // Initialize application configuration
-                ApplicationConfig appConfig = new ApplicationConfig(config);
+                var appConfig = new ApplicationConfig(config);
                 
                 // Initialize database connection pool
                 return initializeDatabase(appConfig);
             })
             .compose(pgPool -> {
                 // Initialize encryption utility
-                String encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
+                var encryptionKey = config().getString("encryption.key", "default-encryption-key-change-in-production");
                 this.encryptionUtils = new EncryptionUtils(encryptionKey);
                 
                 // Initialize discovery service with the database connection pool
@@ -81,8 +81,8 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
      */
     private Future<PgPool> initializeDatabase(ApplicationConfig appConfig) {
         try {
-            DatabaseConfig dbConfig = new DatabaseConfig(appConfig.getConfig());
-            PgPool pgPool = dbConfig.createPgPool(vertx);
+            var dbConfig = new DatabaseConfig(appConfig.getConfig());
+            var pgPool = dbConfig.createPgPool(vertx);
             
             // Test database connection
             return pgPool.query("SELECT 1")
@@ -105,25 +105,25 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
         // Consumer for starting discovery jobs
         vertx.eventBus().consumer(DISCOVERY_START_ADDRESS, message -> {
             try {
-                JsonObject requestJson = (JsonObject) message.body();
+                var requestJson = (JsonObject) message.body();
                 logger.debug("Discovery Worker: Received start discovery request: {}", requestJson);
                 
                 // Parse request
-                DiscoveryJobDTO request = parseDiscoveryRequest(requestJson);
-                UUID userId = UUID.fromString(requestJson.getString("userId"));
+                var request = parseDiscoveryRequest(requestJson);
+                var userId = UUID.fromString(requestJson.getString("userId"));
                 
                 // Start discovery
                 discoveryService.startDiscovery(request, userId)
                     .onSuccess(jobId -> {
                         logger.info("Discovery Worker: Started discovery job {} for user {}", jobId, userId);
-                        JsonObject response = new JsonObject()
+                        var response = new JsonObject()
                             .put("success", true)
                             .put("jobId", jobId.toString());
                         message.reply(response);
                     })
                     .onFailure(throwable -> {
                         logger.error("Discovery Worker: Failed to start discovery job: {}", throwable.getMessage(), throwable);
-                        JsonObject errorResponse = new JsonObject()
+                        var errorResponse = new JsonObject()
                             .put("success", false)
                             .put("error", throwable.getMessage());
                         message.fail(500, errorResponse.encode());
@@ -131,7 +131,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                     
             } catch (Exception e) {
                 logger.error("Discovery Worker: Error processing start discovery request", e);
-                JsonObject errorResponse = new JsonObject()
+                var errorResponse = new JsonObject()
                     .put("success", false)
                     .put("error", e.getMessage());
                 message.fail(500, errorResponse.encode());
@@ -141,22 +141,22 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
         // Consumer for getting discovery status
         vertx.eventBus().consumer(DISCOVERY_STATUS_ADDRESS, message -> {
             try {
-                JsonObject requestJson = (JsonObject) message.body();
-                UUID jobId = UUID.fromString(requestJson.getString("jobId"));
-                UUID userId = UUID.fromString(requestJson.getString("userId"));
+                var requestJson = (JsonObject) message.body();
+                var jobId = UUID.fromString(requestJson.getString("jobId"));
+                var userId = UUID.fromString(requestJson.getString("userId"));
                 
                 logger.debug("Discovery Worker: Received get status request for job {} and user {}", jobId, userId);
                 
                 discoveryService.getDiscoveryStatus(jobId, userId)
                     .onSuccess(job -> {
-                        JsonObject response = new JsonObject()
+                        var response = new JsonObject()
                             .put("success", true)
                             .put("job", mapDiscoveryJobToJson(job));
                         message.reply(response);
                     })
                     .onFailure(throwable -> {
                         logger.error("Discovery Worker: Failed to get discovery status: {}", throwable.getMessage(), throwable);
-                        JsonObject errorResponse = new JsonObject()
+                        var errorResponse = new JsonObject()
                             .put("success", false)
                             .put("error", throwable.getMessage());
                         message.fail(500, errorResponse.encode());
@@ -164,7 +164,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                     
             } catch (Exception e) {
                 logger.error("Discovery Worker: Error processing get status request", e);
-                JsonObject errorResponse = new JsonObject()
+                var errorResponse = new JsonObject()
                     .put("success", false)
                     .put("error", e.getMessage());
                 message.fail(500, errorResponse.encode());
@@ -174,15 +174,15 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
         // Consumer for getting discovery results
         vertx.eventBus().consumer(DISCOVERY_RESULTS_ADDRESS, message -> {
             try {
-                JsonObject requestJson = (JsonObject) message.body();
-                UUID jobId = UUID.fromString(requestJson.getString("jobId"));
-                UUID userId = UUID.fromString(requestJson.getString("userId"));
+                var requestJson = (JsonObject) message.body();
+                var jobId = UUID.fromString(requestJson.getString("jobId"));
+                var userId = UUID.fromString(requestJson.getString("userId"));
                 
                 logger.debug("Discovery Worker: Received get results request for job {} and user {}", jobId, userId);
                 
                 discoveryService.getDiscoveryResults(jobId, userId)
                     .onSuccess(devices -> {
-                        JsonObject response = new JsonObject()
+                        var response = new JsonObject()
                             .put("success", true)
                             .put("devices", mapDevicesToJson(devices))
                             .put("count", devices.size());
@@ -190,7 +190,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                     })
                     .onFailure(throwable -> {
                         logger.error("Discovery Worker: Failed to get discovery results: {}", throwable.getMessage(), throwable);
-                        JsonObject errorResponse = new JsonObject()
+                        var errorResponse = new JsonObject()
                             .put("success", false)
                             .put("error", throwable.getMessage());
                         message.fail(500, errorResponse.encode());
@@ -198,7 +198,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                     
             } catch (Exception e) {
                 logger.error("Discovery Worker: Error processing get results request", e);
-                JsonObject errorResponse = new JsonObject()
+                var errorResponse = new JsonObject()
                     .put("success", false)
                     .put("error", e.getMessage());
                 message.fail(500, errorResponse.encode());
@@ -208,23 +208,23 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
         // Consumer for cancelling discovery jobs
         vertx.eventBus().consumer(DISCOVERY_CANCEL_ADDRESS, message -> {
             try {
-                JsonObject requestJson = (JsonObject) message.body();
-                UUID jobId = UUID.fromString(requestJson.getString("jobId"));
-                UUID userId = UUID.fromString(requestJson.getString("userId"));
+                var requestJson = (JsonObject) message.body();
+                var jobId = UUID.fromString(requestJson.getString("jobId"));
+                var userId = UUID.fromString(requestJson.getString("userId"));
                 
                 logger.info("Discovery Worker: Received cancel request for job {} and user {}", jobId, userId);
                 
                 discoveryService.cancelDiscovery(jobId, userId)
                     .onSuccess(v -> {
                         logger.info("Discovery Worker: Cancelled discovery job {} for user {}", jobId, userId);
-                        JsonObject response = new JsonObject()
+                        var response = new JsonObject()
                             .put("success", true)
                             .put("message", "Discovery job cancelled successfully");
                         message.reply(response);
                     })
                     .onFailure(throwable -> {
                         logger.error("Discovery Worker: Failed to cancel discovery job: {}", throwable.getMessage(), throwable);
-                        JsonObject errorResponse = new JsonObject()
+                        var errorResponse = new JsonObject()
                             .put("success", false)
                             .put("error", throwable.getMessage());
                         message.fail(500, errorResponse.encode());
@@ -232,7 +232,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
                     
             } catch (Exception e) {
                 logger.error("Discovery Worker: Error processing cancel request", e);
-                JsonObject errorResponse = new JsonObject()
+                var errorResponse = new JsonObject()
                     .put("success", false)
                     .put("error", e.getMessage());
                 message.fail(500, errorResponse.encode());
@@ -246,11 +246,11 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
      * Parse discovery request from JSON
      */
     private DiscoveryJobDTO parseDiscoveryRequest(JsonObject requestJson) {
-        DiscoveryJobDTO request = new DiscoveryJobDTO();
+        var request = new DiscoveryJobDTO();
         request.setName(requestJson.getString("name"));
         request.setTargetRange(requestJson.getString("targetRange"));
-        
-        String credentialProfileIdStr = requestJson.getString("credentialProfileId");
+
+        var credentialProfileIdStr = requestJson.getString("credentialProfileId");
         if (credentialProfileIdStr != null) {
             request.setCredentialProfileId(UUID.fromString(credentialProfileIdStr));
         }
@@ -262,7 +262,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
      * Map DiscoveryJob to JSON
      */
     private JsonObject mapDiscoveryJobToJson(DiscoveryJob job) {
-        JsonObject jobJson = new JsonObject()
+        var jobJson = new JsonObject()
             .put("id", job.getId().toString())
             .put("name", job.getName())
             .put("status", job.getStatus() != null ? job.getStatus().getValue() : null)
@@ -292,7 +292,7 @@ public class DiscoveryWorkerVerticle extends AbstractVerticle {
     private List<JsonObject> mapDevicesToJson(List<Device> devices) {
         return devices.stream()
             .map(device -> {
-                JsonObject deviceJson = new JsonObject()
+                var deviceJson = new JsonObject()
                     .put("id", device.getId().toString())
                     .put("hostname", device.getHostname())
                     .put("ipAddress", device.getIpAddress())

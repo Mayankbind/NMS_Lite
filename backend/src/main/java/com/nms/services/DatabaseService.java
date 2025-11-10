@@ -43,7 +43,7 @@ public class DatabaseService {
                 logger.error("Database connection test failed", throwable);
                 promise.fail(throwable);
             });
-        
+
         return promise.future();
     }
     
@@ -52,15 +52,15 @@ public class DatabaseService {
      */
     public Future<JsonObject> createUser(String username, String email, String passwordHash, String role) {
         Promise<JsonObject> promise = Promise.promise();
-        
-        String sql = "INSERT INTO users (username, email, password_hash, role) VALUES ($1, $2, $3, $4) RETURNING id, username, email, role, created_at";
+
+        var sql = "INSERT INTO users (username, email, password_hash, role) VALUES ($1, $2, $3, $4) RETURNING id, username, email, role, created_at";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(username, email, passwordHash, role))
             .onSuccess(rows -> {
                 if (rows.size() > 0) {
-                    Row row = rows.iterator().next();
-                    JsonObject user = new JsonObject()
+                    var row = rows.iterator().next();
+                    var user = new JsonObject()
                         .put("id", row.getUUID("id").toString())
                         .put("username", row.getString("username"))
                         .put("email", row.getString("email"))
@@ -84,15 +84,15 @@ public class DatabaseService {
      */
     public Future<JsonObject> findUserByUsername(String username) {
         Promise<JsonObject> promise = Promise.promise();
-        
-        String sql = "SELECT id, username, email, password_hash, role, created_at, updated_at FROM users WHERE username = $1";
+
+        var sql = "SELECT id, username, email, password_hash, role, created_at, updated_at FROM users WHERE username = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(username))
             .onSuccess(rows -> {
                 if (rows.size() > 0) {
-                    Row row = rows.iterator().next();
-                    JsonObject user = new JsonObject()
+                    var row = rows.iterator().next();
+                    var user = new JsonObject()
                         .put("id", row.getUUID("id").toString())
                         .put("username", row.getString("username"))
                         .put("email", row.getString("email"))
@@ -118,15 +118,15 @@ public class DatabaseService {
      */
     public Future<JsonObject> findUserById(String userId) {
         Promise<JsonObject> promise = Promise.promise();
-        
-        String sql = "SELECT id, username, email, password_hash, role, created_at, updated_at FROM users WHERE id = $1";
+
+        var sql = "SELECT id, username, email, password_hash, role, created_at, updated_at FROM users WHERE id = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(UUID.fromString(userId)))
             .onSuccess(rows -> {
                 if (rows.size() > 0) {
-                    Row row = rows.iterator().next();
-                    JsonObject user = new JsonObject()
+                    var row = rows.iterator().next();
+                    var user = new JsonObject()
                         .put("id", row.getUUID("id").toString())
                         .put("username", row.getString("username"))
                         .put("email", row.getString("email"))
@@ -152,8 +152,8 @@ public class DatabaseService {
      */
     public Future<Void> updateUserLastLogin(String userId) {
         Promise<Void> promise = Promise.promise();
-        
-        String sql = "UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = $1";
+
+        var sql = "UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(UUID.fromString(userId)))
@@ -174,15 +174,15 @@ public class DatabaseService {
      */
     public Future<List<JsonObject>> getAllUsers() {
         Promise<List<JsonObject>> promise = Promise.promise();
-        
-        String sql = "SELECT id, username, email, role, created_at, updated_at FROM users ORDER BY created_at DESC";
+
+        var sql = "SELECT id, username, email, role, created_at, updated_at FROM users ORDER BY created_at DESC";
         
         pgPool.query(sql)
             .execute()
             .onSuccess(rows -> {
                 List<JsonObject> users = new ArrayList<>();
-                for (Row row : rows) {
-                    JsonObject user = new JsonObject()
+                for (var row : rows) {
+                    var user = new JsonObject()
                         .put("id", row.getUUID("id").toString())
                         .put("username", row.getString("username"))
                         .put("email", row.getString("email"))
@@ -206,13 +206,13 @@ public class DatabaseService {
      */
     public Future<Boolean> deleteUser(String userId) {
         Promise<Boolean> promise = Promise.promise();
-        
-        String sql = "DELETE FROM users WHERE id = $1";
+
+        var sql = "DELETE FROM users WHERE id = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(UUID.fromString(userId)))
             .onSuccess(result -> {
-                boolean deleted = result.rowCount() > 0;
+                var deleted = result.rowCount() > 0;
                 promise.complete(deleted);
             })
             .onFailure(throwable -> {
@@ -228,14 +228,14 @@ public class DatabaseService {
      */
     public Future<Boolean> usernameExists(String username) {
         Promise<Boolean> promise = Promise.promise();
-        
-        String sql = "SELECT COUNT(*) FROM users WHERE username = $1";
+
+        var sql = "SELECT COUNT(*) FROM users WHERE username = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(username))
             .onSuccess(rows -> {
                 if (rows.size() > 0) {
-                    Row row = rows.iterator().next();
+                    var row = rows.iterator().next();
                     long count = row.getLong(0);
                     promise.complete(count > 0);
                 } else {
@@ -255,14 +255,14 @@ public class DatabaseService {
      */
     public Future<Boolean> emailExists(String email) {
         Promise<Boolean> promise = Promise.promise();
-        
-        String sql = "SELECT COUNT(*) FROM users WHERE email = $1";
+
+        var sql = "SELECT COUNT(*) FROM users WHERE email = $1";
         
         pgPool.preparedQuery(sql)
             .execute(Tuple.of(email))
             .onSuccess(rows -> {
                 if (rows.size() > 0) {
-                    Row row = rows.iterator().next();
+                    var row = rows.iterator().next();
                     long count = row.getLong(0);
                     promise.complete(count > 0);
                 } else {

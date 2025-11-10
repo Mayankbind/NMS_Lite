@@ -39,14 +39,14 @@ public class AuthHandler {
     
     private void handleLogin(RoutingContext ctx) {
         try {
-            JsonObject body = ctx.body().asJsonObject();
+            var body = ctx.body().asJsonObject();
             if (body == null) {
                 sendBadRequestResponse(ctx, "Request body is required");
                 return;
             }
-            
-            String username = body.getString("username");
-            String password = body.getString("password");
+
+            var username = body.getString("username");
+            var password = body.getString("password");
             
             if (username == null || username.trim().isEmpty()) {
                 sendBadRequestResponse(ctx, "Username is required");
@@ -76,13 +76,13 @@ public class AuthHandler {
     
     private void handleRefresh(RoutingContext ctx) {
         try {
-            JsonObject body = ctx.body().asJsonObject();
+            var body = ctx.body().asJsonObject();
             if (body == null) {
                 sendBadRequestResponse(ctx, "Request body is required");
                 return;
             }
-            
-            String refreshToken = body.getString("refreshToken");
+
+            var refreshToken = body.getString("refreshToken");
             if (refreshToken == null || refreshToken.trim().isEmpty()) {
                 sendBadRequestResponse(ctx, "Refresh token is required");
                 return;
@@ -112,8 +112,8 @@ public class AuthHandler {
             if (username != null) {
                 logger.info("User {} logged out", username);
             }
-            
-            JsonObject response = new JsonObject()
+
+            var response = new JsonObject()
                 .put("message", "Logged out successfully")
                 .put("timestamp", System.currentTimeMillis());
             

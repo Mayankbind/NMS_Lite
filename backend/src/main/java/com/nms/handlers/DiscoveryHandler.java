@@ -56,23 +56,23 @@ public class DiscoveryHandler {
     private void handleStartDiscovery(RoutingContext ctx) {
         try {
             // Get user ID from context (set by AuthMiddleware)
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Parse request body
-            JsonObject requestBody = ctx.body().asJsonObject();
+            var requestBody = ctx.body().asJsonObject();
             if (requestBody == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Request body is required");
                 return;
             }
             
             // Validate required fields
-            String name = requestBody.getString("name");
-            String targetRange = requestBody.getString("targetRange");
-            String credentialProfileIdStr = requestBody.getString("credentialProfileId");
+            var name = requestBody.getString("name");
+            var targetRange = requestBody.getString("targetRange");
+            var credentialProfileIdStr = requestBody.getString("credentialProfileId");
             
             if (name == null || name.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Field 'name' is required");
@@ -99,7 +99,7 @@ public class DiscoveryHandler {
             }
             
             // Create DTO
-            DiscoveryJobDTO request = new DiscoveryJobDTO();
+            var request = new DiscoveryJobDTO();
             request.setName(name.trim());
             request.setTargetRange(targetRange.trim());
             request.setCredentialProfileId(credentialProfileId);
@@ -108,8 +108,8 @@ public class DiscoveryHandler {
             discoveryService.startDiscovery(request, userId)
                 .onSuccess(jobId -> {
                     logger.info("Started discovery job {} for user {}", jobId, userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Discovery job started successfully")
                         .put("jobId", jobId.toString())
@@ -122,8 +122,8 @@ public class DiscoveryHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to start discovery job for user {}: {}", userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to start discovery job";
+
+                    var errorMessage = "Failed to start discovery job";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
@@ -144,14 +144,14 @@ public class DiscoveryHandler {
     private void handleGetDiscoveryStatus(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get job ID from path parameter
-            String jobIdStr = ctx.pathParam("jobId");
+            var jobIdStr = ctx.pathParam("jobId");
             if (jobIdStr == null || jobIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Job ID is required");
                 return;
@@ -170,8 +170,8 @@ public class DiscoveryHandler {
             discoveryService.getDiscoveryStatus(jobId, userId)
                 .onSuccess(job -> {
                     logger.debug("Retrieved discovery job status for job {} and user {}", jobId, userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("job", mapDiscoveryJobToJson(job))
                         .put("timestamp", System.currentTimeMillis());
@@ -183,13 +183,13 @@ public class DiscoveryHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to get discovery status for job {} and user {}: {}", jobId, userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to get discovery status";
+
+                    var errorMessage = "Failed to get discovery status";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -210,14 +210,14 @@ public class DiscoveryHandler {
     private void handleGetDiscoveryResults(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get job ID from path parameter
-            String jobIdStr = ctx.pathParam("jobId");
+            var jobIdStr = ctx.pathParam("jobId");
             if (jobIdStr == null || jobIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Job ID is required");
                 return;
@@ -236,8 +236,8 @@ public class DiscoveryHandler {
             discoveryService.getDiscoveryResults(jobId, userId)
                 .onSuccess(devices -> {
                     logger.debug("Retrieved discovery results for job {} and user {}: {} devices", jobId, userId, devices.size());
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("devices", mapDevicesToJson(devices))
                         .put("count", devices.size())
@@ -250,13 +250,13 @@ public class DiscoveryHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to get discovery results for job {} and user {}: {}", jobId, userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to get discovery results";
+
+                    var errorMessage = "Failed to get discovery results";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -277,14 +277,14 @@ public class DiscoveryHandler {
     private void handleCancelDiscovery(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get job ID from path parameter
-            String jobIdStr = ctx.pathParam("jobId");
+            var jobIdStr = ctx.pathParam("jobId");
             if (jobIdStr == null || jobIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Job ID is required");
                 return;
@@ -303,8 +303,8 @@ public class DiscoveryHandler {
             discoveryService.cancelDiscovery(jobId, userId)
                 .onSuccess(v -> {
                     logger.info("Cancelled discovery job {} for user {}", jobId, userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Discovery job cancelled successfully")
                         .put("jobId", jobId.toString())
@@ -317,13 +317,13 @@ public class DiscoveryHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to cancel discovery job {} for user {}: {}", jobId, userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to cancel discovery job";
+
+                    var errorMessage = "Failed to cancel discovery job";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -344,7 +344,7 @@ public class DiscoveryHandler {
         try {
             JsonObject userContext = ctx.get("user");
             if (userContext != null && userContext.containsKey("userId")) {
-                String userIdStr = userContext.getString("userId");
+                var userIdStr = userContext.getString("userId");
                 if (userIdStr != null) {
                     return UUID.fromString(userIdStr);
                 }
@@ -359,7 +359,7 @@ public class DiscoveryHandler {
      * Send error response
      */
     private void sendErrorResponse(RoutingContext ctx, int statusCode, String error, String message) {
-        JsonObject errorResponse = new JsonObject()
+        var errorResponse = new JsonObject()
             .put("success", false)
             .put("error", error)
             .put("message", message)
@@ -375,7 +375,7 @@ public class DiscoveryHandler {
      * Map DiscoveryJob to JSON
      */
     private JsonObject mapDiscoveryJobToJson(DiscoveryJob job) {
-        JsonObject jobJson = new JsonObject()
+        var jobJson = new JsonObject()
             .put("id", job.getId().toString())
             .put("name", job.getName())
             .put("status", job.getStatus() != null ? job.getStatus().getValue() : null)
@@ -412,7 +412,7 @@ public class DiscoveryHandler {
      * Map Device to JSON
      */
     private JsonObject mapDeviceToJson(Device device) {
-        JsonObject deviceJson = new JsonObject()
+        var deviceJson = new JsonObject()
             .put("id", device.getId().toString())
             .put("hostname", device.getHostname())
             .put("ipAddress", device.getIpAddress())

@@ -74,7 +74,7 @@ public class DeviceHandler {
     private void handleGetAllDevices(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
@@ -84,8 +84,8 @@ public class DeviceHandler {
             deviceService.getAllDevices(userId)
                 .onSuccess(devices -> {
                     logger.info("Retrieved {} devices for user {}", devices.size(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("devices", devices)
                         .put("count", devices.size())
@@ -114,14 +114,14 @@ public class DeviceHandler {
     private void handleGetDeviceById(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get device ID from path parameter
-            String deviceIdStr = ctx.pathParam("id");
+            var deviceIdStr = ctx.pathParam("id");
             if (deviceIdStr == null || deviceIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Device ID is required");
                 return;
@@ -140,8 +140,8 @@ public class DeviceHandler {
             deviceService.getDeviceById(deviceId, userId)
                 .onSuccess(device -> {
                     logger.info("Retrieved device: {} for user {}", device.getHostname(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("device", device)
                         .put("timestamp", System.currentTimeMillis());
@@ -153,8 +153,8 @@ public class DeviceHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to get device {} for user {}: {}", deviceId, userId, throwable.getMessage(), throwable);
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -175,14 +175,14 @@ public class DeviceHandler {
     private void handleCreateDevice(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Parse request body
-            JsonObject requestBody = ctx.body().asJsonObject();
+            var requestBody = ctx.body().asJsonObject();
             if (requestBody == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Request body is required");
                 return;
@@ -217,8 +217,8 @@ public class DeviceHandler {
             deviceService.createDevice(deviceDTO, userId)
                 .onSuccess(createdDevice -> {
                     logger.info("Created device: {} for user {}", createdDevice.getHostname(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Device created successfully")
                         .put("device", createdDevice)
@@ -231,13 +231,13 @@ public class DeviceHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to create device for user {}: {}", userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to create device";
+
+                    var errorMessage = "Failed to create device";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     } else if (throwable.getMessage() != null && throwable.getMessage().contains("required")) {
@@ -260,14 +260,14 @@ public class DeviceHandler {
     private void handleUpdateDevice(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get device ID from path parameter
-            String deviceIdStr = ctx.pathParam("id");
+            var deviceIdStr = ctx.pathParam("id");
             if (deviceIdStr == null || deviceIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Device ID is required");
                 return;
@@ -283,7 +283,7 @@ public class DeviceHandler {
             }
             
             // Parse request body
-            JsonObject requestBody = ctx.body().asJsonObject();
+            var requestBody = ctx.body().asJsonObject();
             if (requestBody == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Request body is required");
                 return;
@@ -313,8 +313,8 @@ public class DeviceHandler {
             deviceService.updateDevice(deviceId, deviceDTO, userId)
                 .onSuccess(updatedDevice -> {
                     logger.info("Updated device: {} for user {}", updatedDevice.getHostname(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Device updated successfully")
                         .put("device", updatedDevice)
@@ -327,13 +327,13 @@ public class DeviceHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to update device {} for user {}: {}", deviceId, userId, throwable.getMessage(), throwable);
-                    
-                    String errorMessage = "Failed to update device";
+
+                    var errorMessage = "Failed to update device";
                     if (throwable.getMessage() != null) {
                         errorMessage = throwable.getMessage();
                     }
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     } else if (throwable.getMessage() != null && throwable.getMessage().contains("required")) {
@@ -356,14 +356,14 @@ public class DeviceHandler {
     private void handleDeleteDevice(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get device ID from path parameter
-            String deviceIdStr = ctx.pathParam("id");
+            var deviceIdStr = ctx.pathParam("id");
             if (deviceIdStr == null || deviceIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Device ID is required");
                 return;
@@ -382,8 +382,8 @@ public class DeviceHandler {
             deviceService.deleteDevice(deviceId, userId)
                 .onSuccess(v -> {
                     logger.info("Deleted device {} for user {}", deviceId, userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Device deleted successfully")
                         .put("deviceId", deviceId.toString())
@@ -396,8 +396,8 @@ public class DeviceHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to delete device {} for user {}: {}", deviceId, userId, throwable.getMessage(), throwable);
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -418,21 +418,21 @@ public class DeviceHandler {
     private void handleGetDevicesByStatus(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get status from path parameter
-            String statusStr = ctx.pathParam("status");
+            var statusStr = ctx.pathParam("status");
             if (statusStr == null || statusStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Status is required");
                 return;
             }
             
             // Parse status
-            DeviceStatus status = DeviceStatus.fromValue(statusStr.trim());
+            var status = DeviceStatus.fromValue(statusStr.trim());
             if (status == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Invalid status. Valid values: online, offline, unknown, error");
                 return;
@@ -442,8 +442,8 @@ public class DeviceHandler {
             deviceService.getDevicesByStatus(status, userId)
                 .onSuccess(devices -> {
                     logger.info("Retrieved {} devices with status {} for user {}", devices.size(), status.getValue(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("devices", devices)
                         .put("count", devices.size())
@@ -473,14 +473,14 @@ public class DeviceHandler {
     private void handleSearchDevices(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get query parameter
-            String query = ctx.request().getParam("q");
+            var query = ctx.request().getParam("q");
             if (query == null || query.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Query parameter 'q' is required");
                 return;
@@ -490,8 +490,8 @@ public class DeviceHandler {
             deviceService.searchDevices(query.trim(), userId)
                 .onSuccess(devices -> {
                     logger.info("Found {} devices matching query '{}' for user {}", devices.size(), query, userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("devices", devices)
                         .put("count", devices.size())
@@ -521,14 +521,14 @@ public class DeviceHandler {
     private void handleUpdateDeviceStatus(RoutingContext ctx) {
         try {
             // Get user ID from context
-            UUID userId = getUserIdFromContext(ctx);
+            var userId = getUserIdFromContext(ctx);
             if (userId == null) {
                 sendErrorResponse(ctx, 401, "Unauthorized", "User not authenticated");
                 return;
             }
             
             // Get device ID from path parameter
-            String deviceIdStr = ctx.pathParam("id");
+            var deviceIdStr = ctx.pathParam("id");
             if (deviceIdStr == null || deviceIdStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Device ID is required");
                 return;
@@ -544,21 +544,21 @@ public class DeviceHandler {
             }
             
             // Parse request body
-            JsonObject requestBody = ctx.body().asJsonObject();
+            var requestBody = ctx.body().asJsonObject();
             if (requestBody == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Request body is required");
                 return;
             }
             
             // Get status from request body
-            String statusStr = requestBody.getString("status");
+            var statusStr = requestBody.getString("status");
             if (statusStr == null || statusStr.trim().isEmpty()) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Field 'status' is required");
                 return;
             }
             
             // Parse status
-            DeviceStatus status = DeviceStatus.fromValue(statusStr.trim());
+            var status = DeviceStatus.fromValue(statusStr.trim());
             if (status == null) {
                 sendErrorResponse(ctx, 400, "Bad Request", "Invalid status. Valid values: online, offline, unknown, error");
                 return;
@@ -568,8 +568,8 @@ public class DeviceHandler {
             deviceService.updateDeviceStatus(deviceId, status, userId)
                 .onSuccess(v -> {
                     logger.info("Updated device {} status to {} for user {}", deviceId, status.getValue(), userId);
-                    
-                    JsonObject response = new JsonObject()
+
+                    var response = new JsonObject()
                         .put("success", true)
                         .put("message", "Device status updated successfully")
                         .put("deviceId", deviceId.toString())
@@ -583,8 +583,8 @@ public class DeviceHandler {
                 })
                 .onFailure(throwable -> {
                     logger.error("Failed to update device {} status for user {}: {}", deviceId, userId, throwable.getMessage(), throwable);
-                    
-                    int statusCode = 500;
+
+                    var statusCode = 500;
                     if (throwable.getMessage() != null && throwable.getMessage().contains("not found")) {
                         statusCode = 404;
                     }
@@ -605,7 +605,7 @@ public class DeviceHandler {
         try {
             JsonObject userContext = ctx.get("user");
             if (userContext != null && userContext.containsKey("userId")) {
-                String userIdStr = userContext.getString("userId");
+                var userIdStr = userContext.getString("userId");
                 if (userIdStr != null) {
                     return UUID.fromString(userIdStr);
                 }
@@ -620,7 +620,7 @@ public class DeviceHandler {
      * Send error response
      */
     private void sendErrorResponse(RoutingContext ctx, int statusCode, String error, String message) {
-        JsonObject errorResponse = new JsonObject()
+        var errorResponse = new JsonObject()
             .put("success", false)
             .put("error", error)
             .put("message", message)
@@ -636,7 +636,7 @@ public class DeviceHandler {
      * Map JSON request to DeviceDTO
      */
     private DeviceDTO mapJsonToDeviceDTO(JsonObject json) {
-        DeviceDTO dto = new DeviceDTO();
+        var dto = new DeviceDTO();
         
         dto.setHostname(json.getString("hostname"));
         dto.setIpAddress(json.getString("ipAddress"));
@@ -645,7 +645,7 @@ public class DeviceHandler {
         dto.setStatus(json.getString("status"));
         
         // Handle credential profile ID - this will be validated in the handler methods
-        String credentialProfileIdStr = json.getString("credentialProfileId");
+        var credentialProfileIdStr = json.getString("credentialProfileId");
         if (credentialProfileIdStr != null && !credentialProfileIdStr.trim().isEmpty()) {
             dto.setCredentialProfileId(UUID.fromString(credentialProfileIdStr));
         }

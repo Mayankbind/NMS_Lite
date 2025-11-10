@@ -30,7 +30,7 @@ public enum DiscoveryJobStatus {
             return null;
         }
         
-        for (DiscoveryJobStatus status : values()) {
+        for (var status : values()) {
             if (status.value.equalsIgnoreCase(value)) {
                 return status;
             }

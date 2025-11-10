@@ -35,7 +35,7 @@ public class SshUtils {
         Session session = null;
         
         try {
-            JSch jsch = new JSch();
+            var jsch = new JSch();
             session = jsch.getSession(username, ip, port);
             session.setPassword(password);
             session.setConfig("StrictHostKeyChecking", "no");
@@ -66,10 +66,10 @@ public class SshUtils {
      */
     public static JsonObject gatherDeviceInfo(String ip, String username, String password, int port, int timeout) {
         Session session = null;
-        JsonObject deviceInfo = new JsonObject();
+        var deviceInfo = new JsonObject();
         
         try {
-            JSch jsch = new JSch();
+            var jsch = new JSch();
             session = jsch.getSession(username, ip, port);
             session.setPassword(password);
             session.setConfig("StrictHostKeyChecking", "no");
@@ -87,7 +87,7 @@ public class SshUtils {
             deviceInfo.put("diskInfo", executeCommand(session, "df -h"));
             
             // Determine device type based on OS
-            String os = deviceInfo.getString("os", "").toLowerCase();
+            var os = deviceInfo.getString("os", "").toLowerCase();
             if (os.contains("linux")) {
                 deviceInfo.put("deviceType", "linux");
             } else if (os.contains("darwin")) {
@@ -133,9 +133,9 @@ public class SshUtils {
                 return "unknown";
             }
             channel.connect();
-            
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
+
+            var outputStream = new ByteArrayOutputStream();
+            var buffer = new byte[1024];
             int bytesRead;
             
             try {
@@ -145,8 +145,8 @@ public class SshUtils {
             } catch (java.io.IOException e) {
                 logger.debug("Error reading command output: {}", e.getMessage());
             }
-            
-            String result = outputStream.toString().trim();
+
+            var result = outputStream.toString().trim();
             return result.isEmpty() ? "unknown" : result;
             
         } catch (com.jcraft.jsch.JSchException e) {
