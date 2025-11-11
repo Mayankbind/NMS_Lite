@@ -60,3 +60,246 @@
 2025-11-11 15:52:15.738 [discovery-worker-pool-2] DEBUG [] com.nms.services.DiscoveryService - Updated job 82a03920-aebf-48ca-9fd5-f7290fa18884 results
 2025-11-11 15:52:15.759 [discovery-worker-pool-0] DEBUG [] com.nms.services.DiscoveryService - Updated job 82a03920-aebf-48ca-9fd5-f7290fa18884 status to completed
 2025-11-11 15:52:15.759 [discovery-worker-pool-0] INFO  [] com.nms.services.DiscoveryService - Discovery job 82a03920-aebf-48ca-9fd5-f7290fa18884 completed: 1 devices discovered
+2025-11-11 17:07:47.767 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-11 17:07:48.168 [main] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-11 17:07:48.168 [main] INFO  [] com.nms.Main - Deploying Discovery Worker Verticle with 2 instances and pool size 4
+2025-11-11 17:07:48.178 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Starting Discovery Worker Verticle...
+2025-11-11 17:07:48.178 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Starting Discovery Worker Verticle...
+2025-11-11 17:07:48.192 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Configuration loaded successfully
+2025-11-11 17:07:48.192 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Configuration loaded successfully
+2025-11-11 17:07:48.397 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Database connection established successfully
+2025-11-11 17:07:48.397 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Database connection established successfully
+2025-11-11 17:07:48.402 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Event Bus consumers registered
+2025-11-11 17:07:48.402 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Event Bus consumers registered
+2025-11-11 17:07:48.403 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker Verticle started successfully
+2025-11-11 17:07:48.403 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker Verticle started successfully
+2025-11-11 17:07:48.403 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Discovery Worker Verticle deployed with ID: 2078c0e3-e440-4d6d-ba74-b4b1c888a5b1
+2025-11-11 17:07:48.403 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Deploying HttpServer Verticle...
+2025-11-11 17:07:48.404 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - Starting HttpServer Verticle...
+2025-11-11 17:07:48.417 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle: Database connection established successfully
+2025-11-11 17:07:48.484 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle: HTTP server started on 0.0.0.0:8080
+2025-11-11 17:07:48.484 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle started successfully on port: 8080
+2025-11-11 17:07:48.484 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HttpServer Verticle deployed with ID: ad3cdc99-e928-4069-8bc6-acdc45f67e84
+2025-11-11 17:07:48.484 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Application started successfully
+2025-11-11 17:07:48.485 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - All verticles deployed successfully
+2025-11-11 17:08:03.889 [vert.x-eventloop-thread-5] INFO  [eb4cdbe4-1291-4812-b63a-cffb16df8845] c.nms.middleware.LoggingMiddleware - POST /api/auth/login from 0:0:0:0:0:0:0:1:34826 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: eb4cdbe4-1291-4812-b63a-cffb16df8845
+2025-11-11 17:08:03.889 [vert.x-eventloop-thread-5] DEBUG [eb4cdbe4-1291-4812-b63a-cffb16df8845] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:08:04.208 [vert.x-eventloop-thread-5] DEBUG [eb4cdbe4-1291-4812-b63a-cffb16df8845] com.nms.services.DatabaseService - Updated last login for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:08:04.211 [vert.x-eventloop-thread-5] INFO  [eb4cdbe4-1291-4812-b63a-cffb16df8845] com.nms.services.AuthService - User admin authenticated successfully
+2025-11-11 17:08:04.212 [vert.x-eventloop-thread-5] INFO  [eb4cdbe4-1291-4812-b63a-cffb16df8845] com.nms.handlers.AuthHandler - User admin logged in successfully
+2025-11-11 17:08:04.212 [vert.x-eventloop-thread-5] INFO  [eb4cdbe4-1291-4812-b63a-cffb16df8845] c.nms.middleware.LoggingMiddleware - POST /api/auth/login - Status: 200 - Response time: 0ms - Correlation-ID: eb4cdbe4-1291-4812-b63a-cffb16df8845
+2025-11-11 17:09:00.974 [vert.x-eventloop-thread-5] INFO  [9e6ebbe8-89de-4449-9a2d-b21a1c525e71] c.nms.middleware.LoggingMiddleware - GET /api/credentials from 0:0:0:0:0:0:0:1:34826 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: 9e6ebbe8-89de-4449-9a2d-b21a1c525e71
+2025-11-11 17:09:00.974 [vert.x-eventloop-thread-5] DEBUG [9e6ebbe8-89de-4449-9a2d-b21a1c525e71] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:09:00.990 [vert.x-eventloop-thread-5] DEBUG [9e6ebbe8-89de-4449-9a2d-b21a1c525e71] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:09:01.002 [vert.x-eventloop-thread-5] INFO  [9e6ebbe8-89de-4449-9a2d-b21a1c525e71] com.nms.services.CredentialService - Retrieved 12 credential profiles for user
+2025-11-11 17:09:01.010 [vert.x-eventloop-thread-5] INFO  [9e6ebbe8-89de-4449-9a2d-b21a1c525e71] c.nms.middleware.LoggingMiddleware - GET /api/credentials - Status: 200 - Response time: 0ms - Correlation-ID: 9e6ebbe8-89de-4449-9a2d-b21a1c525e71
+2025-11-11 17:09:22.292 [vert.x-eventloop-thread-5] INFO  [97c9af27-0358-4764-bc23-6724a0866318] c.nms.middleware.LoggingMiddleware - GET /api/credentials/ecfcdec8-2780-4ed8-a583-aff26a0e178c from 0:0:0:0:0:0:0:1:34826 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: 97c9af27-0358-4764-bc23-6724a0866318
+2025-11-11 17:09:22.292 [vert.x-eventloop-thread-5] DEBUG [97c9af27-0358-4764-bc23-6724a0866318] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:09:22.300 [vert.x-eventloop-thread-5] DEBUG [97c9af27-0358-4764-bc23-6724a0866318] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:09:22.306 [vert.x-eventloop-thread-5] INFO  [97c9af27-0358-4764-bc23-6724a0866318] com.nms.services.CredentialService - Retrieved credential profile: Linux
+2025-11-11 17:09:22.309 [vert.x-eventloop-thread-5] INFO  [97c9af27-0358-4764-bc23-6724a0866318] c.nms.middleware.LoggingMiddleware - GET /api/credentials/ecfcdec8-2780-4ed8-a583-aff26a0e178c - Status: 200 - Response time: 0ms - Correlation-ID: 97c9af27-0358-4764-bc23-6724a0866318
+2025-11-11 17:10:59.903 [vert.x-eventloop-thread-5] INFO  [bfae1d57-1bab-42f1-8312-3d306166bd4b] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:45824 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: bfae1d57-1bab-42f1-8312-3d306166bd4b
+2025-11-11 17:10:59.903 [vert.x-eventloop-thread-5] DEBUG [bfae1d57-1bab-42f1-8312-3d306166bd4b] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:10:59.910 [vert.x-eventloop-thread-5] DEBUG [bfae1d57-1bab-42f1-8312-3d306166bd4b] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:10:59.912 [discovery-worker-pool-2] DEBUG [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Received start discovery request: {"name":"First Scan","targetRange":"10.20.40.253/32","credentialProfileId":"ecfcdec8-2780-4ed8-a583-aff26a0e178c","userId":"b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86"}
+2025-11-11 17:10:59.939 [discovery-worker-pool-2] INFO  [] com.nms.services.DiscoveryService - Created discovery job: 46c79fa4-8c8b-4cc7-99d0-56d41871f049 for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:10:59.940 [discovery-worker-pool-2] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Started discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:10:59.940 [vert.x-eventloop-thread-5] DEBUG [bfae1d57-1bab-42f1-8312-3d306166bd4b] c.nms.services.DiscoveryServiceProxy - Discovery proxy: Started discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:10:59.940 [vert.x-eventloop-thread-5] INFO  [bfae1d57-1bab-42f1-8312-3d306166bd4b] com.nms.handlers.DiscoveryHandler - Started discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:10:59.941 [vert.x-eventloop-thread-5] INFO  [bfae1d57-1bab-42f1-8312-3d306166bd4b] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 201 - Response time: 0ms - Correlation-ID: bfae1d57-1bab-42f1-8312-3d306166bd4b
+2025-11-11 17:10:59.952 [discovery-worker-pool-1] DEBUG [] com.nms.services.DiscoveryService - Updated job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 status to running
+2025-11-11 17:10:59.962 [discovery-worker-pool-2] INFO  [] com.nms.utils.NetworkUtils - Parsed CIDR 10.20.40.253/32 into 1 IP addresses
+2025-11-11 17:10:59.998 [discovery-worker-pool-2] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.253 is reachable
+2025-11-11 17:10:59.998 [discovery-worker-pool-2] INFO  [] com.nms.utils.NetworkUtils - Ping sweep completed: 1/1 IPs reachable
+2025-11-11 17:10:59.998 [discovery-worker-pool-2] INFO  [] com.nms.services.DiscoveryService - Discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 found 1 reachable IPs
+2025-11-11 17:10:59.998 [discovery-worker-pool-2] INFO  [] com.nms.services.DiscoveryService - Discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 scanning for SSH port 22 on 1 reachable IPs
+2025-11-11 17:11:00.016 [discovery-worker-pool-2] DEBUG [] com.nms.utils.NetworkUtils - Port 22 is open on 10.20.40.253
+2025-11-11 17:11:00.016 [discovery-worker-pool-2] DEBUG [] com.nms.utils.NetworkUtils - Port 22 is open on 10.20.40.253
+2025-11-11 17:11:00.016 [discovery-worker-pool-2] INFO  [] com.nms.utils.NetworkUtils - Port scan completed: 1/1 IPs have port 22 open
+2025-11-11 17:11:00.016 [discovery-worker-pool-2] INFO  [] com.nms.services.DiscoveryService - Discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 found 1 IPs with SSH port 22 open (filtered from 1 reachable IPs)
+2025-11-11 17:11:00.376 [discovery-worker-pool-0] DEBUG [] com.nms.utils.SshUtils - SSH connection successful to 10.20.40.253:22
+2025-11-11 17:11:00.984 [discovery-worker-pool-0] INFO  [] com.nms.utils.SshUtils - Gathered device info for 10.20.40.253: shaunak-ThinkPad-T14s-Gen-1
+2025-11-11 17:11:00.985 [discovery-worker-pool-0] INFO  [] com.nms.services.DiscoveryService - Discovered device: shaunak-ThinkPad-T14s-Gen-1 (10.20.40.253)
+2025-11-11 17:11:00.986 [discovery-worker-pool-0] DEBUG [] com.nms.services.DiscoveryService - Storing discovered device. hostname=shaunak-ThinkPad-T14s-Gen-1, ip_address=10.20.40.253, type=linux
+2025-11-11 17:11:01.010 [discovery-worker-pool-1] DEBUG [] com.nms.services.DiscoveryService - Stored discovered device: shaunak-ThinkPad-T14s-Gen-1
+2025-11-11 17:11:01.031 [discovery-worker-pool-0] DEBUG [] com.nms.services.DiscoveryService - Updated job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 results
+2025-11-11 17:11:01.046 [discovery-worker-pool-1] DEBUG [] com.nms.services.DiscoveryService - Updated job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 status to completed
+2025-11-11 17:11:01.047 [discovery-worker-pool-1] INFO  [] com.nms.services.DiscoveryService - Discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 completed: 1 devices discovered
+2025-11-11 17:11:26.513 [vert.x-eventloop-thread-5] INFO  [da7339a0-1f5c-44df-b9ec-bda27b248ced] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/ecfcdec8-2780-4ed8-a583-aff26a0e178c from 0:0:0:0:0:0:0:1:45824 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: da7339a0-1f5c-44df-b9ec-bda27b248ced
+2025-11-11 17:11:26.513 [vert.x-eventloop-thread-5] DEBUG [da7339a0-1f5c-44df-b9ec-bda27b248ced] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:11:26.523 [vert.x-eventloop-thread-5] DEBUG [da7339a0-1f5c-44df-b9ec-bda27b248ced] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:11:26.524 [discovery-worker-pool-1] DEBUG [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Received get status request for job ecfcdec8-2780-4ed8-a583-aff26a0e178c and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:26.535 [discovery-worker-pool-3] WARN  [] com.nms.services.DiscoveryService - Discovery job ecfcdec8-2780-4ed8-a583-aff26a0e178c not found for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:26.535 [discovery-worker-pool-3] ERROR [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Failed to get discovery status: Discovery job not found or access denied
+java.lang.RuntimeException: Discovery job not found or access denied
+	at com.nms.services.DiscoveryService.lambda$getDiscoveryStatus$3(DiscoveryService.java:142)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.vertx.core.impl.WorkerContext.lambda$execute$4(WorkerContext.java:121)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-11 17:11:26.540 [vert.x-eventloop-thread-5] ERROR [da7339a0-1f5c-44df-b9ec-bda27b248ced] c.nms.services.DiscoveryServiceProxy - Discovery proxy: Event Bus request failed for get status
+io.vertx.core.eventbus.ReplyException: {"success":false,"error":"Discovery job not found or access denied"}
+	at io.vertx.core.eventbus.Message.fail(Message.java:141)
+	at com.nms.verticles.DiscoveryWorkerVerticle.lambda$9(DiscoveryWorkerVerticle.java:162)
+	at io.vertx.core.impl.future.FutureImpl$2.onFailure(FutureImpl.java:117)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onFailure(FutureImpl.java:268)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:75)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:230)
+	at io.vertx.core.impl.future.PromiseImpl.tryFail(PromiseImpl.java:23)
+	at io.vertx.core.Promise.fail(Promise.java:89)
+	at com.nms.services.DiscoveryService.lambda$getDiscoveryStatus$3(DiscoveryService.java:142)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.vertx.core.impl.WorkerContext.lambda$execute$4(WorkerContext.java:121)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-11 17:11:26.540 [vert.x-eventloop-thread-5] ERROR [da7339a0-1f5c-44df-b9ec-bda27b248ced] com.nms.handlers.DiscoveryHandler - Failed to get discovery status for job ecfcdec8-2780-4ed8-a583-aff26a0e178c and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86: {"success":false,"error":"Discovery job not found or access denied"}
+io.vertx.core.eventbus.ReplyException: {"success":false,"error":"Discovery job not found or access denied"}
+	at io.vertx.core.eventbus.Message.fail(Message.java:141)
+	at com.nms.verticles.DiscoveryWorkerVerticle.lambda$9(DiscoveryWorkerVerticle.java:162)
+	at io.vertx.core.impl.future.FutureImpl$2.onFailure(FutureImpl.java:117)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onFailure(FutureImpl.java:268)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:75)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:230)
+	at io.vertx.core.impl.future.PromiseImpl.tryFail(PromiseImpl.java:23)
+	at io.vertx.core.Promise.fail(Promise.java:89)
+	at com.nms.services.DiscoveryService.lambda$getDiscoveryStatus$3(DiscoveryService.java:142)
+	at io.vertx.core.impl.future.FutureImpl$1.onSuccess(FutureImpl.java:91)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onSuccess(FutureImpl.java:262)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.PromiseImpl.tryComplete(PromiseImpl.java:23)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:88)
+	at io.vertx.sqlclient.impl.QueryResultBuilder.tryComplete(QueryResultBuilder.java:32)
+	at io.vertx.core.Promise.complete(Promise.java:66)
+	at io.vertx.core.Promise.handle(Promise.java:51)
+	at io.vertx.core.Promise.handle(Promise.java:29)
+	at io.vertx.core.impl.future.FutureImpl$3.onSuccess(FutureImpl.java:141)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Composition$1.onSuccess(Composition.java:62)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.tryComplete(FutureImpl.java:211)
+	at io.vertx.core.impl.future.Transformation$1.onSuccess(Transformation.java:63)
+	at io.vertx.core.impl.future.FutureBase.emitSuccess(FutureBase.java:60)
+	at io.vertx.core.impl.future.FutureImpl.addListener(FutureImpl.java:196)
+	at io.vertx.core.impl.future.PromiseImpl.addListener(PromiseImpl.java:23)
+	at io.vertx.core.impl.future.Transformation.onSuccess(Transformation.java:44)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:54)
+	at io.vertx.core.impl.WorkerContext.lambda$execute$4(WorkerContext.java:121)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-11 17:11:26.543 [vert.x-eventloop-thread-5] WARN  [da7339a0-1f5c-44df-b9ec-bda27b248ced] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/ecfcdec8-2780-4ed8-a583-aff26a0e178c - Status: 404 - Response time: 0ms - Correlation-ID: da7339a0-1f5c-44df-b9ec-bda27b248ced
+2025-11-11 17:11:48.483 [vert.x-eventloop-thread-5] INFO  [c1a3293f-c256-488b-8ce2-9f1b87b39d49] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/46c79fa4-8c8b-4cc7-99d0-56d41871f049 from 0:0:0:0:0:0:0:1:45824 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: c1a3293f-c256-488b-8ce2-9f1b87b39d49
+2025-11-11 17:11:48.484 [vert.x-eventloop-thread-5] DEBUG [c1a3293f-c256-488b-8ce2-9f1b87b39d49] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:11:48.490 [vert.x-eventloop-thread-5] DEBUG [c1a3293f-c256-488b-8ce2-9f1b87b39d49] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:11:48.490 [discovery-worker-pool-2] DEBUG [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Received get status request for job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:48.500 [discovery-worker-pool-0] DEBUG [] com.nms.services.DiscoveryService - Found discovery job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:48.500 [vert.x-eventloop-thread-5] DEBUG [c1a3293f-c256-488b-8ce2-9f1b87b39d49] c.nms.services.DiscoveryServiceProxy - Discovery proxy: Retrieved discovery job status for job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:48.500 [vert.x-eventloop-thread-5] DEBUG [c1a3293f-c256-488b-8ce2-9f1b87b39d49] com.nms.handlers.DiscoveryHandler - Retrieved discovery job status for job 46c79fa4-8c8b-4cc7-99d0-56d41871f049 and user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:48.501 [vert.x-eventloop-thread-5] INFO  [c1a3293f-c256-488b-8ce2-9f1b87b39d49] c.nms.middleware.LoggingMiddleware - GET /api/discovery/status/46c79fa4-8c8b-4cc7-99d0-56d41871f049 - Status: 200 - Response time: 0ms - Correlation-ID: c1a3293f-c256-488b-8ce2-9f1b87b39d49
+2025-11-11 17:11:57.567 [vert.x-eventloop-thread-5] INFO  [d5729d90-ca11-4328-991f-494ac3d5b4e4] c.nms.middleware.LoggingMiddleware - GET /api/devices from 0:0:0:0:0:0:0:1:45824 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: d5729d90-ca11-4328-991f-494ac3d5b4e4
+2025-11-11 17:11:57.568 [vert.x-eventloop-thread-5] DEBUG [d5729d90-ca11-4328-991f-494ac3d5b4e4] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:11:57.574 [vert.x-eventloop-thread-5] DEBUG [d5729d90-ca11-4328-991f-494ac3d5b4e4] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:11:57.581 [vert.x-eventloop-thread-5] INFO  [d5729d90-ca11-4328-991f-494ac3d5b4e4] com.nms.services.DeviceService - Retrieved 8 devices for user
+2025-11-11 17:11:57.581 [vert.x-eventloop-thread-5] INFO  [d5729d90-ca11-4328-991f-494ac3d5b4e4] com.nms.handlers.DeviceHandler - Retrieved 8 devices for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:11:57.584 [vert.x-eventloop-thread-5] INFO  [d5729d90-ca11-4328-991f-494ac3d5b4e4] c.nms.middleware.LoggingMiddleware - GET /api/devices - Status: 200 - Response time: 0ms - Correlation-ID: d5729d90-ca11-4328-991f-494ac3d5b4e4
+2025-11-11 17:38:49.574 [main] INFO  [] com.nms.Main - Starting NMS Lite Backend Application...
+2025-11-11 17:38:50.106 [main] INFO  [] com.nms.Main - Configuration loaded successfully
+2025-11-11 17:38:50.107 [main] INFO  [] com.nms.Main - Deploying Discovery Worker Verticle with 2 instances and pool size 4
+2025-11-11 17:38:50.120 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Starting Discovery Worker Verticle...
+2025-11-11 17:38:50.120 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Starting Discovery Worker Verticle...
+2025-11-11 17:38:50.134 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Configuration loaded successfully
+2025-11-11 17:38:50.136 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Configuration loaded successfully
+2025-11-11 17:38:50.509 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Database connection established successfully
+2025-11-11 17:38:50.509 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Database connection established successfully
+2025-11-11 17:38:50.514 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Event Bus consumers registered
+2025-11-11 17:38:50.514 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Event Bus consumers registered
+2025-11-11 17:38:50.514 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker Verticle started successfully
+2025-11-11 17:38:50.514 [discovery-worker-pool-0] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker Verticle started successfully
+2025-11-11 17:38:50.514 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Discovery Worker Verticle deployed with ID: 6ef0cf14-54d3-491c-a13e-9ffc75d216a9
+2025-11-11 17:38:50.514 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - Deploying HttpServer Verticle...
+2025-11-11 17:38:50.516 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - Starting HttpServer Verticle...
+2025-11-11 17:38:50.533 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle: Database connection established successfully
+2025-11-11 17:38:50.616 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle: HTTP server started on 0.0.0.0:8080
+2025-11-11 17:38:50.616 [vert.x-eventloop-thread-5] INFO  [] c.nms.verticles.HttpServerVerticle - HttpServer Verticle started successfully on port: 8080
+2025-11-11 17:38:50.616 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - HttpServer Verticle deployed with ID: 527e86e5-cd56-45ab-99d6-86f290f76a41
+2025-11-11 17:38:50.616 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - NMS Lite Backend Application started successfully
+2025-11-11 17:38:50.617 [vert.x-eventloop-thread-0] INFO  [] com.nms.Main - All verticles deployed successfully
+2025-11-11 17:38:58.645 [vert.x-eventloop-thread-5] INFO  [276dd1ca-2234-42f0-9550-1452deada898] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start from 0:0:0:0:0:0:0:1:37576 - User-Agent: PostmanRuntime/7.49.0 - Correlation-ID: 276dd1ca-2234-42f0-9550-1452deada898
+2025-11-11 17:38:58.647 [vert.x-eventloop-thread-5] DEBUG [276dd1ca-2234-42f0-9550-1452deada898] c.n.m.SecurityHeadersMiddleware - Security headers added to response
+2025-11-11 17:38:58.695 [vert.x-eventloop-thread-5] DEBUG [276dd1ca-2234-42f0-9550-1452deada898] com.nms.middleware.AuthMiddleware - User admin authenticated successfully
+2025-11-11 17:38:58.701 [discovery-worker-pool-1] DEBUG [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Received start discovery request: {"name":"First Scan","targetRange":"10.20.40.253/32","credentialProfileId":"ecfcdec8-2780-4ed8-a583-aff26a0e178c","userId":"b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86"}
+2025-11-11 17:38:58.742 [discovery-worker-pool-1] INFO  [] com.nms.services.DiscoveryService - Created discovery job: 579ed4bc-f035-4aa2-bf50-32fcf8bca41a for user: b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:38:58.745 [discovery-worker-pool-1] INFO  [] c.n.v.DiscoveryWorkerVerticle - Discovery Worker: Started discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:38:58.747 [vert.x-eventloop-thread-5] DEBUG [276dd1ca-2234-42f0-9550-1452deada898] c.nms.services.DiscoveryServiceProxy - Discovery proxy: Started discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:38:58.747 [vert.x-eventloop-thread-5] INFO  [276dd1ca-2234-42f0-9550-1452deada898] com.nms.handlers.DiscoveryHandler - Started discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a for user b2ee99a3-5dc9-4c32-99ea-1e2ccc3eea86
+2025-11-11 17:38:58.749 [vert.x-eventloop-thread-5] INFO  [276dd1ca-2234-42f0-9550-1452deada898] c.nms.middleware.LoggingMiddleware - POST /api/discovery/start - Status: 201 - Response time: 0ms - Correlation-ID: 276dd1ca-2234-42f0-9550-1452deada898
+2025-11-11 17:38:58.765 [discovery-worker-pool-3] DEBUG [] com.nms.services.DiscoveryService - Updated job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a status to running
+2025-11-11 17:38:58.786 [discovery-worker-pool-1] INFO  [] com.nms.utils.NetworkUtils - Parsed CIDR 10.20.40.253/32 into 1 IP addresses
+2025-11-11 17:38:58.931 [discovery-worker-pool-1] DEBUG [] com.nms.utils.NetworkUtils - IP 10.20.40.253 is reachable
+2025-11-11 17:38:58.931 [discovery-worker-pool-1] INFO  [] com.nms.utils.NetworkUtils - Ping sweep completed: 1/1 IPs reachable
+2025-11-11 17:38:58.932 [discovery-worker-pool-1] INFO  [] com.nms.services.DiscoveryService - Discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a found 1 reachable IPs
+2025-11-11 17:38:58.932 [discovery-worker-pool-1] INFO  [] com.nms.services.DiscoveryService - Discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a scanning for SSH port 22 on 1 reachable IPs
+2025-11-11 17:38:58.944 [discovery-worker-pool-1] DEBUG [] com.nms.utils.NetworkUtils - Port 22 is open on 10.20.40.253
+2025-11-11 17:38:58.944 [discovery-worker-pool-1] DEBUG [] com.nms.utils.NetworkUtils - Port 22 is open on 10.20.40.253
+2025-11-11 17:38:58.944 [discovery-worker-pool-1] INFO  [] com.nms.utils.NetworkUtils - Port scan completed: 1/1 IPs have port 22 open
+2025-11-11 17:38:58.944 [discovery-worker-pool-1] INFO  [] com.nms.services.DiscoveryService - Discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a found 1 IPs with SSH port 22 open (filtered from 1 reachable IPs)
+2025-11-11 17:38:59.457 [discovery-worker-pool-2] DEBUG [] com.nms.utils.SshUtils - SSH connection successful to 10.20.40.253:22
+2025-11-11 17:38:59.954 [discovery-worker-pool-2] INFO  [] com.nms.utils.SshUtils - Gathered device info for 10.20.40.253: shaunak-ThinkPad-T14s-Gen-1
+2025-11-11 17:38:59.955 [discovery-worker-pool-2] INFO  [] com.nms.services.DiscoveryService - Discovered device: shaunak-ThinkPad-T14s-Gen-1 (10.20.40.253)
+2025-11-11 17:38:59.957 [discovery-worker-pool-2] DEBUG [] com.nms.services.DiscoveryService - Storing discovered device. hostname=shaunak-ThinkPad-T14s-Gen-1, ip_address=10.20.40.253, type=linux
+2025-11-11 17:38:59.990 [discovery-worker-pool-3] DEBUG [] com.nms.services.DiscoveryService - Stored discovered device: shaunak-ThinkPad-T14s-Gen-1
+2025-11-11 17:39:00.014 [discovery-worker-pool-2] DEBUG [] com.nms.services.DiscoveryService - Updated job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a results
+2025-11-11 17:39:00.042 [discovery-worker-pool-3] DEBUG [] com.nms.services.DiscoveryService - Updated job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a status to completed
+2025-11-11 17:39:00.043 [discovery-worker-pool-3] INFO  [] com.nms.services.DiscoveryService - Discovery job 579ed4bc-f035-4aa2-bf50-32fcf8bca41a completed: 1 devices discovered

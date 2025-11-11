@@ -6,42 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="74c8d62d-b1a0-41b2-8e07-13019c265446" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/services/DiscoveryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/REFACTORING_DATABASE_POOLS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nms/utils/NetworkUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/config/DatabaseConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/AuthHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/AuthHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/CredentialHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DeviceHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DeviceHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DiscoveryHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/DiscoveryHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/HealthHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/handlers/HealthHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/AuthMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/AuthMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/CorsMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/CorsMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/LoggingMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/LoggingMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/RateLimitMiddleware$TokenBucket.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/RateLimitMiddleware$TokenBucket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/RateLimitMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/RateLimitMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/SecurityHeadersMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/middleware/SecurityHeadersMiddleware.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfileDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/CredentialProfileDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DeviceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DeviceDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DeviceStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DeviceStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJobDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJobDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJobStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/models/DiscoveryJobStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/CredentialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/CredentialService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DatabaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DeviceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DeviceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryServiceProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/services/DiscoveryServiceProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/DatabasePoolFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/DatabasePoolFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/EncryptionUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/JwtUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/NetworkUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/NetworkUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils$PasswordValidationResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/PasswordUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/SshUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/utils/SshUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/nms/verticles/DiscoveryWorkerVerticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/nms/verticles/DiscoveryWorkerVerticle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nms-lite.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nms-lite.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
