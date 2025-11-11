@@ -1,6 +1,7 @@
 package com.nms.utils;
 
 import java.net.InetAddress;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,7 +78,7 @@ public class NetworkUtils {
             
             logger.info("Parsed CIDR {} into {} IP addresses", cidr, ipList.size());
             
-        } catch (IllegalArgumentException | java.net.UnknownHostException e) {
+        } catch (IllegalArgumentException | UnknownHostException e) {
             logger.error("Error parsing CIDR {}: {}", cidr, e.getMessage(), e);
         }
         
@@ -98,7 +99,7 @@ public class NetworkUtils {
     /**
      * Convert long to InetAddress
      */
-    private static InetAddress longToInetAddress(long address) throws java.net.UnknownHostException {
+    private static InetAddress longToInetAddress(long address) throws UnknownHostException {
         var bytes = new byte[4];
         for (var i = 3; i >= 0; i--) {
             bytes[3 - i] = (byte) ((address >> (i * 8)) & 0xFF);
@@ -141,5 +142,61 @@ public class NetworkUtils {
     public static List<String> pingSweepCidr(String cidr, int timeout) {
         var ipList = parseCidr(cidr);
         return pingSweep(ipList, timeout);
+    }
+    
+    /**
+     * Check if a port is open on a host
+     * This is much faster than SSH connection and helps filter out hosts without SSH port open
+     * 
+     * @param host the host IP address or hostname
+     * @param port the port number to check
+     * @param timeout timeout in milliseconds
+     * @return true if port is open, false otherwise
+     */
+    public static boolean isPortOpen(String host, int port, int timeout) {
+        try (var socket = new Socket()) {
+            socket.connect(new InetSocketAddress(host, port), timeout);
+            logger.debug("Port {} is open on {}", port, host);
+            return true;
+        } catch (java.io.IOException e) {
+            logger.debug("Port {} is not open on {}: {}", port, host, e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Scan for open ports on a list of IP addresses
+     * This is a fast pre-filter before attempting SSH connections
+     * 
+     * @param ipList list of IP addresses to scan
+     * @param port the port number to check
+     * @param timeout timeout in milliseconds for each port check
+     * @return list of IP addresses with the port open
+     */
+    public static List<String> portScan(List<String> ipList, int port, int timeout) {
+        List<String> openPortIps = Collections.synchronizedList(new ArrayList<>());
+        
+        // Use parallel stream for faster port scanning
+        ipList.parallelStream().forEach(ip -> {
+            if (isPortOpen(ip, port, timeout)) {
+                openPortIps.add(ip);
+                logger.debug("Port {} is open on {}", port, ip);
+            }
+        });
+        
+        logger.info("Port scan completed: {}/{} IPs have port {} open", openPortIps.size(), ipList.size(), port);
+        return openPortIps;
+    }
+    
+    /**
+     * Scan for open SSH port (default port 22) on a list of IP addresses
+     * 
+     * @param ipList list of IP addresses to scan
+     * @param sshPort SSH port number (default 22)
+     * @param timeout timeout in milliseconds for each port check
+     * @return list of IP addresses with SSH port open
+     */
+    public static List<String> sshPortScan(List<String> ipList, int sshPort, int timeout) {
+        return portScan(ipList, sshPort, timeout);
     }
 }

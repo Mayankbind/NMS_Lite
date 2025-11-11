@@ -42,6 +42,7 @@ public class DiscoveryService implements IDiscoveryService {
     // Discovery configuration
     private static final int DEFAULT_SSH_TIMEOUT = 5000; // 5 seconds
     private static final int DEFAULT_PING_TIMEOUT = 1000; // 1 second
+    private static final int DEFAULT_PORT_SCAN_TIMEOUT = 2000; // 2 seconds (faster than SSH)
     
     public DiscoveryService(PgPool dbPool, Vertx vertx, EncryptionUtils encryptionUtils) {
         this.dbPool = dbPool;
@@ -294,18 +295,34 @@ public class DiscoveryService implements IDiscoveryService {
                     return Future.failedFuture(new RuntimeException("Credential profile not found"));
                 }
                 
-                // Perform network scan (this is the only blocking operation)
+                // Get SSH port from credentials (used for port scanning)
+                int sshPort = credentials.getInteger("port", 22);
+                
+                // Step 1: Perform network scan (ping sweep) to find reachable IPs
                 return vertx.executeBlocking(() -> {
                     var reachableIps = NetworkUtils.pingSweepCidr(targetRange, DEFAULT_PING_TIMEOUT);
                     logger.info("Discovery job {} found {} reachable IPs", jobId, reachableIps.size());
                     return reachableIps;
-                }, true); // Use ordered execution to prevent thread blocking warnings
+                }, true) // Use ordered execution to prevent thread blocking warnings
+                .compose(reachableIps -> {
+                    // Step 2: Port scan to filter IPs with SSH port open (much faster than SSH connection)
+                    // This saves expensive SSH connection attempts on IPs without SSH port open
+                    logger.info("Discovery job {} scanning for SSH port {} on {} reachable IPs", 
+                        jobId, sshPort, reachableIps.size());
+                    
+                    return vertx.executeBlocking(() -> {
+                        var ipsWithSshPort = NetworkUtils.sshPortScan(reachableIps, sshPort, DEFAULT_PORT_SCAN_TIMEOUT);
+                        logger.info("Discovery job {} found {} IPs with SSH port {} open (filtered from {} reachable IPs)", 
+                            jobId, ipsWithSshPort.size(), sshPort, reachableIps.size());
+                        return ipsWithSshPort;
+                    }, false);
+                });
             })
-            .compose(reachableIps -> {
-                // Process each IP asynchronously
+            .compose(ipsWithSshPort -> {
+                // Step 3: Process each IP with open SSH port (attempt SSH connection)
                 List<Future<Device>> deviceFutures = new ArrayList<>();
                 
-                for (var ip : reachableIps) {
+                for (var ip : ipsWithSshPort) {
                     var deviceFuture = processDeviceAsync(ip, credentialProfileId)
                         .recover(throwable -> {
                             logger.warn("Error processing IP {}: {}", ip, throwable.getMessage());
@@ -323,21 +340,22 @@ public class DiscoveryService implements IDiscoveryService {
                                 discoveredDevices.add(future.result());
                             }
                         }
-                        // Return both the discovered devices and the total IPs scanned
+                        // Return both the discovered devices and scanning statistics
                         var result = new JsonObject();
                         result.put("discoveredDevices", discoveredDevices);
-                        result.put("totalIpsScanned", reachableIps.size());
+                        result.put("totalIpsScanned", ipsWithSshPort.size());
+                        result.put("ipsWithSshPortOpen", ipsWithSshPort.size());
                         return result;
                     });
             })
             .compose(result -> {
                 @SuppressWarnings("unchecked")
                 List<Device> discoveredDevices = result.getJsonArray("discoveredDevices").getList();
-                int totalIpsScanned = result.getInteger("totalIpsScanned");
+                int ipsWithSshPortOpen = result.getInteger("ipsWithSshPortOpen");
                 
-                // Update results
+                // Update results with discovery statistics
                 var results = new JsonObject();
-                results.put("totalIpsScanned", totalIpsScanned);
+                results.put("ipsWithSshPortOpen", ipsWithSshPortOpen);
                 results.put("devicesDiscovered", discoveredDevices.size());
                 results.put("devices", discoveredDevices.stream().map(Device::getHostname).toList());
                 
